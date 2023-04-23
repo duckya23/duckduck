@@ -77,7 +77,7 @@ def handle_message(event):
     )
         line_bot_api.reply_message(event.reply_token, buttons_template_message)
     
-    if re.match('服務條款',message):
+    elif re.match('服務條款',message):
         confirm_template_message = TemplateSendMessage(
             alt_text='服務條款',
             template=ConfirmTemplate(
@@ -96,7 +96,7 @@ def handle_message(event):
             )
         )
         line_bot_api.reply_message(event.reply_token, confirm_template_message)
-    if re.match('請傳貼圖',message):
+    elif re.match('請傳貼圖',message):
         # 貼圖查詢：https://developers.line.biz/en/docs/messaging-api/sticker-list/#specify-sticker-in-message-object
         sticker_message = StickerSendMessage(
             package_id='1',
