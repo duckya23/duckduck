@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 """
 Created on Wed Jun  2 21:16:35 2021
+
 @author: Ivan
 版權屬於「行銷搬進大程式」所有，若有疑問，可聯絡ivanyang0606@gmail.com
+
 Line Bot聊天機器人
 第四章 選單功能
 按鈕樣板TemplateSendMessage
@@ -23,7 +25,7 @@ app = Flask(__name__)
 # 必須放上自己的Channel Access Token
 line_bot_api = LineBotApi('XWLJgAGvJkAEAUX//FG5CDpjWpAX5TLOK4mmHpKGU8Ae8XpDOBxLfPye5XIGyNjfNOyMXbbZXrNUYySlyd2CXHtlKYTDlkhIdGitB/ZKTvUNw56TGlbvys+fePpaIa8Es07TT5PwChrysZuwF0D08gdB04t89/1O/w1cDnyilFU=')
 # 必須放上自己的Channel Secret
-handler = WebhookHandler('675c061bcf22f2da2eb9c2e3c2c95a0e')
+handler = WebhookHandler('e166ee3bb76574f9d62f8861afcad5b7')
 
 #line_bot_api.push_message('你自己的ID', TextSendMessage(text='你可以開始了'))
 
@@ -73,7 +75,10 @@ def handle_message(event):
         )
     )
         line_bot_api.reply_message(event.reply_token, buttons_template_message)
-    if re.match('服務條款',message):
+    else:
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
+        
+  if re.match('服務條款',message):
         confirm_template_message = TemplateSendMessage(
             alt_text='服務條款',
             template=ConfirmTemplate(
@@ -81,12 +86,12 @@ def handle_message(event):
                 actions=[
                     PostbackAction(
                         label='同意',
-                        display_text='非常感謝您同意我們的條款',
+                        display_text='非常感謝您同意我們的條款，我們期待本程式能夠為您提供優質的服務。',
                         data='繼續使用本軟體'
                     ),
                     MessageAction(
                         label='不同意',
-                        text='由於您使用本應用程式進行記帳'
+                        text='由於您使用本應用程式進行記帳，為了協助您分析收入，本程式需要使用您所提供的資訊進行分析。然而，因為您選擇不同意服務條款，本程式無法為您提供相關分析功能。因此，我們建議您重新考慮是否同意服務條款，以確保您能夠使用本程式的全部功能。如果您重新選擇同意服務條款後，即可再次使用本程式。'
                     )
                 ]
             )
