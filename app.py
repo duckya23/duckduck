@@ -75,8 +75,7 @@ def handle_message(event):
                 actions=[
                     PostbackAction(
                         label='同意',
-                        display_text='我同意服務條款',
-                        data='繼續使用本軟體'
+                        text='我同意服務條款'
                     ),
                     MessageAction(
                         label='不同意',
