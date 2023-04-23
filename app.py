@@ -71,7 +71,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你今天花了多少錢鴨！'))    
     elif re.match('紀錄本日收入',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你今天賺了多少錢鴨！'))    
-    elif:
+    elif
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
   
     elif re.match('服務條款',message):
