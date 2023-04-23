@@ -69,11 +69,11 @@ def handle_message(event):
                   MessageAction(
                     label='紀錄本日收入',
                     text='鴨鴨！你賺了多少錢鴨！'
-                )
+                     )
               
-            ]
-        )
-    )
+                 ]
+             )
+         )
         line_bot_api.reply_message(event.reply_token, buttons_template_message)
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
