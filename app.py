@@ -96,7 +96,13 @@ def handle_message(event):
             )
         )
         line_bot_api.reply_message(event.reply_token, confirm_template_message)
-    
+    if re.match('請傳貼圖',message):
+        # 貼圖查詢：https://developers.line.biz/en/docs/messaging-api/sticker-list/#specify-sticker-in-message-object
+        sticker_message = StickerSendMessage(
+            package_id='1',
+            sticker_id='1'
+        )
+        line_bot_api.reply_message(event.reply_token, sticker_message)
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
 #主程式
