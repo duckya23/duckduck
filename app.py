@@ -54,7 +54,7 @@ def handle_message(event):
                 
                 MessageAction(
                     label='紀錄本日支出',
-                    text='紀錄本日支出'
+                    text='紀錄本日支出',
                     essage='鴨鴨！你今天花了多少錢鴨！'
                 ),
                   MessageAction(
