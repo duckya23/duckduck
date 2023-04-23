@@ -52,27 +52,25 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     message = text=event.message.text
-    if re.match('告訴我秘密',message):
+    if re.match('記帳',message):
         buttons_template_message = TemplateSendMessage(
         alt_text='這個看不到',
         template=ButtonsTemplate(
-            thumbnail_image_url='https://i.imgur.com/wpM584d.jpg',
-            title='行銷搬進大程式',
-            text='選單功能－TemplateSendMessage',
+            thumbnail_image_url='https://cdn.pixabay.com/photo/2022/09/04/21/03/cartoon-duck-7432790_1280.png',
+            title='來記帳鴨！',
+            text='我是你的記帳鴨博士',
             actions=[
-                PostbackAction(
-                    label='偷偷傳資料',
-                    display_text='檯面上',
-                    data='action=檯面下'
-                ),
+                
                 MessageAction(
-                    label='光明正大傳資料',
-                    text='我就是資料'
+                    label='紀錄本日支出',
+                    text='紀錄本日支出'
+                    ｍessage='鴨鴨！你今天花了多少錢鴨！'
                 ),
-                URIAction(
-                    label='行銷搬進大程式',
-                    uri='https://marketingliveincode.com/'
+                  MessageAction(
+                    label='紀錄本日收入',
+                    text='鴨鴨！你賺了多少錢鴨！'
                 )
+              
             ]
         )
     )
