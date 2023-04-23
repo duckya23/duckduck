@@ -73,7 +73,7 @@ def handle_message(event):
             template=ConfirmTemplate(
                 text='歡迎使用來記帳鴨！',
                 actions=[
-                    PostbackAction(
+                    MessageAction(
                         label='同意',
                         text='我同意服務條款'
                     ),
