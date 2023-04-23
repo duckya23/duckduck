@@ -49,14 +49,13 @@ def callback():
 
 #訊息傳遞區塊
 ##### 基本上程式編輯都在這個function #####
-@handler.add(MessageEvent)
+@handler.add(MessageEvent , message = TextMessage)
 def handle_message(event):
-    message = text =event.message.text
     if re.match('我要記帳',message):
         buttons_template_message = TemplateSendMessage(
         alt_text='這個看不到 ',
         template=ButtonsTemplate(
-            thumbnail_image_url='https://cdn.pixabay.com/photo/2022/09/04/21/03/cartoon-duck-7432790_1280.png',
+            thumbnail_image_url='https:e = //cdn.pixabay.com/photo/2022/09/04/21/03/cartoon-duck-7432790_1280.png',
             title='來記帳鴨！',
             text='選單功能－TemplateSendMessage',
             actions=[ 
