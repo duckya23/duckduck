@@ -93,7 +93,7 @@ def handle_message(event):
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
         
-def handle_message(event):
+def handled_message(event):
     if event.message.text == "紀錄本日支出":
         line_bot_api.reply_message(
             event.reply_token,
