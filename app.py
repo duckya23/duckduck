@@ -66,6 +66,13 @@ def handle_message(event):
              )
          )
         line_bot_api.reply_message(event.reply_token, buttons_template_message)
+        
+    elif re.match('紀錄本日支出',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你今天花了多少錢鴨！'))    
+    elif re.match('紀錄本日收入',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你今天賺了多少錢鴨！'))    
+    else:
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
   
     elif re.match('服務條款',message):
         confirm_template_message = TemplateSendMessage(
@@ -92,19 +99,6 @@ def handle_message(event):
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
         
-def handled_message(event):
-    if event.message.text == "紀錄本日支出":
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text="鴨鴨！你今天花了多少錢鴨！")
-        )
-    elif event.message.text == "紀錄本日收入":
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text="鴨鴨！你今天賺了多少錢鴨！")
-        )
-        
-    
 #主程式
 import os
 if __name__ == "__main__":
