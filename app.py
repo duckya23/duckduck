@@ -84,7 +84,32 @@ def handle_message(event):
             )
         )
         line_bot_api.reply_message(event.reply_token, confirm_template_message)
-            
+    elif re.match('告訴我秘密',message):
+        image_carousel_template_message = TemplateSendMessage(
+            alt_text='免費教學影片',
+            template=ImageCarouselTemplate(
+                columns=[
+                    ImageCarouselColumn(
+                        image_url='https://i.imgur.com/wpM584d.jpg',
+                        action=PostbackAction(
+                            label='Python基礎教學影片',
+                            display_text='萬丈高樓平地起',
+                            data='action=努力不一定會成功，但不努力會很輕鬆'
+                        )
+                    ),
+                    ImageCarouselColumn(
+                        image_url='https://i.imgur.com/W7nI6fg.jpg',
+                        action=PostbackAction(
+                            label='LineBot聊天機器人',
+                            display_text='台灣最廣泛使用的通訊軟體',
+                            data='action=興趣不能當飯吃，但總比吃飯當興趣好'
+                        )
+                    )
+                ]
+            )
+        )
+        line_bot_api.reply_message(event.reply_token, image_carousel_template_message)
+        
     elif re.match('紀錄本日支出',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你今天花了多少錢鴨！'))    
     elif re.match('紀錄本日收入',message):
