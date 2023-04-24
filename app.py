@@ -90,7 +90,7 @@ def handle_message(event):
             template=ImageCarouselTemplate(
                 columns=[
                     ImageCarouselColumn(
-                        image_url='https://i.imgur.com/wpM584d.jpg',
+                        image_url='https://i0.wp.com/rookiesavior.net/wp-content/uploads/2021/01/1550239523.png?fit=500%2C355&ssl=1',
                         action=PostbackAction(
                             label='月收支圖表',
                             display_text='月收支圖表',
