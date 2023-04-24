@@ -84,7 +84,7 @@ def handle_message(event):
             )
         )
         line_bot_api.reply_message(event.reply_token, confirm_template_message)
-    elif re.match('顯示收支圖表',message):
+    elif re.match('收支圖表',message):
         image_carousel_template_message = TemplateSendMessage(
             alt_text='點擊選項來傳送圖表',
             template=ImageCarouselTemplate(
