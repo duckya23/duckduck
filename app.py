@@ -84,24 +84,24 @@ def handle_message(event):
             )
         )
         line_bot_api.reply_message(event.reply_token, confirm_template_message)
-    elif re.match('告訴我秘密',message):
+    elif re.match('顯示收支圖表',message):
         image_carousel_template_message = TemplateSendMessage(
-            alt_text='免費教學影片',
+            alt_text='點擊選項來傳送圖表',
             template=ImageCarouselTemplate(
                 columns=[
                     ImageCarouselColumn(
                         image_url='https://i.imgur.com/wpM584d.jpg',
                         action=PostbackAction(
-                            label='Python基礎教學影片',
-                            display_text='萬丈高樓平地起',
+                            label='月收支圖表',
+                            display_text='月收支圖表',
                             data='action=努力不一定會成功，但不努力會很輕鬆'
                         )
                     ),
                     ImageCarouselColumn(
                         image_url='https://i.imgur.com/W7nI6fg.jpg',
                         action=PostbackAction(
-                            label='LineBot聊天機器人',
-                            display_text='台灣最廣泛使用的通訊軟體',
+                            label='年收支圖表',
+                            display_text='年收支圖表',
                             data='action=興趣不能當飯吃，但總比吃飯當興趣好'
                         )
                     )
