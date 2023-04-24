@@ -98,7 +98,7 @@ def handle_message(event):
                         )
                     ),
                     ImageCarouselColumn(
-                        image_url='https://i.imgur.com/W7nI6fg.jpg',
+                        image_url='https://pic2.zhimg.com/v2-706be7f956613c2b4f0431482b858dc9_b.png',
                         action=PostbackAction(
                             label='年收支圖表',
                             display_text='年收支圖表',
