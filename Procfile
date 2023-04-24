@@ -1,2 +1,2 @@
 web: python app.py
-web: python app_ConfirmTemplate.py
+worker: python app_ConfirmTemplate.py
