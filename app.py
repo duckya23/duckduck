@@ -66,33 +66,33 @@ def handle_message(event):
          )
         line_bot_api.reply_message(event.reply_token, buttons_template_message)
         
-     if re.match('服務條款',message):
-         confirm_template_message = TemplateSendMessage(
-         alt_text='服務條款',
-         template=ConfirmTemplate(
-            text='歡迎使用來記帳鴨！',
-            actions=[
-                MessageAction(
-                label='同意',
-                text='我同意服務條款'
-                ),
-                  MessageAction(
-                  label='不同意',
-                  text='我不同意服務條款'
-                   )
-               ]
+    elif re.match('服務條款',message):
+        confirm_template_message = TemplateSendMessage(
+            alt_text='服務條款',
+            template=ConfirmTemplate(
+                text='歡迎使用來記帳鴨！',
+                actions=[
+                    MessageAction(
+                        label='同意',
+                        text='我同意服務條款'
+                    ),
+                    MessageAction(
+                        label='不同意',
+                        text='我不同意服務條款'
+                    )
+                ]
             )
         )
         line_bot_api.reply_message(event.reply_token, confirm_template_message)
-               
-    elif re.match('我同意服務條款',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('非常感謝您同意我們的條款，我們期待本程式能夠為您提供優質的服務。'))    
-    elif re.match('我不同意服務條款',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('由於您使用本應用程式進行記帳，為了協助您分析收入，本程式需要使用您所提供的資訊進行分析。然而，因為您選擇不同意服務條款，本程式無法為您提供相關分析功能。因此，我們建議您重新考慮是否同意服務條款，以確保您能夠使用本程式的全部功能。如果您重新選擇同意服務條款後，即可再次使用本程式。'))    
+            
     elif re.match('紀錄本日支出',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你今天花了多少錢鴨！'))    
     elif re.match('紀錄本日收入',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你今天賺了多少錢鴨！'))        
+    elif re.match('我同意服務條款',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('非常感謝您同意我們的條款，我們期待本程式能夠為您提供優質的服務。'))    
+    elif re.match('我不同意服務條款',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('由於您使用本應用程式進行記帳，為了協助您分析收入，本程式需要使用您所提供的資訊進行分析。然而，因為您選擇不同意服務條款，本程式無法為您提供相關分析功能。因此，我們建議您重新考慮是否同意服務條款，以確保您能夠使用本程式的全部功能。如果您重新選擇同意服務條款後，即可再次使用本程式。'))    
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
         
