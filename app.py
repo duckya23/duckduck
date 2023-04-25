@@ -109,6 +109,20 @@ def handle_message(event):
             )
         )
         line_bot_api.reply_message(event.reply_token, image_carousel_template_message)
+    elif re.match('告訴我秘密',message):
+        flex_message = TextSendMessage(text='以下有雷，請小心',
+                               quick_reply=QuickReply(items=[
+                                   QuickReplyButton(action=MessageAction(label="按我", text="按！")),
+                                   QuickReplyButton(action=MessageAction(label="按我", text="按！")),
+                                   QuickReplyButton(action=MessageAction(label="按我", text="按！")),
+                                   QuickReplyButton(action=MessageAction(label="別按我", text="你按屁喔！爆炸了拉！！")),
+                                   QuickReplyButton(action=MessageAction(label="按我", text="按！")),
+                                   QuickReplyButton(action=MessageAction(label="按我", text="按！")),
+                                   QuickReplyButton(action=MessageAction(label="按我", text="按！")),
+                                   QuickReplyButton(action=MessageAction(label="按我", text="按！")),
+                                   QuickReplyButton(action=MessageAction(label="按我", text="按！"))
+                               ]))
+        line_bot_api.reply_message(event.reply_token, flex_message)
         
     elif re.match('紀錄本日支出',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你今天花了多少錢鴨！'))    
