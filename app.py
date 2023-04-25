@@ -109,18 +109,15 @@ def handle_message(event):
             )
         )
         line_bot_api.reply_message(event.reply_token, image_carousel_template_message)
-    elif re.match('告訴我秘密',message):
-        flex_message = TextSendMessage(text='以下有雷，請小心',
+    elif re.match('快速鍵',message):
+        flex_message = TextSendMessage(text='快速鍵來囉',
                                quick_reply=QuickReply(items=[
-                                   QuickReplyButton(action=MessageAction(label="按我", text="按！")),
-                                   QuickReplyButton(action=MessageAction(label="按我", text="按！")),
-                                   QuickReplyButton(action=MessageAction(label="按我", text="按！")),
-                                   QuickReplyButton(action=MessageAction(label="別按我", text="你按屁喔！爆炸了拉！！")),
-                                   QuickReplyButton(action=MessageAction(label="按我", text="按！")),
-                                   QuickReplyButton(action=MessageAction(label="按我", text="按！")),
-                                   QuickReplyButton(action=MessageAction(label="按我", text="按！")),
-                                   QuickReplyButton(action=MessageAction(label="按我", text="按！")),
-                                   QuickReplyButton(action=MessageAction(label="按我", text="按！"))
+                                   QuickReplyButton(action=MessageAction(label="小算盤", text="小算盤")),
+                                   QuickReplyButton(action=MessageAction(label="月收支圖表", text="月收支圖表")),
+                                   QuickReplyButton(action=MessageAction(label="年收支圖表", text="年收支圖表")),
+                                   QuickReplyButton(action=MessageAction(label="結餘", text="結餘")),
+                                   QuickReplyButton(action=MessageAction(label="預算管理", text="預算管理")),
+                                   QuickReplyButton(action=MessageAction(label="不要按我", text="不要按我！"))
                                ]))
         line_bot_api.reply_message(event.reply_token, flex_message)
         
