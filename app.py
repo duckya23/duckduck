@@ -124,9 +124,7 @@ def handle_message(event):
         flex_message = TextSendMessage(text='快來記帳鴨',
                                quick_reply=QuickReply(items=[
                                    QuickReplyButton(action=MessageAction(label="收入", text="你要存多少錢鴨!")),
-                                   QuickReplyButton(action=MessageAction(label="支出", text="你花了多少錢鴨!")),
-                                   QuickReplyButton(action=MessageAction(label="123", text="123")),
-                                   QuickReplyButton(action=MessageAction(label="234", text="234"))
+                                   QuickReplyButton(action=MessageAction(label="支出", text="你花了多少錢鴨!"))
                                ]))
         line_bot_api.reply_message(event.reply_token, flex_message)
         
