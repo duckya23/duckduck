@@ -53,7 +53,7 @@ def handle_message(event):
             actions=[
                 PostbackAction(
                     label='新手教學',
-                    data='新手教學'
+                    text='新手教學'
                 ),
                 MessageAction(
                     label='服務條款',
