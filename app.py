@@ -51,22 +51,21 @@ def handle_message(event):
             title='其他功能鴨！',
             text='記帳鴨博士的其他功能',
             actions=[
-                
-                MessageAction(
+                PostbackAction(
                     label='新手教學',
-                    text='新手教學',
+                    data='新手教學'
                 ),
                 MessageAction(
                     label='服務條款',
                     text='服務條款'
                 ),
-                MessageAction(
+                URIAction(
                     label='Line Pay 連結',
-                    text='Line Pay 連結',
-                    )
-                 ]
-             )
-         )
+                    text='Line Pay 連結'
+                )
+            ]
+        )
+    )
         line_bot_api.reply_message(event.reply_token, buttons_template_message)
         
     elif re.match('服務條款',message):
