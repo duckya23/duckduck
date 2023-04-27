@@ -131,16 +131,16 @@ def handle_message(event):
     elif re.match('預算',message):
         flex_message = TextSendMessage(text='快來設定預算鴨',
                                quick_reply=QuickReply(items=[
-                                   QuickReplyButton(action=MessageAction(label="飲食預算", text="你要存多少錢鴨!")),
-                                   QuickReplyButton(action=MessageAction(label="日用預算", text="你花了多少錢鴨!")),
-                                   QuickReplyButton(action=MessageAction(label="居家預算", text="你花了多少錢鴨!")),
-                                   QuickReplyButton(action=MessageAction(label="交通預算", text="你花了多少錢鴨!")),
-                                   QuickReplyButton(action=MessageAction(label="服飾預算", text="你花了多少錢鴨!")),
-                                   QuickReplyButton(action=MessageAction(label="娛樂預算", text="你花了多少錢鴨!")),
-                                   QuickReplyButton(action=MessageAction(label="醫療預算", text="你花了多少錢鴨!")),
-                                   QuickReplyButton(action=MessageAction(label="美容預算", text="你花了多少錢鴨!")),
-                                   QuickReplyButton(action=MessageAction(label="教育預算", text="你花了多少錢鴨!")),
-                                   QuickReplyButton(action=MessageAction(label="其它預算", text="你花了多少錢鴨!"))
+                                   QuickReplyButton(action=MessageAction(label="飲食預算", text="你要設定多少飲食預算鴨!")),
+                                   QuickReplyButton(action=MessageAction(label="日用預算", text="你要設定多少日用預算鴨!")),
+                                   QuickReplyButton(action=MessageAction(label="居家預算", text="你要設定多少居家預算鴨!")),
+                                   QuickReplyButton(action=MessageAction(label="交通預算", text="你要設定多少交通預算鴨!")),
+                                   QuickReplyButton(action=MessageAction(label="服飾預算", text="你要設定多少服飾預算鴨!")),
+                                   QuickReplyButton(action=MessageAction(label="娛樂預算", text="你要設定多少娛樂預算鴨!")),
+                                   QuickReplyButton(action=MessageAction(label="醫療預算", text="你要設定多少醫療預算鴨!")),
+                                   QuickReplyButton(action=MessageAction(label="美容預算", text="你要設定多少美容預算鴨!")),
+                                   QuickReplyButton(action=MessageAction(label="教育預算", text="你要設定多少教育預算鴨!")),
+                                   QuickReplyButton(action=MessageAction(label="其它預算", text="你要設定多少其它預算鴨!"))
                                ]))
         line_bot_api.reply_message(event.reply_token, flex_message)
         
