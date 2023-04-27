@@ -170,7 +170,7 @@ def handle_message(event):
     elif re.match('我不同意服務條款',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('由於您使用本應用程式進行記帳，為了協助您分析收入，本程式需要使用您所提供的資訊進行分析。然而，因為您選擇不同意服務條款，本程式無法為您提供相關分析功能。因此，我們建議您重新考慮是否同意服務條款，以確保您能夠使用本程式的全部功能。如果您重新選擇同意服務條款後，即可再次使用本程式。'))    
     elif re.match('支出',message):
-        flex_message = TextSendMessage(text='選擇收入類別鴨',
+        flex_message = TextSendMessage(text='選擇支出類別鴨！',
                                quick_reply=QuickReply(items=[
                                    QuickReplyButton(action=MessageAction(label="飲食", text="飲食")),
                                    QuickReplyButton(action=MessageAction(label="交通", text="交通")),
@@ -185,7 +185,7 @@ def handle_message(event):
                                ]))
         line_bot_api.reply_message(event.reply_token, flex_message)
     elif re.match('收入',message):
-        flex_message = TextSendMessage(text='選擇支出類別鴨',
+        flex_message = TextSendMessage(text='選擇收入類別鴨！',
                                quick_reply=QuickReply(items=[
                                    QuickReplyButton(action=MessageAction(label="薪資", text="薪資")),
                                    QuickReplyButton(action=MessageAction(label="獎金", text="獎金")),
