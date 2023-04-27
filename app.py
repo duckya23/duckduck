@@ -144,10 +144,7 @@ def handle_message(event):
                                ]))
         line_bot_api.reply_message(event.reply_token, flex_message)
         
-    elif re.match('支出',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你今天花了多少錢鴨！'))    
-    elif re.match('收入',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你今天賺了多少錢鴨！'))        
+      
     elif re.match('飲食預算',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少飲食預算鴨！'))    
     elif re.match('日用預算',message):
@@ -172,6 +169,29 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('非常感謝您同意我們的條款，我們期待本程式能夠為您提供優質的服務。'))    
     elif re.match('我不同意服務條款',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('由於您使用本應用程式進行記帳，為了協助您分析收入，本程式需要使用您所提供的資訊進行分析。然而，因為您選擇不同意服務條款，本程式無法為您提供相關分析功能。因此，我們建議您重新考慮是否同意服務條款，以確保您能夠使用本程式的全部功能。如果您重新選擇同意服務條款後，即可再次使用本程式。'))    
+    elif re.match('收入',message):
+        flex_message = TextSendMessage(text='選擇收入類別鴨',
+                               quick_reply=QuickReply(items=[
+                                   QuickReplyButton(action=MessageAction(label="飲食", text="飲食")),
+                                   QuickReplyButton(action=MessageAction(label="交通", text="交通")),
+                                   QuickReplyButton(action=MessageAction(label="娛樂", text="娛樂")),
+                                   QuickReplyButton(action=MessageAction(label="醫療", text="醫療")),
+                                   QuickReplyButton(action=MessageAction(label="服飾", text="服飾")),
+                                   QuickReplyButton(action=MessageAction(label="美容", text="美容")),
+                                   QuickReplyButton(action=MessageAction(label="教育", text="教育")),
+                                   QuickReplyButton(action=MessageAction(label="居家(水電瓦斯)", text="居家(水電瓦斯)")),
+                                   QuickReplyButton(action=MessageAction(label="日用(如:洗髮精)", text="日用(如:洗髮精)")),
+                                   QuickReplyButton(action=MessageAction(label="其他", text="其他")),
+                               ]))
+        line_bot_api.reply_message(event.reply_token, flex_message)
+    elif re.match('支出',message):
+        flex_message = TextSendMessage(text='選擇支出類別鴨',
+                               quick_reply=QuickReply(items=[
+                                   QuickReplyButton(action=MessageAction(label="薪資", text="薪資")),
+                                   QuickReplyButton(action=MessageAction(label="獎金", text="獎金")),
+                                   QuickReplyButton(action=MessageAction(label="理財", text="理財")),
+                               ]))
+        line_bot_api.reply_message(event.reply_token, flex_message)
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
         
