@@ -53,7 +53,7 @@ def handle_message(event):
             actions=[
                 MessageAction(
                     label='新手教學',
-                    text='新手教學'
+                    text='新手教學',
                 ),
                 MessageAction(
                     label='服務條款',
@@ -61,7 +61,7 @@ def handle_message(event):
                 ),
                 MessageAction(
                     label='Line Pay 連結',
-                    text='Line Pay 連結'
+                    text='Line Pay 連結',
                 )
             ]
         )
@@ -123,31 +123,51 @@ def handle_message(event):
     elif re.match('記帳',message):
         flex_message = TextSendMessage(text='快來記帳鴨',
                                quick_reply=QuickReply(items=[
-                                   QuickReplyButton(action=MessageAction(label="收入", text="你要存多少錢鴨!")),
-                                   QuickReplyButton(action=MessageAction(label="支出", text="你花了多少錢鴨!"))
+                                   QuickReplyButton(action=MessageAction(label="收入", text="收入鴨!")),
+                                   QuickReplyButton(action=MessageAction(label="支出", text="支出鴨!"))
                                ]))
         line_bot_api.reply_message(event.reply_token, flex_message)
         
     elif re.match('預算',message):
         flex_message = TextSendMessage(text='快來設定預算鴨',
                                quick_reply=QuickReply(items=[
-                                   QuickReplyButton(action=MessageAction(label="飲食預算", text="你要設定多少飲食預算鴨!")),
-                                   QuickReplyButton(action=MessageAction(label="日用預算", text="你要設定多少日用預算鴨!")),
-                                   QuickReplyButton(action=MessageAction(label="居家預算", text="你要設定多少居家預算鴨!")),
-                                   QuickReplyButton(action=MessageAction(label="交通預算", text="你要設定多少交通預算鴨!")),
-                                   QuickReplyButton(action=MessageAction(label="服飾預算", text="你要設定多少服飾預算鴨!")),
-                                   QuickReplyButton(action=MessageAction(label="娛樂預算", text="你要設定多少娛樂預算鴨!")),
-                                   QuickReplyButton(action=MessageAction(label="醫療預算", text="你要設定多少醫療預算鴨!")),
-                                   QuickReplyButton(action=MessageAction(label="美容預算", text="你要設定多少美容預算鴨!")),
-                                   QuickReplyButton(action=MessageAction(label="教育預算", text="你要設定多少教育預算鴨!")),
-                                   QuickReplyButton(action=MessageAction(label="其它預算", text="你要設定多少其它預算鴨!"))
+                                   QuickReplyButton(action=MessageAction(label="飲食預算", text="飲食預算")),
+                                   QuickReplyButton(action=MessageAction(label="日用預算", text="日用預算")),
+                                   QuickReplyButton(action=MessageAction(label="居家預算", text="居家預算")),
+                                   QuickReplyButton(action=MessageAction(label="交通預算", text="交通預算")),
+                                   QuickReplyButton(action=MessageAction(label="服飾預算", text="服飾預算")),
+                                   QuickReplyButton(action=MessageAction(label="娛樂預算", text="娛樂預算")),
+                                   QuickReplyButton(action=MessageAction(label="醫療預算", text="醫療預算")),
+                                   QuickReplyButton(action=MessageAction(label="美容預算", text="美容預算")),
+                                   QuickReplyButton(action=MessageAction(label="教育預算", text="教育預算")),
+                                   QuickReplyButton(action=MessageAction(label="其它預算", text="其它預算"))
                                ]))
         line_bot_api.reply_message(event.reply_token, flex_message)
         
-    elif re.match('紀錄本日支出',message):
+    elif re.match('支出',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你今天花了多少錢鴨！'))    
-    elif re.match('紀錄本日收入',message):
+    elif re.match('收入',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你今天賺了多少錢鴨！'))        
+    elif re.match('飲食預算',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少飲食預算鴨！'))    
+    elif re.match('日用預算',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少日用預算鴨!')) 
+    elif re.match('居家預算',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少居家預算鴨!'))    
+    elif re.match('交通預算',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少交通預算鴨!')) 
+    elif re.match('服飾預算',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少服飾預算鴨!'))    
+    elif re.match('娛樂預算',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少娛樂預算鴨!')) 
+    elif re.match('醫療預算',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少醫療預算鴨!'))    
+    elif re.match('美容預算',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少美容預算鴨!')) 
+    elif re.match('教育預算',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少教育預算鴨!'))    
+    elif re.match('其它預算',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少其它預算鴨!'))
     elif re.match('我同意服務條款',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('非常感謝您同意我們的條款，我們期待本程式能夠為您提供優質的服務。'))    
     elif re.match('我不同意服務條款',message):
