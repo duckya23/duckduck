@@ -43,22 +43,22 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     message = text=event.message.text
-    if re.match('記帳',message):
+    if re.match('其他功能',message):
         buttons_template_message = TemplateSendMessage(
-        alt_text='這個看不到',
+        alt_text='其他功能來了鴨',
         template=ButtonsTemplate(
             thumbnail_image_url='https://cdn.pixabay.com/photo/2022/09/04/21/03/cartoon-duck-7432790_1280.png',
-            title='來記帳鴨！',
-            text='我是你的記帳鴨博士',
+            title='其他功能鴨！',
+            text='記帳鴨博士的其他功能',
             actions=[
                 
                 MessageAction(
-                    label='紀錄本日支出',
-                    text='紀錄本日支出',
+                    label='Line Pay 連結',
+                    text='Line Pay 連結',
                 ),
                   MessageAction(
-                    label='紀錄本日收入',
-                    text='紀錄本日收入'
+                    label='服務條款',
+                    text='服務條款'
                      )
               
                  ]
