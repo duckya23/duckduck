@@ -63,8 +63,7 @@ def handle_message(event):
                      MessageAction(
                     label='Line Pay 連結',
                     text='Line Pay 連結',
-                )
-              
+                     )
                  ]
              )
          )
