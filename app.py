@@ -43,13 +43,13 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     message = text=event.message.text
-    if re.match('其他功能',message):
+    if re.match('其它功能',message):
         buttons_template_message = TemplateSendMessage(
-        alt_text='其他功能來了鴨',
+        alt_text='其它功能來了鴨',
         template=ButtonsTemplate(
             thumbnail_image_url='https://png.pngtree.com/png-vector/20190831/ourlarge/pngtree-gear-vector-icon-template-png-image_1717225.jpg',
-            title='其他功能鴨！',
-            text='記帳鴨博士的其他功能',
+            title='其它功能鴨！',
+            text='記帳鴨博士的其它功能',
             actions=[
                 MessageAction(
                     label='新手教學',
@@ -125,6 +125,22 @@ def handle_message(event):
                                quick_reply=QuickReply(items=[
                                    QuickReplyButton(action=MessageAction(label="收入", text="你要存多少錢鴨!")),
                                    QuickReplyButton(action=MessageAction(label="支出", text="你花了多少錢鴨!"))
+                               ]))
+        line_bot_api.reply_message(event.reply_token, flex_message)
+        
+    elif re.match('預算',message):
+        flex_message = TextSendMessage(text='快來設定預算鴨',
+                               quick_reply=QuickReply(items=[
+                                   QuickReplyButton(action=MessageAction(label="飲食預算", text="你要存多少錢鴨!")),
+                                   QuickReplyButton(action=MessageAction(label="日用預算", text="你花了多少錢鴨!")),
+                                   QuickReplyButton(action=MessageAction(label="居家預算", text="你花了多少錢鴨!")),
+                                   QuickReplyButton(action=MessageAction(label="交通預算", text="你花了多少錢鴨!")),
+                                   QuickReplyButton(action=MessageAction(label="服飾預算", text="你花了多少錢鴨!")),
+                                   QuickReplyButton(action=MessageAction(label="娛樂預算", text="你花了多少錢鴨!")),
+                                   QuickReplyButton(action=MessageAction(label="醫療預算", text="你花了多少錢鴨!")),
+                                   QuickReplyButton(action=MessageAction(label="美容預算", text="你花了多少錢鴨!")),
+                                   QuickReplyButton(action=MessageAction(label="教育預算", text="你花了多少錢鴨!")),
+                                   QuickReplyButton(action=MessageAction(label="其它預算", text="你花了多少錢鴨!"))
                                ]))
         line_bot_api.reply_message(event.reply_token, flex_message)
         
