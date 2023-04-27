@@ -47,7 +47,7 @@ def handle_message(event):
         buttons_template_message = TemplateSendMessage(
         alt_text='其他功能來了鴨',
         template=ButtonsTemplate(
-            thumbnail_image_url='https://cdn.pixabay.com/photo/2022/09/04/21/03/cartoon-duck-7432790_1280.png',
+            thumbnail_image_url='https://png.pngtree.com/png-vector/20190831/ourlarge/pngtree-gear-vector-icon-template-png-image_1717225.jpg',
             title='其他功能鴨！',
             text='記帳鴨博士的其他功能',
             actions=[
