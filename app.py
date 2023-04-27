@@ -109,15 +109,18 @@ def handle_message(event):
             )
         )
         line_bot_api.reply_message(event.reply_token, image_carousel_template_message)
-    elif re.match('快速鍵',message):
-        flex_message = TextSendMessage(text='快速鍵來囉',
+    elif re.match('記帳',message):
+        flex_message = TextSendMessage(text='快來記帳鴨',
                                quick_reply=QuickReply(items=[
-                                   QuickReplyButton(action=MessageAction(label="小算盤", text="小算盤")),
-                                   QuickReplyButton(action=MessageAction(label="月收支圖表", text="月收支圖表")),
-                                   QuickReplyButton(action=MessageAction(label="年收支圖表", text="年收支圖表")),
-                                   QuickReplyButton(action=MessageAction(label="結餘", text="結餘")),
-                                   QuickReplyButton(action=MessageAction(label="預算管理", text="預算管理")),
-                                   QuickReplyButton(action=MessageAction(label="不要按我", text="不要按我！"))
+                                   QuickReplyButton(action=MessageAction(label="收入", text="你要存多少錢鴨!")),
+                                   QuickReplyButton(action=MessageAction(label="支出", text="你花了多少錢鴨!")),
+                                   QuickReplyButton(action=MessageAction(label="123", text="123")),
+                                   QuickReplyButton(action=MessageAction(label="234", text="234")),
+                                   QuickReplyButton(action=MessageAction(label="345", text="345")),
+                                   QuickReplyButton(action=MessageAction(label="456", text="456")),
+                                   QuickReplyButton(action=MessageAction(label="567", text="567")),
+                                   QuickReplyButton(action=MessageAction(label="678", text="678")),
+                                   QuickReplyButton(action=MessageAction(label="789", text="789"))
                                ]))
         line_bot_api.reply_message(event.reply_token, flex_message)
         
