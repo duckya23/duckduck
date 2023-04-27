@@ -84,9 +84,9 @@ def handle_message(event):
             )
         )
         line_bot_api.reply_message(event.reply_token, confirm_template_message)
-    elif re.match('收支圖表',message):
+    elif re.match('圖表',message):
         image_carousel_template_message = TemplateSendMessage(
-            alt_text='點擊選項來傳送圖表',
+            alt_text='點擊選項來查看圖表',
             template=ImageCarouselTemplate(
                 columns=[
                     ImageCarouselColumn(
@@ -102,6 +102,14 @@ def handle_message(event):
                         action=PostbackAction(
                             label='年收支圖表',
                             display_text='年收支圖表',
+                            data='action=興趣不能當飯吃，但總比吃飯當興趣好'
+                        )
+                    ),
+                    ImageCarouselColumn(
+                        image_url='https://pic2.zhimg.com/v2-706be7f956613c2b4f0431482b858dc9_b.png',
+                        action=PostbackAction(
+                            label='哈哈哈你以為有什麼',
+                            display_text='哈哈哈哩鴨',
                             data='action=興趣不能當飯吃，但總比吃飯當興趣好'
                         )
                     )
