@@ -56,14 +56,14 @@ def handle_message(event):
                     label='新手教學',
                     text='新手教學',
                 ),
-                  MessageAction(
+                MessageAction(
                     label='服務條款',
                     text='服務條款'
-                     ),
-                     MessageAction(
+                ),
+                MessageAction(
                     label='Line Pay 連結',
                     text='Line Pay 連結',
-                     )
+                    )
                  ]
              )
          )
