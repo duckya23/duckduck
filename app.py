@@ -86,6 +86,7 @@ def handle_message(event):
             )
         )
         line_bot_api.reply_message(event.reply_token, confirm_template_message)
+        
     elif re.match('圖表',message):
         image_carousel_template_message = TemplateSendMessage(
             alt_text='點擊選項來查看圖表',
@@ -125,12 +126,7 @@ def handle_message(event):
                                    QuickReplyButton(action=MessageAction(label="收入", text="你要存多少錢鴨!")),
                                    QuickReplyButton(action=MessageAction(label="支出", text="你花了多少錢鴨!")),
                                    QuickReplyButton(action=MessageAction(label="123", text="123")),
-                                   QuickReplyButton(action=MessageAction(label="234", text="234")),
-                                   QuickReplyButton(action=MessageAction(label="345", text="345")),
-                                   QuickReplyButton(action=MessageAction(label="456", text="456")),
-                                   QuickReplyButton(action=MessageAction(label="567", text="567")),
-                                   QuickReplyButton(action=MessageAction(label="678", text="678")),
-                                   QuickReplyButton(action=MessageAction(label="789", text="789"))
+                                   QuickReplyButton(action=MessageAction(label="234", text="234"))
                                ]))
         line_bot_api.reply_message(event.reply_token, flex_message)
         
