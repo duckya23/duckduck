@@ -43,7 +43,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     message = text=event.message.text
-    if re.match('其他功能',message):
+   if re.match('其他功能',message):
         buttons_template_message = TemplateSendMessage(
         alt_text='其他功能來了鴨',
         template=ButtonsTemplate(
@@ -53,13 +53,17 @@ def handle_message(event):
             actions=[
                 
                 MessageAction(
-                    label='Line Pay 連結',
-                    text='Line Pay 連結',
+                    label='新手教學',
+                    text='新手教學',
                 ),
                   MessageAction(
                     label='服務條款',
                     text='服務條款'
-                     )
+                     ),
+                     MessageAction(
+                    label='Line Pay 連結',
+                    text='Line Pay 連結',
+                )
               
                  ]
              )
