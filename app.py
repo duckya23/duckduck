@@ -43,6 +43,12 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     message = text=event.message.text
+ 
+
+@app.route("/callback", methods=['POST'])
+def handle_callback():
+    message = event.message.text
+    
     if re.match('其它功能',message):
         buttons_template_message = TemplateSendMessage(
         alt_text='其它功能來了鴨',
