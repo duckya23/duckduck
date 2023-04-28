@@ -194,7 +194,24 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, flex_message)
     elif re.match('飲食',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入餐飲金額鴨!')) 
-
+    elif re.match('交通',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入交通金額鴨!')) 
+    elif re.match('娛樂',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入娛樂金額鴨!')) 
+    elif re.match('醫療',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入醫療金額鴨!')) 
+    elif re.match('服飾',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入服飾金額鴨!')) 
+    elif re.match('美容',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入美容金額鴨!')) 
+    elif re.match('教育',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入教育金額鴨!'))
+    elif re.match('居家(水電瓦斯)',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入居家(水電瓦斯)金額鴨!'))
+    elif re.match('日用(如:洗髮精)',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入日用(如:洗髮精)金額鴨!'))
+    elif re.match('其他',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入其他金額鴨!'))
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
         
