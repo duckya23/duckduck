@@ -43,7 +43,6 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     message = text=event.message.text
-    amount = text=event.message.text
     if re.match('其它功能',message):
         buttons_template_message = TemplateSendMessage(
         alt_text='其它功能來了鴨',
@@ -195,7 +194,8 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, flex_message)
     elif re.match('飲食',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入餐飲金額鴨!'))
-        if re.match('飲食',amount):
+        amount = text=event.message.text
+        if re.match('飲食鴨',amount):
             line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入餐飲金額鴨!'))
         else:
             line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
