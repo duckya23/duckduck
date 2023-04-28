@@ -42,7 +42,7 @@ def callback():
 ##### 基本上程式編輯都在這個function #####
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    message = text=event.message.text    
+    message = text=event.message.text
     if re.match('其它功能',message):
         buttons_template_message = TemplateSendMessage(
         alt_text='其它功能來了鴨',
@@ -192,29 +192,9 @@ def handle_message(event):
                                    QuickReplyButton(action=MessageAction(label="理財", text="理財")),
                                ]))
         line_bot_api.reply_message(event.reply_token, flex_message)
-    elif re.match('飲食',message):
-        total = 0
-        reply_message = TextSendMessage(text='請輸入餐飲費金額')
-        line_bot_api.reply_message(event.reply_token, reply_message)      
-        # 接收使用者輸入的訊息
-        message_event = event.message
-        elif isinstance(message_event, TextMessage):
-            try:
-                # 將輸入的金額轉成整數，並累加到 total 變數中
-                amount = int(message_event.text)
-                total += amount
-
-                # 回覆使用者訊息
-                reply_message = TextSendMessage(text=f'已累加 {amount} 元，目前總共 {total} 元')
-                line_bot_api.reply_message(event.reply_token, reply_message)
-            except ValueError:
-                # 如果輸入的不是數字，則回覆錯誤訊息
-                reply_message = TextSendMessage(text='請輸入正確的金額')
-                line_bot_api.reply_message(event.reply_token, reply_message)
-
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
-      
+        
 #主程式
 import os
 if __name__ == "__main__":
