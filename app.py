@@ -192,7 +192,7 @@ def handle_message(event):
                                    QuickReplyButton(action=MessageAction(label="理財", text="理財")),
                                ]))
         line_bot_api.reply_message(event.reply_token, flex_message)
-    elif message == '飲食':
+    elif re.match('飲食',message):
         total = 0
         reply_message = TextSendMessage(text='請輸入餐飲費金額')
         line_bot_api.reply_message(event.reply_token, reply_message)
