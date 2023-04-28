@@ -40,9 +40,7 @@ def callback():
 
 #訊息傳遞區塊
 ##### 基本上程式編輯都在這個function #####
-@handler.add(MessageEvent, message=TextMessage)
-def handle_message(event):
-    message = text=event.message.text    
+  
     if re.match('其它功能',message):
         buttons_template_message = TemplateSendMessage(
         alt_text='其它功能來了鴨',
