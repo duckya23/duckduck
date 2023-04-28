@@ -192,26 +192,26 @@ def handle_message(event):
                                    QuickReplyButton(action=MessageAction(label="理財", text="理財")),
                                ]))
         line_bot_api.reply_message(event.reply_token, flex_message)
-elif message == '飲食':
-    total = 0
-    reply_message = TextSendMessage(text='請輸入餐飲費金額')
-    line_bot_api.reply_message(event.reply_token, reply_message)
+    elif message == '飲食':
+        total = 0
+        reply_message = TextSendMessage(text='請輸入餐飲費金額')
+        line_bot_api.reply_message(event.reply_token, reply_message)
 
-    # 接收使用者輸入的訊息
-    message_event = event.message
-    if isinstance(message_event, TextMessage):
-        try:
-            # 將輸入的金額轉成整數，並累加到 total 變數中
-            amount = int(message_event.text)
-            total += amount
+        # 接收使用者輸入的訊息
+        message_event = event.message
+        if isinstance(message_event, TextMessage):
+            try:
+                # 將輸入的金額轉成整數，並累加到 total 變數中
+                amount = int(message_event.text)
+                total += amount
 
-            # 回覆使用者訊息
-            reply_message = TextSendMessage(text=f'已累加 {amount} 元，目前總共 {total} 元')
-            line_bot_api.reply_message(event.reply_token, reply_message)
-        except ValueError:
-            # 如果輸入的不是數字，則回覆錯誤訊息
-            reply_message = TextSendMessage(text='請輸入正確的金額')
-            line_bot_api.reply_message(event.reply_token, reply_message)
+                # 回覆使用者訊息
+                reply_message = TextSendMessage(text=f'已累加 {amount} 元，目前總共 {total} 元')
+                line_bot_api.reply_message(event.reply_token, reply_message)
+            except ValueError:
+                # 如果輸入的不是數字，則回覆錯誤訊息
+                reply_message = TextSendMessage(text='請輸入正確的金額')
+                line_bot_api.reply_message(event.reply_token, reply_message)
 
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
