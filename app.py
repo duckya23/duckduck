@@ -146,7 +146,7 @@ def handle_message(event):
         
       
     elif re.match('飲食預算',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少飲食預算鴨！'))    
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少飲食預算鴨！'))           
     elif re.match('日用預算',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少日用預算鴨!')) 
     elif re.match('居家預算',message):
