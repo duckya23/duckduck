@@ -142,6 +142,7 @@ def handle_message(event):
                                    QuickReplyButton(action=MessageAction(label="教育預算", text="教育預算")),
                                    QuickReplyButton(action=MessageAction(label="其它預算", text="其它預算"))
                                ]))
+        line_bot_api.reply_message(event.reply_token, flex_message)
             if re.match('飲食預算',message):
               line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少飲食預算鴨！')) 
             elif re.match('日用預算',message):
@@ -163,7 +164,7 @@ def handle_message(event):
             elif re.match('其它預算',message):
               line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少其它預算鴨!'))
         
-        line_bot_api.reply_message(event.reply_token, flex_message)
+        
         
       
 
