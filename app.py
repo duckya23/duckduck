@@ -195,11 +195,9 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, flex_message)
     elif re.match('飲食',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入餐飲金額鴨!'))
-        amount =event.message.text
-        if re.match('飲食鴨',amount):
-            line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入餐飲金額鴨!'))
-        else:
-            line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
+        amount = event.message.text
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(amount))
+
             
     elif re.match('交通',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入交通金額鴨!')) 
