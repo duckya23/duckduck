@@ -238,7 +238,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入理財收入金額鴨!')) 
     elif re.match('其他收入',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入其他收入金額鴨!')) 
-   else:
+    else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
         
 #主程式
