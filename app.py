@@ -47,7 +47,7 @@ def handle_message(event):
         bookeeping()
     else:
         print("我聽不懂")
-def bookeeping():
+def bookeeping(event):
     flex_message = TextSendMessage(text='快來記帳鴨',
                                quick_reply=QuickReply(items=[
                                    QuickReplyButton(action=MessageAction(label="收入", text="收入鴨!")),
