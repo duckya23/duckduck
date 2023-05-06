@@ -134,11 +134,28 @@ def handle_message(event):
                                    QuickReplyButton(action=MessageAction(label="其它預算", text="其它預算"))
                                ]))
         line_bot_api.reply_message(event.reply_token, flex_message)
-    if re.match('飲食預算',message):
-              line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少飲食預算鴨！')) 
+        
+      
+    elif re.match('飲食預算',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少飲食預算鴨！')) 
     elif re.match('日用預算',message):
-                            elif re.match('其它預算',message):
-              line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少其它預算鴨!'))
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少日用預算鴨!')) 
+    elif re.match('居家預算',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少居家預算鴨!'))    
+    elif re.match('交通預算',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少交通預算鴨!')) 
+    elif re.match('服飾預算',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少服飾預算鴨!'))    
+    elif re.match('娛樂預算',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少娛樂預算鴨!')) 
+    elif re.match('醫療預算',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少醫療預算鴨!'))    
+    elif re.match('美容預算',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少美容預算鴨!')) 
+    elif re.match('教育預算',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少教育預算鴨!'))    
+    elif re.match('其它預算',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少其它預算鴨!'))
     elif re.match('我同意服務條款',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('非常感謝您同意我們的條款，我們期待本程式能夠為您提供優質的服務。'))    
     elif re.match('我不同意服務條款',message):
@@ -168,11 +185,12 @@ def handle_message(event):
                                ]))
         line_bot_api.reply_message(event.reply_token, flex_message)
     elif re.match('飲食',message):
-        reply_arr = [TextSendMessage("請輸入餐飲金額鴨"),TextSendMessage("請輸入餐飲金額鴨")]
-        line_bot_api.reply_message(event.reply_token,reply_arr)
-        amount = event.message.text
-#         line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨!'))
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(amount))
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入餐飲金額鴨!'))
+        amount =event.message.text
+        if re.match('飲食鴨',amount):
+            line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入餐飲金額鴨!'))
+        else:
+            line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
             
     elif re.match('交通',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入交通金額鴨!')) 
@@ -202,7 +220,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入其他收入金額鴨!')) 
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
-        
+
 #主程式
 import os
 if __name__ == "__main__":
