@@ -40,13 +40,13 @@ def callback():
 
 #訊息傳遞區塊
 ##### 基本上程式編輯都在這個function #####
-@handler.add(MessageEvent, message=TextMessage)
-def handle_message(event):
-    message = text=event.message.text
-    if message = "記帳":
+#@handler.add(MessageEvent, message=TextMessage)
+#def handle_message(event):
+    #message = text=event.message.text
+    #if message = "記帳":
         bookeeping()
-    else:
-        print("我聽不懂")
+    #else:
+        #print("我聽不懂")
 def bookeeping():
     flex_message = TextSendMessage(text='快來記帳鴨',
                                quick_reply=QuickReply(items=[
