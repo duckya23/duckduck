@@ -40,7 +40,7 @@ def callback():
 
 #訊息傳遞區塊
 ##### 基本上程式編輯都在這個function #####
-#@handler.add(MessageEvent, message=TextMessage)
+@handler.add(MessageEvent, message=TextMessage)
 #def handle_message(event):
     #message = text=event.message.text
     #if message = "記帳":
