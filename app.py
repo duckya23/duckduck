@@ -47,13 +47,13 @@ def callback():
         bookeeping()
     #else:
         #print("我聽不懂")
-def bookeeping():
-    flex_message = TextSendMessage(text='快來記帳鴨',
-                               quick_reply=QuickReply(items=[
-                                   QuickReplyButton(action=MessageAction(label="收入", text="收入鴨!")),
-                                   QuickReplyButton(action=MessageAction(label="支出", text="支出鴨!"))
+#def bookeeping():
+    #flex_message = TextSendMessage(text='快來記帳鴨',
+                               #quick_reply=QuickReply(items=[
+                                   #QuickReplyButton(action=MessageAction(label="收入", text="收入鴨!")),
+                                   #QuickReplyButton(action=MessageAction(label="支出", text="支出鴨!"))
                                ]))
-    line_bot_api.reply_message(event.reply_token, flex_message)
+    #line_bot_api.reply_message(event.reply_token, flex_message)
     
 def handle_message(event):
     message = text=event.message.text
