@@ -134,10 +134,38 @@ def handle_message(event):
                                    QuickReplyButton(action=MessageAction(label="其它預算", text="其它預算"))
                                ]))
         line_bot_api.reply_message(event.reply_token, flex_message)
-        
-      
+
+
     elif re.match('飲食預算',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少飲食預算鴨！')) 
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少飲食預算鴨！'))           
+        def handle_message(event):
+    # 如果收到的是數字，回覆「好的，已建立完成！」
+            if event.message.text.isdigit():
+                reply_message = "好的，已建立完成！"
+            else:
+                 reply_message = "請輸入數字！"
+
+    # 回覆訊息給使用者
+            line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=reply_message)
+    )
+
+# 當接收到來自 Line 的「Webhook」事件時，驗證事件是否正確，若正確則執行 handle_message
+            @app.route("/callback", methods=['POST'])
+            def callback():
+            signature = request.headers['X-Line-Signature']
+            body = request.get_data(as_text=True)
+            try:
+                handler.handle(body, signature)
+            except InvalidSignatureError:
+                abort(400)
+            return 'OK'
+
+            if __name__ == "__main__":
+    # 設定 Port 為 5000
+                port = int(os.environ.get('PORT', 5000))
+                app.run(host='0.0.0.0', port=port)
     elif re.match('日用預算',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少日用預算鴨!')) 
     elif re.match('居家預算',message):
@@ -181,7 +209,6 @@ def handle_message(event):
                                    QuickReplyButton(action=MessageAction(label="薪資", text="薪資")),
                                    QuickReplyButton(action=MessageAction(label="獎金", text="獎金")),
                                    QuickReplyButton(action=MessageAction(label="理財", text="理財")),
-                                   QuickReplyButton(action=MessageAction(label="其他收入", text="其他收入")),
                                ]))
         line_bot_api.reply_message(event.reply_token, flex_message)
     elif re.match('飲食',message):
@@ -210,17 +237,9 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入日用(如:洗髮精)金額鴨!'))
     elif re.match('其他',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入其他金額鴨!'))
-    elif re.match('薪資',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入薪資收入金額鴨!')) 
-    elif re.match('獎金',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入獎金收入金額鴨!')) 
-    elif re.match('理財',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入理財收入金額鴨!')) 
-    elif re.match('其他收入',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入其他收入金額鴨!')) 
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
-
+        
 #主程式
 import os
 if __name__ == "__main__":
