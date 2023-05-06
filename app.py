@@ -53,7 +53,7 @@ def callback():
                                    #QuickReplyButton(action=MessageAction(label="收入", text="收入鴨!")),
                                    #QuickReplyButton(action=MessageAction(label="支出", text="支出鴨!"))
                                ]))
-    #line_bot_api.reply_message(event.reply_token, flex_message)
+    line_bot_api.reply_message(event.reply_token, flex_message)
     
 def handle_message(event):
     message = text=event.message.text
