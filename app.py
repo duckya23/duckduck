@@ -48,7 +48,7 @@ def handle_message(event):
                 ),
                 MessageAction(
                     label='服務條款',
-                    uri='https://sites.google.com/view/ducktermserver/%E9%A6%96%E9%A0%81'
+                    uri='https://sites.google.com/view/ducktermserver/%E9%A6%96%E9%A0%81',
                 ),
                 MessageAction(
                     label='Line Pay 連結',
