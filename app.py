@@ -46,7 +46,7 @@ def handle_message(event):
                     label='新手教學',
                     text='新手教學',
                 ),
-                MessageAction(
+                URIAction(
                     label='服務條款',
                     uri='https://sites.google.com/view/ducktermserver/%E9%A6%96%E9%A0%81'
                 ),
