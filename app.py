@@ -193,6 +193,7 @@ def handle_message(event):
                 line_bot_api.reply_message(event.reply_token,TextSendMessage('金額為多少'))
                 return
             else:
+                message = text=event.message.text
                 line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
                 return
             
@@ -230,6 +231,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token,TextSendMessage(amount))
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
+        
 
 #主程式
 import os
