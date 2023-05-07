@@ -14,9 +14,9 @@ import re
 app = Flask(__name__)
 
 #必須上自己的channel  access token
-line_bot_api = LineBotApi('o7GVhWmLARWtKhOTf0uAOWCO5UY2m4HYZFDGURs+rhnK8OZMazcsEVKNO83iPkB6NOyMXbbZXrNUYySlyd2CXHtlKYTDlkhIdGitB/ZKTvXkQc5maB9YU4wJxJF9ZoFbWIWVwYi8NHxttXiGNAQtWAdB04t89/1O/w1cDnyilFU=')
+line_bot_api = LineBotApi('qFY0GtsFs+BSChiaHttVqThTCQXZyNtA537u3/dMhgoaowZ90o6HCucVXNZEX0BLNOyMXbbZXrNUYySlyd2CXHtlKYTDlkhIdGitB/ZKTvWL47rT73rV8vboOVAYZOCBoZCyUbnRFilJhM0JbP2RwQdB04t89/1O/w1cDnyilFU=')
 # 必須放上自己的Channel Secret
-handler = WebhookHandler('675c061bcf22f2da2eb9c2e3c2c95a0e')
+handler = WebhookHandler('1b6968f90a679b68802b533585423316')
 
 line_bot_api.push_message('1660929518', TextSendMessage(text='你可以開始了'))  #主動推波push message #要付費的
 
