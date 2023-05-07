@@ -186,21 +186,16 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, flex_message)
     elif re.match('飲食',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入餐飲金額鴨!'))
-        # 在全局範圍定義一個變數，初始值為 False
-        has_executed_handle_message2 = False
         @handler.add(MessageEvent, message=TextMessage)
         def handle_message(event):
-            global has_executed_handle_message2  # 声明變數已在全局定義
-            amount = event.message.text
-            # 判斷是否已經執行過 handle_message2 函數
-            if not has_executed_handle_message2:
-                if re.match('我的金額', amount):
-                    line_bot_api.reply_message(event.reply_token, TextSendMessage('金額為多少'))
-                    has_executed_handle_message2 = True  # 標記已經執行過
-                    return
-            message = event.message.text
-            line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
-            return        
+            amount =event.message.text
+            if re.match('我的金額',amount):
+                line_bot_api.reply_message(event.reply_token,TextSendMessage('金額為多少'))
+                return
+            else:
+                message = text=event.message.text
+                line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
+                return     
             
     elif re.match('交通',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入交通金額鴨!')) 
