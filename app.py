@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
-
 #載入LineBot所需要的套件
 from flask import Flask, request, abort
-
 from linebot import (
     LineBotApi, WebhookHandler
 )
@@ -12,49 +10,28 @@ from linebot.exceptions import (
 from linebot.models import *
 import re
 app = Flask(__name__)
-
-#必須上自己的channel  access token
+# 必須放上自己的Channel Access Token
 line_bot_api = LineBotApi('qFY0GtsFs+BSChiaHttVqThTCQXZyNtA537u3/dMhgoaowZ90o6HCucVXNZEX0BLNOyMXbbZXrNUYySlyd2CXHtlKYTDlkhIdGitB/ZKTvWL47rT73rV8vboOVAYZOCBoZCyUbnRFilJhM0JbP2RwQdB04t89/1O/w1cDnyilFU=')
 # 必須放上自己的Channel Secret
 handler = WebhookHandler('1b6968f90a679b68802b533585423316')
-
-# line_bot_api.push_message('1660929518', TextSendMessage(text='你可以開始了'))  #主動推波push message #要付費的
-
+#line_bot_api.push_message('你自己的ID', TextSendMessage(text='你可以開始了'))
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
 def callback():
     # get X-Line-Signature header value
     signature = request.headers['X-Line-Signature']
-
     # get request body as text
     body = request.get_data(as_text=True)
     app.logger.info("Request body: " + body)
-
     # handle webhook body
     try:
         handler.handle(body, signature)
     except InvalidSignatureError:
         abort(400)
-
     return 'OK'
-
 #訊息傳遞區塊
 ##### 基本上程式編輯都在這個function #####
 @handler.add(MessageEvent, message=TextMessage)
-# def handle_message(event):
-#     message = text=event.message.text
-#     if message = "記帳":
-#         bookeeping()
-#     else:
-#         print("我聽不懂")
-
-# def bookeeping():
-#     flex_message = TextSendMessage(text='快來記帳鴨',
-#                                quick_reply=QuickReply(items=[
-#                                    QuickReplyButton(action=MessageAction(label="收入", text="收入鴨!")),
-#                                    QuickReplyButton(action=MessageAction(label="支出", text="支出鴨!"))
-#                                ]))
-#     line_bot_api.reply_message(event.reply_token, flex_message)
 def handle_message(event):
     message = text=event.message.text
     if re.match('其它功能',message):
@@ -157,31 +134,28 @@ def handle_message(event):
                                    QuickReplyButton(action=MessageAction(label="其它預算", text="其它預算"))
                                ]))
         line_bot_api.reply_message(event.reply_token, flex_message)
-        if re.match('飲食預算',message):
-            line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少飲食預算鴨！')) 
-        elif re.match('日用預算',message):
-            line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少日用預算鴨!')) 
-        elif re.match('居家預算',message):
-            line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少居家預算鴨!'))    
-        elif re.match('交通預算',message):
-            line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少交通預算鴨!')) 
-        elif re.match('服飾預算',message):
-            line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少服飾預算鴨!'))    
-        elif re.match('娛樂預算',message):
-            line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少娛樂預算鴨!')) 
-        elif re.match('醫療預算',message):
-            line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少醫療預算鴨!'))    
-        elif re.match('美容預算',message):
-            line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少美容預算鴨!')) 
-        elif re.match('教育預算',message):
-            line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少教育預算鴨!'))    
-        elif re.match('其它預算',message):
-            line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少其它預算鴨!'))
-
-
         
       
-
+    elif re.match('飲食預算',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少飲食預算鴨！')) 
+    elif re.match('日用預算',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少日用預算鴨!')) 
+    elif re.match('居家預算',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少居家預算鴨!'))    
+    elif re.match('交通預算',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少交通預算鴨!')) 
+    elif re.match('服飾預算',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少服飾預算鴨!'))    
+    elif re.match('娛樂預算',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少娛樂預算鴨!')) 
+    elif re.match('醫療預算',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少醫療預算鴨!'))    
+    elif re.match('美容預算',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少美容預算鴨!')) 
+    elif re.match('教育預算',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少教育預算鴨!'))    
+    elif re.match('其它預算',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少其它預算鴨!'))
     elif re.match('我同意服務條款',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('非常感謝您同意我們的條款，我們期待本程式能夠為您提供優質的服務。'))    
     elif re.match('我不同意服務條款',message):
