@@ -1,6 +1,8 @@
-# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-  
+
 #載入LineBot所需要的套件
 from flask import Flask, request, abort
+
 from linebot import (
     LineBotApi, WebhookHandler
 )
@@ -10,100 +12,214 @@ from linebot.exceptions import (
 from linebot.models import *
 import re
 app = Flask(__name__)
-# 必須放上自己的Channel Access Token
+
+#必須上自己的channel  access token
 line_bot_api = LineBotApi('o7GVhWmLARWtKhOTf0uAOWCO5UY2m4HYZFDGURs+rhnK8OZMazcsEVKNO83iPkB6NOyMXbbZXrNUYySlyd2CXHtlKYTDlkhIdGitB/ZKTvXkQc5maB9YU4wJxJF9ZoFbWIWVwYi8NHxttXiGNAQtWAdB04t89/1O/w1cDnyilFU=')
 # 必須放上自己的Channel Secret
 handler = WebhookHandler('675c061bcf22f2da2eb9c2e3c2c95a0e')
-#line_bot_api.push_message('你自己的ID', TextSendMessage(text='你可以開始了'))
+
+#line_bot_api.push_message('1660929518', TextSendMessage(text='你可以開始了'))  #主動推波push message #要付費的
+
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
 def callback():
     # get X-Line-Signature header value
     signature = request.headers['X-Line-Signature']
+
     # get request body as text
     body = request.get_data(as_text=True)
     app.logger.info("Request body: " + body)
+
     # handle webhook body
     try:
         handler.handle(body, signature)
     except InvalidSignatureError:
         abort(400)
+
     return 'OK'
+
 #訊息傳遞區塊
 ##### 基本上程式編輯都在這個function #####
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    message = text=event.message.text
-    if re.match('其它功能',message):
+    message = event.message.text
+
+    if re.match('告訴我秘密',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('才不告訴你哩！'))
+
+  ##貼圖      
+    elif re.match('貼圖',message):
+        # 貼圖查詢：https://developers.line.biz/en/docs/messaging-api/sticker-list/#specify-sticker-in-message-object
+        sticker_message = StickerSendMessage(
+            package_id='˙789',
+            sticker_id='10856'
+        )
+        line_bot_api.reply_message(event.reply_token, sticker_message)
+
+  ##圖片
+    elif re.match('圖片',message):
+        image_message = ImageSendMessage(     ##訊息:textmessage
+            original_content_url='https://media.nownews.com/nn_media/thumbnail/2019/04/ceca31ba-1555497323-a017e0caf9119cc47e6729799c0161ba-800x400.jpg',
+            preview_image_url='https://i.ytimg.com/vi/qjP6z2ilTWU/maxresdefault.jpg'
+        )
+        line_bot_api.reply_message(event.reply_token, image_message)
+    
+  ##組圖訊息
+    elif re.match('組圖訊息',message):
+        imagemap_message = ImagemapSendMessage(
+            base_url='https://i.imgur.com/wpM584d.jpg',
+            alt_text='this is an imagemap',
+            base_size=BaseSize(height=1040, width=1040),
+            video=Video(
+                original_content_url='https://i.imgur.com/1BnZGQC.mp4',
+                preview_image_url='https://imgur.com/SVhJU6w.jpg',
+                area=ImagemapArea(
+                    x=0, y=0, width=1040, height=585
+                ),
+                external_link=ExternalLink(# 影片結束後的連結
+                    link_uri='https://marketingliveincode.com/',
+                    label='查看更多...',
+                ),
+            ),
+            actions=[
+                URIImagemapAction(# 超連結
+                    link_uri='https://marketingliveincode.com/',
+                    area=ImagemapArea(
+                        x=0, y=0, width=520, height=1040
+                    )
+                ),
+                MessageImagemapAction(# 文字訊息
+                    text='戳我幹嘛！',
+                    area=ImagemapArea(
+                        x=520, y=0, width=520, height=1040
+                    )
+                )
+            ]
+        )
+        line_bot_api.reply_message(event.reply_token, imagemap_message)
+  
+  ##選單功能 max4 
+    elif re.match('其他功能',message):
         buttons_template_message = TemplateSendMessage(
-        alt_text='其它功能來了鴨',
+        alt_text='這個看不到',  #註解
         template=ButtonsTemplate(
             thumbnail_image_url='https://png.pngtree.com/png-vector/20190831/ourlarge/pngtree-gear-vector-icon-template-png-image_1717225.jpg',
-            title='其它功能鴨！',
-            text='記帳鴨博士的其它功能',
+            title='其他功能來了鴨',
+            text='記帳鴨博士的其他功能',
             actions=[
                 MessageAction(
                     label='新手教學',
-                    text='新手教學',
+                    text='新手教學'
                 ),
                 MessageAction(
                     label='服務條款',
-                    text='服務條款'
+                    text='查看服務條款'
                 ),
                 MessageAction(
                     label='Line Pay 連結',
-                    text='Line Pay 連結',
+                    text='Line Pay 連結'
                 )
             ]
         )
     )
         line_bot_api.reply_message(event.reply_token, buttons_template_message)
-        
-    elif re.match('服務條款',message):
+    
+  ##多樣板 max10 按鈕max3
+    elif re.match('多樣版',message):
+        carousel_template_message = TemplateSendMessage(
+            alt_text='免費教學影片',  ##不顯示
+            template=CarouselTemplate(
+                columns=[
+                    CarouselColumn(
+                        thumbnail_image_url='https://i.imgur.com/wpM584d.jpg',
+                        title='Python基礎教學',
+                        text='萬丈高樓平地起',
+                        actions=[  ##下方按鈕
+                            MessageAction(
+                                label='教學內容',
+                                text='拆解步驟詳細介紹安裝並使用Anaconda、Python、Spyder、VScode…'
+                            ),
+                            URIAction(
+                                label='馬上查看',
+                                uri='https://marketingliveincode.com/?page_id=270'
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url='https://i.imgur.com/W7nI6fg.jpg',
+                        title='Line Bot聊天機器人',
+                        text='台灣最廣泛使用的通訊軟體',
+                        actions=[
+                            MessageAction(
+                                label='教學內容',
+                                text='Line Bot申請與串接'
+                            ),
+                            URIAction(
+                                label='馬上查看',
+                                uri='https://marketingliveincode.com/?page_id=2532'
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url='https://i.imgur.com/l7rzfIK.jpg',
+                        title='Telegram Bot聊天機器人',
+                        text='唯有真正的方便，能帶來意想不到的價值',
+                        actions=[
+                            MessageAction(
+                                label='教學內容',
+                                text='Telegrame申請與串接'
+                            ),
+                            URIAction(
+                                label='馬上查看',
+                                uri='https://marketingliveincode.com/?page_id=2648'
+                            )
+                        ]
+                    )
+                ]
+            )
+        )
+        line_bot_api.reply_message(event.reply_token, carousel_template_message)
+
+  ##選擇按鈕
+    elif re.match('選擇按鈕',message):
         confirm_template_message = TemplateSendMessage(
-            alt_text='服務條款',
+            alt_text='問問題',
             template=ConfirmTemplate(
-                text='歡迎使用來記帳鴨！',
+                text='你喜這堂課嗎？',
                 actions=[
-                    MessageAction(
-                        label='同意',
-                        text='我同意服務條款'
+                    PostbackAction(
+                        label='喜歡',
+                        display_text='超喜歡',
+                        data='action=其實不喜歡'
                     ),
                     MessageAction(
-                        label='不同意',
-                        text='我不同意服務條款'
+                        label='愛',
+                        text='愛喔'
                     )
                 ]
             )
         )
         line_bot_api.reply_message(event.reply_token, confirm_template_message)
-        
-    elif re.match('圖表',message):
+
+  ##大圖案紐 max 10
+    elif re.match('大圖案紐',message):
         image_carousel_template_message = TemplateSendMessage(
-            alt_text='點擊選項來查看圖表',
+            alt_text='免費教學影片',
             template=ImageCarouselTemplate(
                 columns=[
                     ImageCarouselColumn(
-                        image_url='https://i0.wp.com/rookiesavior.net/wp-content/uploads/2021/01/1550239523.png?fit=500%2C355&ssl=1',
+                        image_url='https://i.imgur.com/wpM584d.jpg',
                         action=PostbackAction(
-                            label='月收支圖表',
-                            display_text='月收支圖表',
-                            data='action=努力不一定會成功，但不努力會很輕鬆'
+                            label='Python基礎教學影片',  ##不可超過12字元
+                            display_text='萬丈高樓平地起',
+                            data='action=努力不一定會成功，但不努力會很輕鬆'  ##部會看到
                         )
                     ),
                     ImageCarouselColumn(
-                        image_url='https://pic2.zhimg.com/v2-706be7f956613c2b4f0431482b858dc9_b.png',
+                        image_url='https://i.imgur.com/W7nI6fg.jpg',
                         action=PostbackAction(
-                            label='年收支圖表',
-                            display_text='年收支圖表',
-                            data='action=興趣不能當飯吃，但總比吃飯當興趣好'
-                        )
-                    ),
-                    ImageCarouselColumn(
-                        image_url='https://pic2.zhimg.com/v2-706be7f956613c2b4f0431482b858dc9_b.png',
-                        action=PostbackAction(
-                            label='哈哈哈你以為有什麼',
-                            display_text='哈哈哈哩鴨',
+                            label='LineBot聊天機器人',
+                            display_text='台灣最廣泛使用的通訊軟體',
                             data='action=興趣不能當飯吃，但總比吃飯當興趣好'
                         )
                     )
@@ -111,135 +227,250 @@ def handle_message(event):
             )
         )
         line_bot_api.reply_message(event.reply_token, image_carousel_template_message)
-    elif re.match('記帳',message):
-        flex_message = TextSendMessage(text='快來記帳鴨',
+
+  ##客製化選單  
+    elif re.match('客製化選單',message):
+        # Flex Message Simulator網頁：https://developers.line.biz/console/fx/
+        flex_message = FlexSendMessage(
+            alt_text='行銷搬進大程式',
+            contents={
+  "type": "bubble",
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "text",
+        "text": "RECEIPT",
+        "weight": "bold",
+        "color": "#1DB446",
+        "size": "sm"
+      },
+      {
+        "type": "text",
+        "text": "Brown Store",
+        "weight": "bold",
+        "size": "xxl",
+        "margin": "md"
+      },
+      {
+        "type": "text",
+        "text": "Miraina Tower, 4-1-6 Shinjuku, Tokyo",
+        "size": "xs",
+        "color": "#aaaaaa",
+        "wrap": True
+      },
+      {
+        "type": "separator",
+        "margin": "xxl"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "margin": "xxl",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Energy Drink",
+                "size": "sm",
+                "color": "#555555",
+                "flex": 0
+              },
+              {
+                "type": "text",
+                "text": "$2.99",
+                "size": "sm",
+                "color": "#111111",
+                "align": "end"
+              }
+            ]
+          },
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Chewing Gum",
+                "size": "sm",
+                "color": "#555555",
+                "flex": 0
+              },
+              {
+                "type": "text",
+                "text": "$0.99",
+                "size": "sm",
+                "color": "#111111",
+                "align": "end"
+              }
+            ]
+          },
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Bottled Water",
+                "size": "sm",
+                "color": "#555555",
+                "flex": 0
+              },
+              {
+                "type": "text",
+                "text": "$3.33",
+                "size": "sm",
+                "color": "#111111",
+                "align": "end"
+              }
+            ]
+          },
+          {
+            "type": "separator",
+            "margin": "xxl"
+          },
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "margin": "xxl",
+            "contents": [
+              {
+                "type": "text",
+                "text": "ITEMS",
+                "size": "sm",
+                "color": "#555555"
+              },
+              {
+                "type": "text",
+                "text": "3",
+                "size": "sm",
+                "color": "#111111",
+                "align": "end"
+              }
+            ]
+          },
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "contents": [
+              {
+                "type": "text",
+                "text": "TOTAL",
+                "size": "sm",
+                "color": "#555555"
+              },
+              {
+                "type": "text",
+                "text": "$7.31",
+                "size": "sm",
+                "color": "#111111",
+                "align": "end"
+              }
+            ]
+          },
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "contents": [
+              {
+                "type": "text",
+                "text": "CASH",
+                "size": "sm",
+                "color": "#555555"
+              },
+              {
+                "type": "text",
+                "text": "$8.0",
+                "size": "sm",
+                "color": "#111111",
+                "align": "end"
+              }
+            ]
+          },
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "contents": [
+              {
+                "type": "text",
+                "text": "CHANGE",
+                "size": "sm",
+                "color": "#555555"
+              },
+              {
+                "type": "text",
+                "text": "$0.69",
+                "size": "sm",
+                "color": "#111111",
+                "align": "end"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "separator",
+        "margin": "xxl"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "margin": "md",
+        "contents": [
+          {
+            "type": "text",
+            "text": "PAYMENT ID",
+            "size": "xs",
+            "color": "#aaaaaa",
+            "flex": 0
+          },
+          {
+            "type": "text",
+            "text": "#743289384279",
+            "color": "#aaaaaa",
+            "size": "xs",
+            "align": "end"
+          }
+        ]
+      }
+    ]
+  },
+  "styles": {
+    "footer": {
+      "separator": True
+    }
+  }
+}
+        )
+        line_bot_api.reply_message(event.reply_token, flex_message)
+
+  ##快速鍵       
+    elif re.match('快速鍵',message):
+        flex_message = TextSendMessage(text='以下有雷，請小心',
                                quick_reply=QuickReply(items=[
-                                   QuickReplyButton(action=MessageAction(label="收入", text="收入鴨!")),
-                                   QuickReplyButton(action=MessageAction(label="支出", text="支出鴨!"))
+                                   QuickReplyButton(action=MessageAction(label="按我", text="按！")),
+                                   QuickReplyButton(action=MessageAction(label="按我", text="按！")),
+                                   QuickReplyButton(action=MessageAction(label="按我", text="按！")),
+                                   QuickReplyButton(action=MessageAction(label="別按我", text="你按屁喔！爆炸了拉！！")),
+                                   QuickReplyButton(action=MessageAction(label="按我", text="按！")),
+                                   QuickReplyButton(action=MessageAction(label="按我", text="按！")),
+                                   QuickReplyButton(action=MessageAction(label="按我", text="按！")),
+                                   QuickReplyButton(action=MessageAction(label="按我", text="按！")),
+                                   QuickReplyButton(action=MessageAction(label="按我", text="按！"))
                                ]))
         line_bot_api.reply_message(event.reply_token, flex_message)
-        
-    elif re.match('預算',message):
-        flex_message = TextSendMessage(text='快來設定預算鴨',
-                               quick_reply=QuickReply(items=[
-                                   QuickReplyButton(action=MessageAction(label="飲食預算", text="飲食預算")),
-                                   QuickReplyButton(action=MessageAction(label="日用預算", text="日用預算")),
-                                   QuickReplyButton(action=MessageAction(label="居家預算", text="居家預算")),
-                                   QuickReplyButton(action=MessageAction(label="交通預算", text="交通預算")),
-                                   QuickReplyButton(action=MessageAction(label="服飾預算", text="服飾預算")),
-                                   QuickReplyButton(action=MessageAction(label="娛樂預算", text="娛樂預算")),
-                                   QuickReplyButton(action=MessageAction(label="醫療預算", text="醫療預算")),
-                                   QuickReplyButton(action=MessageAction(label="美容預算", text="美容預算")),
-                                   QuickReplyButton(action=MessageAction(label="教育預算", text="教育預算")),
-                                   QuickReplyButton(action=MessageAction(label="其它預算", text="其它預算"))
-                               ]))
-        line_bot_api.reply_message(event.reply_token, flex_message)
 
-
-    elif re.match('飲食預算',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少飲食預算鴨！'))           
-        def handle_message(event):
-    # 如果收到的是數字，回覆「好的，已建立完成！」
-            if event.message.text.isdigit():
-                reply_message = "好的，已建立完成！"
-            else:
-                 reply_message = "請輸入數字！"
-
-    # 回覆訊息給使用者
-            line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=reply_message)
-    )
-
-# 當接收到來自 Line 的「Webhook」事件時，驗證事件是否正確，若正確則執行 handle_message
-            @app.route("/callback", methods=['POST'])
-            def callback():
-            signature = request.headers['X-Line-Signature']
-            body = request.get_data(as_text=True)
-            try:
-                handler.handle(body, signature)
-            except InvalidSignatureError:
-                abort(400)
-            return 'OK'
-
-            if __name__ == "__main__":
-    # 設定 Port 為 5000
-                port = int(os.environ.get('PORT', 5000))
-                app.run(host='0.0.0.0', port=port)
-    elif re.match('日用預算',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少日用預算鴨!')) 
-    elif re.match('居家預算',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少居家預算鴨!'))    
-    elif re.match('交通預算',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少交通預算鴨!')) 
-    elif re.match('服飾預算',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少服飾預算鴨!'))    
-    elif re.match('娛樂預算',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少娛樂預算鴨!')) 
-    elif re.match('醫療預算',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少醫療預算鴨!'))    
-    elif re.match('美容預算',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少美容預算鴨!')) 
-    elif re.match('教育預算',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少教育預算鴨!'))    
-    elif re.match('其它預算',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少其它預算鴨!'))
-    elif re.match('我同意服務條款',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('非常感謝您同意我們的條款，我們期待本程式能夠為您提供優質的服務。'))    
-    elif re.match('我不同意服務條款',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('由於您使用本應用程式進行記帳，為了協助您分析收入，本程式需要使用您所提供的資訊進行分析。然而，因為您選擇不同意服務條款，本程式無法為您提供相關分析功能。因此，我們建議您重新考慮是否同意服務條款，以確保您能夠使用本程式的全部功能。如果您重新選擇同意服務條款後，即可再次使用本程式。'))    
-    elif re.match('支出',message):
-        flex_message = TextSendMessage(text='選擇支出類別鴨！',
-                               quick_reply=QuickReply(items=[
-                                   QuickReplyButton(action=MessageAction(label="飲食", text="飲食")),
-                                   QuickReplyButton(action=MessageAction(label="交通", text="交通")),
-                                   QuickReplyButton(action=MessageAction(label="娛樂", text="娛樂")),
-                                   QuickReplyButton(action=MessageAction(label="醫療", text="醫療")),
-                                   QuickReplyButton(action=MessageAction(label="服飾", text="服飾")),
-                                   QuickReplyButton(action=MessageAction(label="美容", text="美容")),
-                                   QuickReplyButton(action=MessageAction(label="教育", text="教育")),
-                                   QuickReplyButton(action=MessageAction(label="居家(水電瓦斯)", text="居家(水電瓦斯)")),
-                                   QuickReplyButton(action=MessageAction(label="日用(如:洗髮精)", text="日用(如:洗髮精)")),
-                                   QuickReplyButton(action=MessageAction(label="其他", text="其他")),
-                               ]))
-        line_bot_api.reply_message(event.reply_token, flex_message)
-    elif re.match('收入',message):
-        flex_message = TextSendMessage(text='選擇收入類別鴨！',
-                               quick_reply=QuickReply(items=[
-                                   QuickReplyButton(action=MessageAction(label="薪資", text="薪資")),
-                                   QuickReplyButton(action=MessageAction(label="獎金", text="獎金")),
-                                   QuickReplyButton(action=MessageAction(label="理財", text="理財")),
-                               ]))
-        line_bot_api.reply_message(event.reply_token, flex_message)
-    elif re.match('飲食',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入餐飲金額鴨!'))
-        amount =event.message.text
-        if re.match('飲食鴨',amount):
-            line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入餐飲金額鴨!'))
-        else:
-            line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
-            
-    elif re.match('交通',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入交通金額鴨!')) 
-    elif re.match('娛樂',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入娛樂金額鴨!')) 
-    elif re.match('醫療',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入醫療金額鴨!')) 
-    elif re.match('服飾',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入服飾金額鴨!')) 
-    elif re.match('美容',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入美容金額鴨!')) 
-    elif re.match('教育',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入教育金額鴨!'))
-    elif re.match('居家(水電瓦斯)',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入居家(水電瓦斯)金額鴨!'))
-    elif re.match('日用(如:洗髮精)',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入日用(如:洗髮精)金額鴨!'))
-    elif re.match('其他',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入其他金額鴨!'))
     else:
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
-        
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(message)) #message=使用者傳送
+                                                      #textsendmessage 主要是傳送文字訊息
+        #push_message line主動去推撥文字/發文 #reply_message 使用者戳了機器然才會回復
+
+    
 #主程式
 import os
 if __name__ == "__main__":
