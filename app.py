@@ -191,8 +191,10 @@ def handle_message(event):
             amount =event.message.text
             if re.match('我的金額',amount):
                 line_bot_api.reply_message(event.reply_token,TextSendMessage('金額為多少'))
+                break
             else:
                 line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
+                break
             
     elif re.match('交通',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入交通金額鴨!')) 
