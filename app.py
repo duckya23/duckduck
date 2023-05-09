@@ -18,7 +18,7 @@ handler = WebhookHandler('05a15941e79753db37de1062d1cec8dd')
 
 #新增呼叫
 @handler.add(MessageEvent, message=TextMessage)
-def handle_message(event):
+def handle_message2(event):
     amount =event.message.text
     if re.match('我的金額',amount):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('金額為多少'))
@@ -200,7 +200,7 @@ def handle_message(event):
     elif re.match('飲食',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入餐飲金額鴨!')) 
         amount =event.message.text
-        handle_message(amount)
+        handle_message2(amount)
             
     elif re.match('交通',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入交通金額鴨!')) 
