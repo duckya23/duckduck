@@ -221,6 +221,12 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入理財收入金額鴨!')) 
     elif re.match('其他收入',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入其他收入金額鴨!')) 
+        # 等待使用者輸入金額
+        @handler.add(MessageEvent, message=TextMessage)
+        def handle_income(event):
+            global a
+            a = event.message.text
+            line_bot_api.reply_message(event.reply_token, TextSendMessage(f'已儲存金額 {a} 鴨！'))
     elif re.match('回傳兩個訊息',message):
         amount = event.message.text
         reply_arr = [TextSendMessage(amount),TextSendMessage("歡迎使用本軟體")]
