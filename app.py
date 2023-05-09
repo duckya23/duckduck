@@ -218,11 +218,12 @@ def handle_message(event):
     elif re.match('理財',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入理財收入金額鴨!')) 
     elif re.match('其他收入',message):
+        #以下這段只是測試用，測試失敗，先留者
         a = message  # 儲存輸入的金額到變數 a 中
         reply_text = f'已儲存金額 {a} 鴨！'  # 建立回覆訊息
         line_bot_api.reply_message(event.reply_token, TextSendMessage(reply_text))
     elif re.match('回傳兩個訊息',message):
-        #以下這段只是測試用，測試失敗
+        #以下這段只是測試用，劉者以後可能用
         amount = event.message.text
         reply_arr = [TextSendMessage(amount),TextSendMessage("歡迎使用本軟體")]
         line_bot_api.reply_message(event.reply_token,reply_arr)
