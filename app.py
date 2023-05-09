@@ -230,13 +230,13 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
         
 #新增呼叫
-#@handler.add(MessageEvent, message=TextMessage)
-#def handle_message2(amount):
-#    if re.match('我的金額',amount):
-#        line_bot_api.reply_message(event.reply_token,TextSendMessage('金額為多少'))
-#    else:
-#        amount = text=event.message.text
-#        line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
+@handler.add(MessageEvent, message=TextMessage)
+def handle_message2(amount):
+    if re.match('我的金額',amount):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('金額為多少'))
+    else:
+        amount = text=event.message.text
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
         
 #主程式
 import os
