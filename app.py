@@ -17,15 +17,6 @@ handler = WebhookHandler('05a15941e79753db37de1062d1cec8dd')
 #line_bot_api.push_message('你自己的ID', TextSendMessage(text='你可以開始了'))
 
 
-#新增呼叫
-@handler.add(MessageEvent, message=TextMessage)
-def handle_message2(amount):
-    if re.match('我的金額',amount):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('金額為多少'))
-    else:
-        amount = text=event.message.text
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
-        
 
 
 # 監聽所有來自 /callback 的 Post Request
@@ -201,6 +192,16 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入餐飲金額鴨!')) 
         amount =event.message.text
         handle_message2(amount)
+        #新增呼叫
+        @handler.add(MessageEvent, message=TextMessage)
+        def handle_message2(amount):
+            if re.match('我的金額',amount):
+                line_bot_api.reply_message(event.reply_token,TextSendMessage('金額為多少'))
+            else:
+                amount = text=event.message.text
+                line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
+        
+
             
     elif re.match('交通',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入交通金額鴨!')) 
