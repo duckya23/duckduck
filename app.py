@@ -230,7 +230,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
         
 #新增呼叫
-@handler.add(MessageEvent, amount=TextMessage)
+@handler.add(MessageEvent, message=TextMessage)
 def handle_message2(event):
     amount =event.message.text
     if re.match('我的金額',amount):
