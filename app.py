@@ -191,8 +191,8 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, flex_message)
     elif re.match('飲食',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入餐飲金額鴨!')) 
-#        amount =event.message.text
-#        handle_message2(amount)
+        amount =event.message.text
+        handle_message2(amount)
             
     elif re.match('交通',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入交通金額鴨!')) 
@@ -230,14 +230,13 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
         
 #新增呼叫
-#@handler.add(MessageEvent, message=TextMessage)
-#def handle_message2(event):
-#    amount =event.message.text
-#    if re.match('我的金額',amount):
-#        line_bot_api.reply_message(event.reply_token,TextSendMessage('金額為多少'))
-#    else:
-#        amount = text=event.message.text
-#        line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
+@handler.add(MessageEvent, message=TextMessage)
+def handle_message2(amount):
+    if re.match('我的金額',amount):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('金額為多少'))
+    else:
+        amount = text=event.message.text
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
         
 #主程式
 import os
