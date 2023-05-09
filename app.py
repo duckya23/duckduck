@@ -17,13 +17,13 @@ handler = WebhookHandler('05a15941e79753db37de1062d1cec8dd')
 #line_bot_api.push_message('你自己的ID', TextSendMessage(text='你可以開始了'))
 
 #新增呼叫
-@handler.add(MessageEvent, message=TextMessage)
+@handler.add(MessageEvent, amount=TextMessage)
 def handle_message2(event):
     amount =event.message.text
     if re.match('我的金額',amount):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('金額為多少'))
     else:
-        message = text=event.message.text
+        amount = text=event.message.text
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
 
 
