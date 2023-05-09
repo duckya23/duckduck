@@ -46,9 +46,9 @@ def handle_message(event):
             title='其它功能鴨！',
             text='記帳鴨博士的其它功能',
             actions=[
-                MessageAction(
+                URIAction(
                     label='新手教學',
-                    text='新手教學',
+                    uri='https://sites.google.com/view/duckteaching/%E9%A6%96%E9%A0%81',
                 ),
                 URIAction(
                     label='服務條款',
