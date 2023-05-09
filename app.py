@@ -189,12 +189,10 @@ def handle_message(event):
                                ]))
         line_bot_api.reply_message(event.reply_token, flex_message)
     elif re.match('飲食',message):
+        #以下這段只是測試用，測試失敗
         line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入餐飲金額鴨!'))        
         amount =event.message.text
-        line_bot_api.reply_message(event.reply_token, TextSendMessage("amount"))
-        
-
-            
+        line_bot_api.reply_message(event.reply_token, TextSendMessage("amount"))                   
     elif re.match('交通',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入交通金額鴨!')) 
     elif re.match('娛樂',message):
@@ -224,6 +222,7 @@ def handle_message(event):
         reply_text = f'已儲存金額 {a} 鴨！'  # 建立回覆訊息
         line_bot_api.reply_message(event.reply_token, TextSendMessage(reply_text))
     elif re.match('回傳兩個訊息',message):
+        #以下這段只是測試用，測試失敗
         amount = event.message.text
         reply_arr = [TextSendMessage(amount),TextSendMessage("歡迎使用本軟體")]
         line_bot_api.reply_message(event.reply_token,reply_arr)
