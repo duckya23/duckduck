@@ -210,7 +210,7 @@ if __name__ == "__main__":
                                    QuickReplyButton(action=MessageAction(label="教育", text="教育")),
                                    QuickReplyButton(action=MessageAction(label="居家(水電瓦斯)", text="居家(水電瓦斯)")),
                                    QuickReplyButton(action=MessageAction(label="日用(如:洗髮精)", text="日用(如:洗髮精)")),
-                                   QuickReplyButton(action=MessageAction(label="其他", text="其他")),
+                                   QuickReplyButton(action=MessageAction(label="其他支出", text="其他支出")),
                                ]))
         line_bot_api.reply_message(event.reply_token, flex_message)
     elif re.match('收入',message):
@@ -243,7 +243,7 @@ if __name__ == "__main__":
         line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入居家(水電瓦斯)金額鴨!'))
     elif re.match('日用(如:洗髮精)',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入日用(如:洗髮精)金額鴨!'))
-    elif re.match('其他',message):
+    elif re.match('其他支出',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入其他金額鴨!'))
     elif re.match('薪資',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入薪資收入金額鴨!')) 
@@ -254,7 +254,7 @@ if __name__ == "__main__":
         #測試函數
         handle_message2()
         #line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入理財收入金額鴨!')) 
-    elif re.match('0其他收入',message):
+    elif re.match('其他收入',message):
         #以下這段只是測試用，測試失敗，先留者
         amount = text=event.message.text
         a = amount  # 儲存輸入的金額到變數 a 中
