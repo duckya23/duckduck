@@ -74,7 +74,19 @@ def handle_message9(event):
         )
     )
         line_bot_api.reply_message(event.reply_token, buttons_template_message)
-#        uri='https://sites.google.com/view/duckteaching/%E9%A6%96%E9%A0%81',
+# 定義LineBot回應訊息
+def handle_postback(event):
+    # 判斷是否為 Postback 事件
+    if event.postback:
+        # 取得 Postback 資料
+        data = event.postback.data
+        # 判斷 Postback 的 action
+        if data == 'action=send_message&message=嗨':
+            # 回傳指定的訊息
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text='嗨')
+            )
     elif re.match('服務條款',message):
         confirm_template_message = TemplateSendMessage(
             alt_text='服務條款',
