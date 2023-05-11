@@ -61,7 +61,7 @@ def handle_message9(event):
             actions=[
                 PostbackTemplateAction(
                     label='使用說明',
-                    data='action=send_message&message=嗨'
+                    Message='嗨'
                 ),
                 URIAction(
                     label='服務條款',
@@ -76,20 +76,18 @@ def handle_message9(event):
     )
         line_bot_api.reply_message(event.reply_token, buttons_template_message)
 # 定義LineBot回應訊息
-def handle_postback(event):
+#def handle_postback(event):
     # 判斷是否為 Postback 事件
-    if event.postback:
-        # 取得 Postback 資料
-        data = event.postback.data
+#    if event.postback:
+#        # 取得 Postback 資料
+#        data = event.postback.data
         # 判斷 Postback 的 action
-        if data == 'action=send_message&message=嗨':
+#        if data == 'action=send_message&message=嗨':
             # 回傳指定的訊息
-            line_bot_api.reply_message(
-                event.reply_token,
-                TextSendMessage(text='嗨')
-            )
-if __name__ == "__main__":
-    app.run()
+#            line_bot_api.reply_message(
+#                event.reply_token,
+#                TextSendMessage(text='嗨')
+#            )
     
     elif re.match('服務條款',message):
         confirm_template_message = TemplateSendMessage(
