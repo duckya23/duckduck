@@ -234,7 +234,7 @@ def handle_message(event):
         #line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入獎金收入金額鴨!')) 
     elif re.match('理財',message):
         #測試函數
-        handle_message2()
+        global handle_message2()
         #line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入理財收入金額鴨!')) 
     elif re.match('0其他收入',message):
         #以下這段只是測試用，測試失敗，先留者
