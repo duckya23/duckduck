@@ -59,8 +59,8 @@ def handle_message(event):
             text='記帳鴨博士的其它功能',
             actions=[
                 URIAction(
-                    label='新手教學',
-                    uri='https://sites.google.com/view/duckteaching/%E9%A6%96%E9%A0%81',
+                    label='使用說明',
+                    line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入交通金額鴨!'))
                 ),
                 URIAction(
                     label='服務條款',
@@ -74,7 +74,7 @@ def handle_message(event):
         )
     )
         line_bot_api.reply_message(event.reply_token, buttons_template_message)
-        
+#        uri='https://sites.google.com/view/duckteaching/%E9%A6%96%E9%A0%81',
     elif re.match('服務條款',message):
         confirm_template_message = TemplateSendMessage(
             alt_text='服務條款',
