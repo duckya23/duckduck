@@ -25,7 +25,9 @@ def handle_message2():
     else :
         line_bot_api.reply_message(event.reply_token, TextSendMessage(amount))
 
-
+@handler.add(MessageEvent, message=TextMessage)
+def handle_message3():
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('金額為多少鴨!')) 
         
 
 
@@ -45,12 +47,7 @@ def callback():
     return 'OK'
 #訊息傳遞區塊
 ##### 基本上程式編輯都在這個function #####
-@handler.add(MessageEvent, message=TextMessage)
-#以下這段測試用
-def handle_message3():
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('金額為多少鴨!')) 
-        
-        
+@handler.add(MessageEvent, message=TextMessage)        
 def handle_message(event):
     message = text=event.message.text
     if re.match('其它功能',message):
