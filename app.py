@@ -16,7 +16,7 @@ line_bot_api = LineBotApi('cA4Y+naWER+/PyaAYGacJOO6GznxzUz/vUHhFzmY2eVvIczqzh7In
 handler = WebhookHandler('05a15941e79753db37de1062d1cec8dd')
 #line_bot_api.push_message('你自己的ID', TextSendMessage(text='你可以開始了'))
 
-totala=0
+
 
 #以下這段目前沒有作用
 @handler.add(MessageEvent, message=TextMessage)
@@ -51,7 +51,7 @@ def callback():
 ##### 基本上程式編輯都在這個function #####
 @handler.add(MessageEvent, message=TextMessage)        
 def handle_message9(event):
-    
+    totala=0 
     message = text = event.message.text
     if re.match('其它功能',message):
         buttons_template_message = TemplateSendMessage(
