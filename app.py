@@ -16,6 +16,8 @@ line_bot_api = LineBotApi('cA4Y+naWER+/PyaAYGacJOO6GznxzUz/vUHhFzmY2eVvIczqzh7In
 handler = WebhookHandler('05a15941e79753db37de1062d1cec8dd')
 #line_bot_api.push_message('你自己的ID', TextSendMessage(text='你可以開始了'))
 
+totala=0
+
 #以下這段目前沒有作用
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message2():
@@ -170,7 +172,9 @@ def handle_message9(event):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少飲食預算鴨！'))
     #飲食預算要用3000
     elif re.match('3000',message):
+        totala+=3000
         line_bot_api.reply_message(event.reply_token,TextSendMessage('已經幫您儲存了鴨！'))
+        
         
     elif re.match('日用預算',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少日用預算鴨!'))
@@ -279,6 +283,10 @@ def handle_message9(event):
         amount = event.message.text
 #         line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨!'))
         line_bot_api.reply_message(event.reply_token,TextSendMessage(amount))
+    elif re.match('查看totala',message):
+        #以下這段只是測試用
+        reply_text = f'目前飲食預算為 {totala} 鴨！'  # 建立回覆訊息
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(reply_text))
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
         
