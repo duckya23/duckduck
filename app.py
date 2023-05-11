@@ -79,7 +79,7 @@ def handle_message9(event):
         line_bot_api.reply_message(event.reply_token, buttons_template_message)
         
     elif re.match('使用說明',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('使用說明:\
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('【使用說明】:\
                                                                      1.請先詳細看完服務條款並同意再進行本服務鴨，要看清楚鴨！呱！！\
                                                                      \
                                                                      2.點擊下列選單中的【記帳】會在鍵盤上方跳出小按鈕可以選擇輸入收入、支出、編輯資料！\
