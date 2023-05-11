@@ -60,7 +60,7 @@ def handle_message(event):
             actions=[
                 URIAction(
                     label='使用說明',
-                    line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入交通金額鴨!'))
+                    uri='https://sites.google.com/view/ducktermserver/%E9%A6%96%E9%A0%81'
                 ),
                 URIAction(
                     label='服務條款',
