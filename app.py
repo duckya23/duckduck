@@ -154,7 +154,7 @@ def handle_message(event):
       
     elif re.match('飲食預算',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少飲食預算鴨！')) 
-        if .isdigit():
+        if event.message.text.isdigit():
             print("已幫你儲存了鴨！")
         else:
             print("請重新輸入鴨！")
