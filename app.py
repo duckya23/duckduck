@@ -49,10 +49,6 @@ def callback():
 ##### 基本上程式編輯都在這個function #####
 @handler.add(MessageEvent, message=TextMessage)        
 def handle_message9(event):
-#     sql_cmd = """select income from userduck"""
-#     query_data = db.engine.execute(sql_cmd)
-#     message = TextSendMessage(text = event.message.text+"..."+query_data.fetchone()[0])
-#     line_bot_api.reply_message(event.reply_token, message)
     
     message = text = event.message.text
     if re.match('其它功能',message):
