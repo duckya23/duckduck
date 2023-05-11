@@ -60,7 +60,7 @@ def handle_message(event):
             actions=[
                 MessageAction(
                     label='使用說明',
-                    print("嗨")
+                     line_bot_api.reply_message(event.reply_token, TextSendMessage("嗨"))
                 ),
                 URIAction(
                     label='服務條款',
