@@ -79,14 +79,20 @@ def handle_message9(event):
         line_bot_api.reply_message(event.reply_token, buttons_template_message)
         
     elif re.match('使用說明',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('使用說明:1.請先詳細看完服務條款並同意再進行本服務鴨，要看清楚鴨！呱！！\
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('使用說明:\
+                                                                     1.請先詳細看完服務條款並同意再進行本服務鴨，要看清楚鴨！呱！！\
+                                                                     \
                                                                      2.點擊下列選單中的【記帳】會在鍵盤上方跳出小按鈕可以選擇輸入收入、支出、編輯資料！\
+                                                                     \
                                                                      3.點擊下列選單中的【圖表】會有?種圖表可以詳細分析出您的月收支以及?\
+                                                                     \
                                                                      4.點擊下列選單中的【預算】會在鍵盤上方跳出小按鈕可以選擇要設定的預算類別，點擊類別後再輸入金額鴨！\
+                                                                     \
                                                                      5.點擊下列選單中的【其它功能】會跳出三個選項(使用說明、服務條款、Line Pay連結)鴨\
                                                                      (1)點擊【使用說明】會傳給您使用說明的詳細內容鴨\
                                                                      (2)點擊【服務條款】會跳出服務條款的頁面供您查看鴨\
                                                                      (3)點擊【Line Pay連結】會跳出Line Pay的連結設定，若一開始使用本服務已同意連結Line Pay ，若要終止請點擊【終止連結】按鈕若一開始使用本服務未使用連結Line Pay服務，若要啟動請點擊【連結】按鈕鴨！\
+                                                                     \
                                                                      6.若對此記帳鴨服務有任何建議或是問題需修改，可以點選服務條款下的表單填寫，鴨博士會很開心能夠收到您們的建議和回饋喔！'))
         
 # 定義LineBot回應訊息
