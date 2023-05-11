@@ -16,7 +16,14 @@ line_bot_api = LineBotApi('cA4Y+naWER+/PyaAYGacJOO6GznxzUz/vUHhFzmY2eVvIczqzh7In
 handler = WebhookHandler('05a15941e79753db37de1062d1cec8dd')
 #line_bot_api.push_message('你自己的ID', TextSendMessage(text='你可以開始了'))
 
-
+@handler.add(MessageEvent, message=TextMessage)
+def handle_message2(event):
+    amount = text=event.message.text
+    if re.match('我的金額',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('金額為多少鴨!')) 
+    else :
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(amount)) 
+        
 
 
 # 監聽所有來自 /callback 的 Post Request
@@ -216,7 +223,9 @@ def handle_message(event):
     elif re.match('獎金',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入獎金收入金額鴨!')) 
     elif re.match('理財',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入理財收入金額鴨!')) 
+        #測試函數
+        handle_message2()
+        #line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入理財收入金額鴨!')) 
     elif re.match('0其他收入',message):
         #以下這段只是測試用，測試失敗，先留者
         a = message  # 儲存輸入的金額到變數 a 中
