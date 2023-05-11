@@ -58,9 +58,9 @@ def handle_message9(event):
             title='其它功能鴨！',
             text='記帳鴨博士的其它功能',
             actions=[
-                URIAction(
+                PostbackTemplateAction(
                     label='使用說明',
-                     uri='https://sites.google.com/view/ducktermserver/%E9%A6%96%E9%A0%81'
+                    data='嗨'
                 ),
                 URIAction(
                     label='服務條款',
