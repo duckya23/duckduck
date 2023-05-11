@@ -24,7 +24,7 @@ def handle_message2():
         line_bot_api.reply_message(event.reply_token,TextSendMessage('金額為多少鴨!')) 
     else :
         line_bot_api.reply_message(event.reply_token, TextSendMessage(amount))
-
+#以下這段目前沒有作用
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message3():
         line_bot_api.reply_message(event.reply_token,TextSendMessage('金額為多少鴨!')) 
