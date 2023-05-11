@@ -60,7 +60,7 @@ def handle_message9(event):
             actions=[
                 PostbackTemplateAction(
                     label='使用說明',
-                    data='嗨'
+                    data='action=send_message&message=嗨'
                 ),
                 URIAction(
                     label='服務條款',
