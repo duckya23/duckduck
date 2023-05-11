@@ -234,7 +234,8 @@ def handle_message(event):
         #line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入理財收入金額鴨!')) 
     elif re.match('0其他收入',message):
         #以下這段只是測試用，測試失敗，先留者
-        a = message  # 儲存輸入的金額到變數 a 中
+        amount = text=event.message.text
+        a = amount  # 儲存輸入的金額到變數 a 中
         reply_text = f'已儲存金額 {a} 鴨！'  # 建立回覆訊息
         line_bot_api.reply_message(event.reply_token, TextSendMessage(reply_text))
     elif re.match('回傳兩個訊息',message):
