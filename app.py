@@ -23,7 +23,12 @@ def handle_message2():
     if re.match('我的金額',amount):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('金額為多少鴨!')) 
     else :
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(amount)) 
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(amount))
+#以下這段測試用
+@handler.add(MessageEvent, message=TextMessage)
+def handle_message3():
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('金額為多少鴨!')) 
+
         
 
 
@@ -222,7 +227,8 @@ def handle_message(event):
     elif re.match('薪資',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入薪資收入金額鴨!')) 
     elif re.match('獎金',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入獎金收入金額鴨!')) 
+        handle_message3()
+        #line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入獎金收入金額鴨!')) 
     elif re.match('理財',message):
         #測試函數
         handle_message2()
