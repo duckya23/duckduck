@@ -168,20 +168,35 @@ def handle_message9(event):
       
     elif re.match('飲食預算',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少飲食預算鴨！'))
+    #飲食預算要用3000
     elif re.match('3000',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('已經幫您儲存了鴨！'))
+        
+    elif re.match('日用預算',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少日用預算鴨!'))
+    #日用預算要用2000
     elif re.match('2000',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('幫你儲存了鴨！'))
-    elif re.match('日用預算',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少日用預算鴨!')) 
     elif re.match('居家預算',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少居家預算鴨!'))    
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少居家預算鴨!'))
+    #居家預算要用2500
+    elif re.match('2500',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('幫你儲存了鴨！'))
     elif re.match('交通預算',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少交通預算鴨!')) 
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少交通預算鴨!'))
+    #交通預算要用3500
+    elif re.match('3500',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('幫你儲存了鴨！'))
     elif re.match('服飾預算',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少服飾預算鴨!'))    
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少服飾預算鴨!'))
+    #服飾預算要用1000
+    elif re.match('1000',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('幫你儲存了鴨！'))
     elif re.match('娛樂預算',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少娛樂預算鴨!')) 
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少娛樂預算鴨!'))
+    #娛樂預算要用1000
+    elif re.match('1500',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('幫你儲存了鴨！'))
     elif re.match('醫療預算',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少醫療預算鴨!'))    
     elif re.match('美容預算',message):
