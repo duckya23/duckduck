@@ -87,6 +87,9 @@ def handle_postback(event):
                 event.reply_token,
                 TextSendMessage(text='嗨')
             )
+if __name__ == "__main__":
+    app.run()
+    
     elif re.match('服務條款',message):
         confirm_template_message = TemplateSendMessage(
             alt_text='服務條款',
