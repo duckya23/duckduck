@@ -54,7 +54,7 @@ def handle_message9(event):
     message = TextSendMessage(text = event.message.text+"..."+query_data.fetchone()[0])
     line_bot_api.reply_message(event.reply_token, message)
     
-    message = text = event.message.text
+    #message = text = event.message.text
     if re.match('其它功能',message):
         buttons_template_message = TemplateSendMessage(
         alt_text='其它功能來了鴨',
