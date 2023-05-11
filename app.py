@@ -19,11 +19,11 @@ handler = WebhookHandler('05a15941e79753db37de1062d1cec8dd')
 #以下這段目前沒有作用
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message2():
-    amount = text=event.message.text
-    if re.match('我的金額',amount):
+    message = text=event.message.text
+    if re.match('我的金額',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('金額為多少鴨!')) 
     else :
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(amount))
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
 #以下這段目前沒有作用
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message3():
