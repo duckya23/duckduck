@@ -182,29 +182,29 @@ def handle_message9(event):
                                    QuickReplyButton(action=MessageAction(label="美容預算", text="美容預算")),
                                    QuickReplyButton(action=MessageAction(label="教育預算", text="教育預算")),
                                    QuickReplyButton(action=MessageAction(label="其它預算", text="其它預算")),
-                                   QuickReplyButton(action=MessageAction(label="結餘&預算表格", text="好的現在為您開啟表格!鴨鴨!"))
+#                                    QuickReplyButton(action=MessageAction(label="結餘&預算表格", text="好的現在為您開啟表格!鴨鴨!"))
                                ]))
         line_bot_api.reply_message(event.reply_token, flex_message)
         
     
-    elif re.match('好的現在為您開啟表格!鴨鴨!',message):
+#     elif re.match('好的現在為您開啟表格!鴨鴨!',message):
 
-        from tkinter import *
-        from tabulate import tabulate
-        categories = ["飲食", "日用", "居家", "交通", "服飾", "娛樂", "醫療", "美容", "教育", "其它"]
-        budgets = [3000, 2000, 2500, 3500, 1000, 1500, 800, 500, 1200, 900]
-        balances = [10] * len(categories)
+#         from tkinter import *
+#         from tabulate import tabulate
+#         categories = ["飲食", "日用", "居家", "交通", "服飾", "娛樂", "醫療", "美容", "教育", "其它"]
+#         budgets = [3000, 2000, 2500, 3500, 1000, 1500, 800, 500, 1200, 900]
+#         balances = [10] * len(categories)
 
-        d = list(zip(categories, budgets, balances))
-        table = tabulate(d, headers=["類別", "預算", "結餘"], tablefmt="pipe")
+#         d = list(zip(categories, budgets, balances))
+#         table = tabulate(d, headers=["類別", "預算", "結餘"], tablefmt="pipe")
 
-# 创建新窗口并显示表格
-        root = Tk()
-        root.title("預算表格")
-        root.geometry("400x400")
-        table_label = Label(root, text=table, justify=LEFT, font=("Courier", 12))
-        table_label.pack()
-        root.mainloop()
+# # 创建新窗口并显示表格
+#         root = Tk()
+#         root.title("預算表格")
+#         root.geometry("400x400")
+#         table_label = Label(root, text=table, justify=LEFT, font=("Courier", 12))
+#         table_label.pack()
+#         root.mainloop()
     elif re.match('飲食預算',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少飲食預算鴨！'))
     #飲食預算要用3000
