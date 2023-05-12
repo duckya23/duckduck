@@ -182,7 +182,7 @@ def handle_message9(event):
                                    QuickReplyButton(action=MessageAction(label="美容預算", text="美容預算")),
                                    QuickReplyButton(action=MessageAction(label="教育預算", text="教育預算")),
                                    QuickReplyButton(action=MessageAction(label="其它預算", text="其它預算")),
-#                                    QuickReplyButton(action=MessageAction(label="結餘&預算表格", text="好的現在為您開啟表格!鴨鴨!"))
+                                   QuickReplyButton(action=MessageAction(label="結餘&預算表格", text="好的現在為您開啟表格!鴨鴨!"))
                                ]))
         line_bot_api.reply_message(event.reply_token, flex_message)
         
