@@ -188,7 +188,7 @@ def handle_message9(event):
         
     
     elif re.match('好的現在為您開啟表格!鴨鴨!',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少飲食預算鴨！'))
+
         from tkinter import *
         from tabulate import tabulate
         categories = ["飲食", "日用", "居家", "交通", "服飾", "娛樂", "醫療", "美容", "教育", "其它"]
