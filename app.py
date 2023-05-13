@@ -126,13 +126,13 @@ def handle_message9(event):
                     ImageCarouselColumn(
                         image_url='https://i.imgur.com/pT1Fm9d.png',
                         action=PostbackAction(
-                            label='月收支圖表',
-                            display_text='月收支圖表',
+                            label='年收支圖表',
+                            display_text='年收支圖表',
                             data='action=努力不一定會成功，但不努力會很輕鬆'
                         )
                     ),
                     ImageCarouselColumn(
-                        image_url='https://pic2.zhimg.com/v2-706be7f956613c2b4f0431482b858dc9_b.png',
+                        image_url='https://i.imgur.com/pT1Fm9d.png',
                         action=PostbackAction(
                             label='年收支圖表',
                             display_text='年收支圖表',
