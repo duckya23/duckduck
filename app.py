@@ -73,8 +73,8 @@ def handle_message9(event):
                     uri='https://sites.google.com/view/ducktermserver/%E9%A6%96%E9%A0%81'
                 ),
                 MessageAction(
-                    label='Line Pay 連結',
-                    text='Line Pay 連結',
+                    label='LinePay收據',
+                    text='LinePay收據',
                 ),
                 URIAction(
                     label='官方網站',
@@ -148,179 +148,120 @@ def handle_message9(event):
         flex_message = FlexSendMessage(
             alt_text='收據來了鴨',
             contents={
-                     "type": "bubble",
-                     "body": {
-                         "type": "box",
-                         "layout": "vertical",
-                         "contents": [
-                         {
-                             "type": "text",
-                             "text": "Line Pay收據",
-                             "weight": "bold",
-                             "color": "#1DB446",
-                             "size": "sm"
-                         },
-                         {
-                             "type": "text",
-                             "text": "鴨肉屠宰場",
-                             "weight": "bold",
-                             "size": "xxl",
-                             "margin": "md"
-                         },
-                         {
-                             "type": "text",
-                             "text": "台北市鴨場區爆炒路四段928號",
-                             "size": "xs",
-                             "color": "#aaaaaa",
-                             "wrap": True
-                         },
-                         {
-                             "type": "separator",
-                             "margin": "xxl"
-                         },
-                         {
-                             "type": "box",
-                             "layout": "vertical",
-                             "margin": "xxl",
-                             "spacing": "sm",
-                             "contents": [
-                             {
-                                 "type": "box",
-                                 "layout": "horizontal",
-                                 "contents": [
-                                 {
-                                     "type": "text",
-                                     "text": "鴨肉片",
-                                     "size": "sm",
-                                     "color": "#555555",
-                                     "flex": 0
-                                 },
-                                 {
-                                     "type": "text",
-                                     "text": "$200",
-                                     "size": "sm",
-                                     "color": "#111111",
-                                     "align": "end"
-                                 }
-                                 ]
-                             },
-                             {
-                                 "type": "box",
-                                 "layout": "horizontal",
-                                 "contents": [
-                                 {
-                                     "type": "text",
-                                     "text": "鴨肉湯",
-                                     "size": "sm",
-                                     "color": "#555555",
-                                     "flex": 0
-                                 },
-                                 {
-                                     "type": "text",
-                                     "text": "$260",
-                                     "size": "sm",
-                                     "color": "#111111",
-                                     "align": "end"
-                                 }
-                                 ]
-                             },
-                             {
-                                 "type": "box",
-                                 "layout": "horizontal",
-                                 "contents": [
-                                 {
-                                     "type": "text",
-                                     "text": "烤鴨片",
-                                     "size": "sm",
-                                     "color": "#555555",
-                                     "flex": 0
-                                 },
-                                 {
-                                     "type": "text",
-                                     "text": "$240",
-                                     "size": "sm",
-                                     "color": "#111111",
-                                     "align": "end"
-                                 }
-                                 ]
-                             },
-                             {
-                                 "type": "separator",
-                                 "margin": "xxl"
-                             },
-                             {
-                                 "type": "box",
-                                 "layout": "horizontal",
-                                 "contents": [
-                                 {
-                                     "type": "text",
-                                     "text": "總金額",
-                                     "size": "sm",
-                                     "color": "#555555"
-                                 },
-                                 {
-                                     "type": "text",
-                                     "text": "$700",
-                                     "size": "sm",
-                                     "color": "#111111",
-                                     "align": "end"
-                                 }
-                                 ]
-                             },
-                             {
-                                 "type": "box",
-                                 "layout": "horizontal",
-                                 "contents": [
-                                 {
-                                     "type": "text",
-                                     "text": "小費",
-                                     "size": "sm",
-                                     "color": "#555555"
-                                 },
-                                 {
-                                     "type": "text",
-                                     "text": "$70",
-                                     "size": "sm",
-                                     "color": "#111111",
-                                     "align": "end"
-                                 }
-                                 ]
-                             }
-                             ]
-                         },
-                         {
-                             "type": "separator",
-                             "margin": "xxl"
-                         },
-                         {
-                             "type": "box",
-                             "layout": "horizontal",
-                             "margin": "md",
-                             "contents": [
-                             {
-                                 "type": "text",
-                                 "text": "交易代碼",
-                                 "size": "xs",
-                                 "color": "#aaaaaa",
-                                 "flex": 0
-                             },
-                             {
-                                 "type": "text",
-                                 "text": "#936923749813",
-                                 "color": "#aaaaaa",
-                                 "size": "xs",
-                                 "align": "end"
-                             }
-                             ]
-                         }
-                         ]
-                     },
-                     "styles": {
-                         "footer": {
-                         "separator": True
-                         }
-                     }
-                     }
+                        "type": "bubble",
+                        "body": {
+                            "type": "box",
+                            "layout": "vertical",
+                            "contents": [
+                            {
+                                "type": "text",
+                                "text": "LinePay收據紀錄",
+                                "weight": "bold",
+                                "color": "#1DB446",
+                                "size": "sm"
+                            },
+                            {
+                                "type": "text",
+                                "text": "統一超商-東吳",
+                                "weight": "bold",
+                                "size": "xxl",
+                                "margin": "md"
+                            },
+                            {
+                                "type": "text",
+                                "text": "台北市士林區臨溪路70號",
+                                "size": "xs",
+                                "color": "#aaaaaa",
+                                "wrap": True
+                            },
+                            {
+                                "type": "separator",
+                                "margin": "xxl"
+                            },
+                            {
+                                "type": "box",
+                                "layout": "vertical",
+                                "margin": "xxl",
+                                "spacing": "sm",
+                                "contents": [
+                                {
+                                    "type": "box",
+                                    "layout": "horizontal",
+                                    "contents": [
+                                    {
+                                        "type": "text",
+                                        "text": "墨西哥辣味雞胸肉",
+                                        "size": "sm",
+                                        "color": "#555555",
+                                        "flex": 0
+                                    },
+                                    {
+                                        "type": "text",
+                                        "text": "$59",
+                                        "size": "sm",
+                                        "color": "#111111",
+                                        "align": "end"
+                                    }
+                                    ]
+                                },
+                                {
+                                    "type": "separator",
+                                    "margin": "xxl"
+                                },
+                                {
+                                    "type": "box",
+                                    "layout": "horizontal",
+                                    "contents": [
+                                    {
+                                        "type": "text",
+                                        "text": "總金額",
+                                        "size": "sm",
+                                        "color": "#555555"
+                                    },
+                                    {
+                                        "type": "text",
+                                        "text": "$59",
+                                        "size": "sm",
+                                        "color": "#111111",
+                                        "align": "end"
+                                    }
+                                    ]
+                                }
+                                ]
+                            },
+                            {
+                                "type": "separator",
+                                "margin": "xxl"
+                            },
+                            {
+                                "type": "box",
+                                "layout": "horizontal",
+                                "margin": "md",
+                                "contents": [
+                                {
+                                    "type": "text",
+                                    "text": "交易代碼",
+                                    "size": "xs",
+                                    "color": "#aaaaaa",
+                                    "flex": 0
+                                },
+                                {
+                                    "type": "text",
+                                    "text": "#936923749813",
+                                    "color": "#aaaaaa",
+                                    "size": "xs",
+                                    "align": "end"
+                                }
+                                ]
+                            }
+                            ]
+                        },
+                        "styles": {
+                            "footer": {
+                            "separator": True
+                            }
+                        }
+                        }
             )
         line_bot_api.reply_message(event.reply_token, flex_message)
         
@@ -403,7 +344,7 @@ def handle_message9(event):
         totala+=3000
         line_bot_api.reply_message(event.reply_token,TextSendMessage('已經幫您儲存了鴨！'))
         
-        
+
     elif re.match('日用預算',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少日用預算鴨!'))
     #日用預算要用2000
