@@ -138,7 +138,7 @@ def handle_message9(event):
             template=ImageCarouselTemplate(
                 columns=[
                     ImageCarouselColumn(
-                        image_url='https://imgur.com/gallery/pT1Fm9d',
+                        image_url='<blockquote class="imgur-embed-pub" lang="en" data-id="pT1Fm9d"  ><a href="//imgur.com/pT1Fm9d">bar</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>',
                         action=PostbackAction(
                             label='月收支圖表',
                             display_text='月收支圖表',
