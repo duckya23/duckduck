@@ -88,25 +88,22 @@ def handle_message9(event):
     
     elif re.match('圖表',message):
         buttons_template_message = TemplateSendMessage(
-        alt_text='其它功能來了鴨',
+        alt_text='圖表來了鴨',
         template=ButtonsTemplate(
             thumbnail_image_url='https://i.imgur.com/FF1sCGm.jpg',
             title='其它功能鴨！',
             text='請選擇想查看的圖表鴨',
             actions=[
                 
-                URIAction(
-                    label='年收支圖表',
-                    uri='https://imgur.com/pT1Fm9d'
-                ),
                 MessageAction(
+                    label='月支出圖表',
+                    text='月支出圖表',
+                ),
+                 MessageAction(
                     label='年收支圖表',
                     text='年收支圖表',
                 ),
-                URIAction(
-                    label='官方網站',
-                    uri='https://sites.google.com/view/bookkeeping00002/%E9%A6%96%E9%A0%81?authuser=0'
-                )
+    
             ]
         )
     )
@@ -364,7 +361,7 @@ def handle_message9(event):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('你好棒鴨'))
     elif re.match('年收支圖表',message):
         image_message = ImageSendMessage(
-            original_content_url='https://i.imgur.com/pT1Fm9d.png',
+            original_content_url='https://i.imgur.com/Td9WRlW.png',
             preview_image_url='https://i.imgur.com/pT1Fm9d.png'
         )
         line_bot_api.reply_message(event.reply_token, image_message)
