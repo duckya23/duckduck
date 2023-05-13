@@ -138,7 +138,7 @@ def handle_message9(event):
             template=ImageCarouselTemplate(
                 columns=[
                     ImageCarouselColumn(
-                        image_url='https://i0.wp.com/rookiesavior.net/wp-content/uploads/2021/01/1550239523.png?fit=500%2C355&ssl=1',
+                        image_url='https://imgur.com/pT1Fm9d',
                         action=PostbackAction(
                             label='月收支圖表',
                             display_text='月收支圖表',
