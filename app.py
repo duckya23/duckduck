@@ -76,6 +76,10 @@ def handle_message9(event):
                 MessageAction(
                     label='Line Pay 連結',
                     text='Line Pay 連結',
+                ),
+                URIAction(
+                    label='官方網站',
+                    uri='https://sites.google.com/view/bookkeeping00002/%E9%A6%96%E9%A0%81?authuser=0',
                 )
             ]
         )
