@@ -148,120 +148,140 @@ def handle_message9(event):
         flex_message = FlexSendMessage(
             alt_text='收據來了鴨',
             contents={
-                        "type": "bubble",
-                        "body": {
+                      "type": "bubble",
+                      "body": {
+                        "type": "box",
+                        "layout": "vertical",
+                        "contents": [
+                          {
+                            "type": "text",
+                            "text": "LinePay收據",
+                            "weight": "bold",
+                            "color": "#1DB446",
+                            "size": "sm"
+                          },
+                          {
+                            "type": "text",
+                            "text": "統一超商-國雙",
+                            "weight": "bold",
+                            "size": "xxl",
+                            "margin": "md"
+                          },
+                          {
+                            "type": "text",
+                            "text": "台北市萬華區西藏路125巷17號及129-9號",
+                            "size": "xs",
+                            "color": "#aaaaaa",
+                            "wrap": true
+                          },
+                          {
+                            "type": "separator",
+                            "margin": "xxl"
+                          },
+                          {
                             "type": "box",
                             "layout": "vertical",
+                            "margin": "xxl",
+                            "spacing": "sm",
                             "contents": [
-                            {
-                                "type": "text",
-                                "text": "LinePay收據紀錄",
-                                "weight": "bold",
-                                "color": "#1DB446",
-                                "size": "sm"
-                            },
-                            {
-                                "type": "text",
-                                "text": "統一超商-東吳",
-                                "weight": "bold",
-                                "size": "xxl",
-                                "margin": "md"
-                            },
-                            {
-                                "type": "text",
-                                "text": "台北市士林區臨溪路70號",
-                                "size": "xs",
-                                "color": "#aaaaaa",
-                                "wrap": True
-                            },
-                            {
-                                "type": "separator",
-                                "margin": "xxl"
-                            },
-                            {
-                                "type": "box",
-                                "layout": "vertical",
-                                "margin": "xxl",
-                                "spacing": "sm",
-                                "contents": [
-                                {
-                                    "type": "box",
-                                    "layout": "horizontal",
-                                    "contents": [
-                                    {
-                                        "type": "text",
-                                        "text": "墨西哥辣味雞胸肉",
-                                        "size": "sm",
-                                        "color": "#555555",
-                                        "flex": 0
-                                    },
-                                    {
-                                        "type": "text",
-                                        "text": "$59",
-                                        "size": "sm",
-                                        "color": "#111111",
-                                        "align": "end"
-                                    }
-                                    ]
-                                },
-                                {
-                                    "type": "separator",
-                                    "margin": "xxl"
-                                },
-                                {
-                                    "type": "box",
-                                    "layout": "horizontal",
-                                    "contents": [
-                                    {
-                                        "type": "text",
-                                        "text": "總金額",
-                                        "size": "sm",
-                                        "color": "#555555"
-                                    },
-                                    {
-                                        "type": "text",
-                                        "text": "$59",
-                                        "size": "sm",
-                                        "color": "#111111",
-                                        "align": "end"
-                                    }
-                                    ]
-                                }
-                                ]
-                            },
-                            {
-                                "type": "separator",
-                                "margin": "xxl"
-                            },
-                            {
+                              {
                                 "type": "box",
                                 "layout": "horizontal",
-                                "margin": "md",
                                 "contents": [
-                                {
+                                  {
                                     "type": "text",
-                                    "text": "交易代碼",
-                                    "size": "xs",
-                                    "color": "#aaaaaa",
+                                    "text": "總金額",
+                                    "size": "sm",
+                                    "color": "#555555",
                                     "flex": 0
-                                },
-                                {
+                                  },
+                                  {
                                     "type": "text",
-                                    "text": "#936923749813",
-                                    "color": "#aaaaaa",
-                                    "size": "xs",
+                                    "text": "$84",
+                                    "size": "sm",
+                                    "color": "#111111",
                                     "align": "end"
-                                }
+                                  }
                                 ]
-                            }
+                              },
+                              {
+                                "type": "separator",
+                                "margin": "xxl"
+                              },
+                              {
+                                "type": "box",
+                                "layout": "horizontal",
+                                "contents": [
+                                  {
+                                    "type": "text",
+                                    "text": "PH9.0鹼性離子水",
+                                    "size": "sm",
+                                    "color": "#555555"
+                                  },
+                                  {
+                                    "type": "text",
+                                    "text": "$25",
+                                    "size": "sm",
+                                    "color": "#111111",
+                                    "align": "end"
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "box",
+                                "layout": "horizontal",
+                                "contents": [
+                                  {
+                                    "type": "text",
+                                    "text": "墨西哥辣味雞胸肉",
+                                    "size": "sm",
+                                    "color": "#555555",
+                                    "flex": 0
+                                  },
+                                  {
+                                    "type": "text",
+                                    "text": "$59",
+                                    "size": "sm",
+                                    "color": "#111111",
+                                    "align": "end"
+                                  }
+                                ]
+                              }
                             ]
-                        },
-                        "styles": {
-                            "footer": {
-                            "separator": True
-                            }
+                          },
+                          {
+                            "type": "separator",
+                            "margin": "xxl"
+                          },
+                          {
+                            "type": "box",
+                            "layout": "horizontal",
+                            "margin": "md",
+                            "contents": [
+                              {
+                                "type": "text",
+                                "text": "交易代碼",
+                                "size": "xs",
+                                "color": "#aaaaaa",
+                                "flex": 0
+                              },
+                              {
+                                "type": "text",
+                                "text": "#936923749813",
+                                "color": "#aaaaaa",
+                                "size": "xs",
+                                "align": "end"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      "styles": {
+                        "footer": {
+                          "separator": true
                         }
-                        }
+                      }
+                    }
             )
         line_bot_api.reply_message(event.reply_token, flex_message)
         
