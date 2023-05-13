@@ -124,7 +124,7 @@ def handle_message9(event):
             template=ImageCarouselTemplate(
                 columns=[
                     ImageCarouselColumn(
-                        image_url='https://scontent.ftpe7-2.fna.fbcdn.net/v/t39.30808-6/346628644_195933120054085_7091268733731424728_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=730e14&_nc_ohc=L2iRc4JLJHMAX-mV14J&_nc_ht=scontent.ftpe7-2.fna&oh=00_AfDpBIg455V7Ldo1-SzuQgMGbVuQD4etqi9vcFGZJeKXOw&oe=64634F71',
+                        image_url='https://www.publicdomainpictures.net/pictures/420000/nahled/racoon-cute-cartoon-clipa',
                         action=PostbackAction(
                             label='月收支圖表',
                             display_text='月收支圖表',
