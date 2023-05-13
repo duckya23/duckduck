@@ -540,13 +540,13 @@ def handle_message9(event):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('你好棒鴨'))
     elif re.match('月收支趨勢分析圖',message):
         image_message = ImageSendMessage(
-            original_content_url='https://i.imgur.com/Td9WRlW.png',
+            original_content_url='https://i.imgur.com/5dgiZlO.png',
             preview_image_url='https://i.imgur.com/pT1Fm9d.png'
         )
         line_bot_api.reply_message(event.reply_token, image_message)
     elif re.match('月支出占比圓餅圖',message):
         image_message = ImageSendMessage(
-            original_content_url='https://i.imgur.com/Td9WRlW.png',
+            original_content_url='https://i.imgur.com/yLVrvTG.jpg',
             preview_image_url='https://i.imgur.com/pT1Fm9d.png'
         )
 
