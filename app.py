@@ -100,8 +100,8 @@ def handle_message9(event):
                     uri='https://imgur.com/pT1Fm9d'
                 ),
                 MessageAction(
-                    label='Line Pay 連結',
-                    text='Line Pay 連結',
+                    label='年收支圖表',
+                    text='年收支圖表',
                 ),
                 URIAction(
                     label='官方網站',
@@ -362,6 +362,12 @@ def handle_message9(event):
         line_bot_api.reply_message(event.reply_token, TextSendMessage(reply_text))
     elif re.match('我把禾鴨加入購物車囉',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('你好棒鴨'))
+    elif re.match('年收支圖表',message):
+        image_message = ImageSendMessage(
+            original_content_url='https://i.imgur.com/pT1Fm9d.png',
+            preview_image_url='https://i.imgur.com/pT1Fm9d.png'
+        )
+        line_bot_api.reply_message(event.reply_token, image_message)
      
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
