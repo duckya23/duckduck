@@ -57,180 +57,180 @@ def handle_message(event):
         flex_message = FlexSendMessage(
             alt_text='行銷搬進大程式',
             contents={
-                    "type": "bubble",
-                    "body": {
-                        "type": "box",
-                        "layout": "vertical",
-                        "contents": [
-                        {
-                            "type": "text",
-                            "text": "Line Pay收據",
-                            "weight": "bold",
-                            "color": "#1DB446",
-                            "size": "sm"
-                        },
-                        {
-                            "type": "text",
-                            "text": "鴨肉屠宰場",
-                            "weight": "bold",
-                            "size": "xxl",
-                            "margin": "md"
-                        },
-                        {
-                            "type": "text",
-                            "text": "台北市鴨場區爆炒路四段928號",
-                            "size": "xs",
-                            "color": "#aaaaaa",
-                            "wrap": true
-                        },
-                        {
-                            "type": "separator",
-                            "margin": "xxl"
-                        },
-                        {
-                            "type": "box",
-                            "layout": "vertical",
-                            "margin": "xxl",
-                            "spacing": "sm",
-                            "contents": [
-                            {
-                                "type": "box",
-                                "layout": "horizontal",
-                                "contents": [
-                                {
-                                    "type": "text",
-                                    "text": "鴨肉片",
-                                    "size": "sm",
-                                    "color": "#555555",
-                                    "flex": 0
-                                },
-                                {
-                                    "type": "text",
-                                    "text": "$200",
-                                    "size": "sm",
-                                    "color": "#111111",
-                                    "align": "end"
-                                }
-                                ]
-                            },
-                            {
-                                "type": "box",
-                                "layout": "horizontal",
-                                "contents": [
-                                {
-                                    "type": "text",
-                                    "text": "鴨肉湯",
-                                    "size": "sm",
-                                    "color": "#555555",
-                                    "flex": 0
-                                },
-                                {
-                                    "type": "text",
-                                    "text": "$260",
-                                    "size": "sm",
-                                    "color": "#111111",
-                                    "align": "end"
-                                }
-                                ]
-                            },
-                            {
-                                "type": "box",
-                                "layout": "horizontal",
-                                "contents": [
-                                {
-                                    "type": "text",
-                                    "text": "烤鴨片",
-                                    "size": "sm",
-                                    "color": "#555555",
-                                    "flex": 0
-                                },
-                                {
-                                    "type": "text",
-                                    "text": "$240",
-                                    "size": "sm",
-                                    "color": "#111111",
-                                    "align": "end"
-                                }
-                                ]
-                            },
-                            {
-                                "type": "separator",
-                                "margin": "xxl"
-                            },
-                            {
-                                "type": "box",
-                                "layout": "horizontal",
-                                "contents": [
-                                {
-                                    "type": "text",
-                                    "text": "總金額",
-                                    "size": "sm",
-                                    "color": "#555555"
-                                },
-                                {
-                                    "type": "text",
-                                    "text": "$700",
-                                    "size": "sm",
-                                    "color": "#111111",
-                                    "align": "end"
-                                }
-                                ]
-                            },
-                            {
-                                "type": "box",
-                                "layout": "horizontal",
-                                "contents": [
-                                {
-                                    "type": "text",
-                                    "text": "小費",
-                                    "size": "sm",
-                                    "color": "#555555"
-                                },
-                                {
-                                    "type": "text",
-                                    "text": "$70",
-                                    "size": "sm",
-                                    "color": "#111111",
-                                    "align": "end"
-                                }
-                                ]
-                            }
-                            ]
-                        },
-                        {
-                            "type": "separator",
-                            "margin": "xxl"
-                        },
-                        {
-                            "type": "box",
-                            "layout": "horizontal",
-                            "margin": "md",
-                            "contents": [
-                            {
-                                "type": "text",
-                                "text": "交易代碼",
-                                "size": "xs",
-                                "color": "#aaaaaa",
-                                "flex": 0
-                            },
-                            {
-                                "type": "text",
-                                "text": "#936923749813",
-                                "color": "#aaaaaa",
-                                "size": "xs",
-                                "align": "end"
-                            }
-                            ]
-                        }
-                        ]
-                    },
-                    "styles": {
-                        "footer": {
-                        "separator": True
-                        }
-                    }
-                    }
-        )
+                     "type": "bubble",
+                     "body": {
+                         "type": "box",
+                         "layout": "vertical",
+                         "contents": [
+                         {
+                             "type": "text",
+                             "text": "Line Pay收據",
+                             "weight": "bold",
+                             "color": "#1DB446",
+                             "size": "sm"
+                         },
+                         {
+                             "type": "text",
+                             "text": "鴨肉屠宰場",
+                             "weight": "bold",
+                             "size": "xxl",
+                             "margin": "md"
+                         },
+                         {
+                             "type": "text",
+                             "text": "台北市鴨場區爆炒路四段928號",
+                             "size": "xs",
+                             "color": "#aaaaaa",
+                             "wrap": True
+                         },
+                         {
+                             "type": "separator",
+                             "margin": "xxl"
+                         },
+                         {
+                             "type": "box",
+                             "layout": "vertical",
+                             "margin": "xxl",
+                             "spacing": "sm",
+                             "contents": [
+                             {
+                                 "type": "box",
+                                 "layout": "horizontal",
+                                 "contents": [
+                                 {
+                                     "type": "text",
+                                     "text": "鴨肉片",
+                                     "size": "sm",
+                                     "color": "#555555",
+                                     "flex": 0
+                                 },
+                                 {
+                                     "type": "text",
+                                     "text": "$200",
+                                     "size": "sm",
+                                     "color": "#111111",
+                                     "align": "end"
+                                 }
+                                 ]
+                             },
+                             {
+                                 "type": "box",
+                                 "layout": "horizontal",
+                                 "contents": [
+                                 {
+                                     "type": "text",
+                                     "text": "鴨肉湯",
+                                     "size": "sm",
+                                     "color": "#555555",
+                                     "flex": 0
+                                 },
+                                 {
+                                     "type": "text",
+                                     "text": "$260",
+                                     "size": "sm",
+                                     "color": "#111111",
+                                     "align": "end"
+                                 }
+                                 ]
+                             },
+                             {
+                                 "type": "box",
+                                 "layout": "horizontal",
+                                 "contents": [
+                                 {
+                                     "type": "text",
+                                     "text": "烤鴨片",
+                                     "size": "sm",
+                                     "color": "#555555",
+                                     "flex": 0
+                                 },
+                                 {
+                                     "type": "text",
+                                     "text": "$240",
+                                     "size": "sm",
+                                     "color": "#111111",
+                                     "align": "end"
+                                 }
+                                 ]
+                             },
+                             {
+                                 "type": "separator",
+                                 "margin": "xxl"
+                             },
+                             {
+                                 "type": "box",
+                                 "layout": "horizontal",
+                                 "contents": [
+                                 {
+                                     "type": "text",
+                                     "text": "總金額",
+                                     "size": "sm",
+                                     "color": "#555555"
+                                 },
+                                 {
+                                     "type": "text",
+                                     "text": "$700",
+                                     "size": "sm",
+                                     "color": "#111111",
+                                     "align": "end"
+                                 }
+                                 ]
+                             },
+                             {
+                                 "type": "box",
+                                 "layout": "horizontal",
+                                 "contents": [
+                                 {
+                                     "type": "text",
+                                     "text": "小費",
+                                     "size": "sm",
+                                     "color": "#555555"
+                                 },
+                                 {
+                                     "type": "text",
+                                     "text": "$70",
+                                     "size": "sm",
+                                     "color": "#111111",
+                                     "align": "end"
+                                 }
+                                 ]
+                             }
+                             ]
+                         },
+                         {
+                             "type": "separator",
+                             "margin": "xxl"
+                         },
+                         {
+                             "type": "box",
+                             "layout": "horizontal",
+                             "margin": "md",
+                             "contents": [
+                             {
+                                 "type": "text",
+                                 "text": "交易代碼",
+                                 "size": "xs",
+                                 "color": "#aaaaaa",
+                                 "flex": 0
+                             },
+                             {
+                                 "type": "text",
+                                 "text": "#936923749813",
+                                 "color": "#aaaaaa",
+                                 "size": "xs",
+                                 "align": "end"
+                             }
+                             ]
+                         }
+                         ]
+                     },
+                     "styles": {
+                         "footer": {
+                         "separator": True
+                         }
+                     }
+                     }
+         )
         line_bot_api.reply_message(event.reply_token, flex_message)
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
