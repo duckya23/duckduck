@@ -172,7 +172,7 @@ def handle_message9(event):
                             "text": "台北市萬華區西藏路125巷17號及129-9號",
                             "size": "xs",
                             "color": "#aaaaaa",
-                            "wrap": true
+                            "wrap": True
                           },
                           {
                             "type": "separator",
@@ -278,7 +278,7 @@ def handle_message9(event):
                       },
                       "styles": {
                         "footer": {
-                          "separator": true
+                          "separator": True
                         }
                       }
                      }
