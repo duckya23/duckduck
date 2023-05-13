@@ -216,47 +216,47 @@ def handle_message9(event):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少日用預算鴨!'))
     #日用預算要用2000
     elif re.match('2000',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('幫你儲存了鴨！'))
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('已經幫你儲存了鴨！'))
     elif re.match('居家預算',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少居家預算鴨!'))
     #居家預算要用2500
     elif re.match('2500',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('幫你儲存了鴨！'))
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('已經幫你儲存了鴨！'))
     elif re.match('交通預算',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少交通預算鴨!'))
     #交通預算要用3500
     elif re.match('3500',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('幫你儲存了鴨！'))
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('已經幫你儲存了鴨！'))
     elif re.match('服飾預算',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少服飾預算鴨!'))
     #服飾預算要用1000
     elif re.match('1000',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('幫你儲存了鴨！'))
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('已經幫你儲存了鴨！'))
     elif re.match('娛樂預算',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少娛樂預算鴨!'))
     #娛樂預算要用1500
     elif re.match('1500',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('幫你儲存了鴨！'))
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('已經幫你儲存了鴨！'))
     elif re.match('醫療預算',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少醫療預算鴨!'))
     #醫療預算要用800
     elif re.match('800',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('幫你儲存了鴨！'))
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('已經幫你儲存了鴨！'))
     elif re.match('美容預算',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少美容預算鴨!'))
     #美容預算要用500
     elif re.match('500',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('幫你儲存了鴨！'))    
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('已經幫你儲存了鴨！'))    
     elif re.match('教育預算',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少教育預算鴨!'))
     #教育預算要用1200
     elif re.match('1200',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('幫你儲存了鴨！'))
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('已經幫你儲存了鴨！'))
     elif re.match('其它預算',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少其它預算鴨!'))
     #醫療預算要用900
     elif re.match('900',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('幫你儲存了鴨！'))
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('已經幫你儲存了鴨！'))
     elif re.match('我同意服務條款',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('非常感謝您同意我們的條款，我們期待本程式能夠為您提供優質的服務。'))    
     elif re.match('我不同意服務條款',message):
