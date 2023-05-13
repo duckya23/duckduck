@@ -86,7 +86,7 @@ def handle_message9(event):
     )
         line_bot_api.reply_message(event.reply_token, buttons_template_message)
     
-    elif re.match('查看圖表',message):
+    elif re.match('圖表',message):
         buttons_template_message = TemplateSendMessage(
         alt_text='其它功能來了鴨',
         template=ButtonsTemplate(
