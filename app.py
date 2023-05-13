@@ -368,6 +368,7 @@ def handle_message9(event):
     elif re.match('預算',message):
         flex_message = TextSendMessage(text='快來設定預算鴨',
                                quick_reply=QuickReply(items=[
+                                   QuickReplyButton(action=MessageAction(label="結餘&預算表格", text="好的現在為您開啟表格!鴨鴨!")),
                                    QuickReplyButton(action=MessageAction(label="飲食預算", text="飲食預算")),
                                    QuickReplyButton(action=MessageAction(label="日用預算", text="日用預算")),
                                    QuickReplyButton(action=MessageAction(label="居家預算", text="居家預算")),
@@ -377,8 +378,7 @@ def handle_message9(event):
                                    QuickReplyButton(action=MessageAction(label="醫療預算", text="醫療預算")),
                                    QuickReplyButton(action=MessageAction(label="美容預算", text="美容預算")),
                                    QuickReplyButton(action=MessageAction(label="教育預算", text="教育預算")),
-                                   QuickReplyButton(action=MessageAction(label="其它預算", text="其它預算")),
-                                   QuickReplyButton(action=MessageAction(label="結餘&預算表格", text="好的現在為您開啟表格!鴨鴨!"))
+                                   QuickReplyButton(action=MessageAction(label="其它預算", text="其它預算"))
                                ]))
         line_bot_api.reply_message(event.reply_token, flex_message)
         
