@@ -144,7 +144,7 @@ def handle_message9(event):
         )
         line_bot_api.reply_message(event.reply_token, confirm_template_message)
         
-      if re.match('LinePay收據',message):
+    elif re.match('LinePay收據',message):
         flex_message = FlexSendMessage(
             alt_text='收據來了鴨',
             contents={
