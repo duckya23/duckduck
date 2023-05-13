@@ -290,9 +290,15 @@ def handle_message9(event):
         #以下這段只是測試用，測試失敗
         line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入餐飲金額鴨!'))        
         amount =event.message.text
-        line_bot_api.reply_message(event.reply_token, TextSendMessage("amount"))                   
+        line_bot_api.reply_message(event.reply_token, TextSendMessage("amount"))
+    #飲食支出要用120
+    elif re.match('120',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('幫你儲存支出金額了鴨！'))
     elif re.match('交通',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入交通金額鴨!')) 
+    #飲食支出要用80
+    elif re.match('80',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('幫你儲存支出金額了鴨！'))
     elif re.match('娛樂',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入娛樂金額鴨!')) 
     elif re.match('醫療',message):
@@ -311,6 +317,9 @@ def handle_message9(event):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入其他金額鴨!'))
     elif re.match('薪資',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入薪資收入金額鴨!')) 
+    #薪資收入要用的25000
+    elif re.match('25000',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('已經幫您儲存薪資收入的金額了鴨！'))
     elif re.match('獎金',message):
         handle_message3()
         #line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入獎金收入金額鴨!')) 
