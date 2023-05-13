@@ -20,7 +20,7 @@ handler = WebhookHandler('05a15941e79753db37de1062d1cec8dd')
 
 
 
-#以下這段目前沒有作用
+#以下這段目前沒有作用，可刪除-目前只是裝飾用
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message2():
     message = text=event.message.text
@@ -28,7 +28,7 @@ def handle_message2():
         line_bot_api.reply_message(event.reply_token,TextSendMessage('金額為多少鴨!')) 
     else :
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
-#以下這段目前沒有作用
+#以下這段目前沒有作用，可刪除-目前只是裝飾用
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message3():
         line_bot_api.reply_message(event.reply_token,TextSendMessage('金額為多少鴨!')) 
@@ -438,11 +438,11 @@ def handle_message9(event):
                                    QuickReplyButton(action=MessageAction(label="其他收入", text="其他收入")),
                                ]))
         line_bot_api.reply_message(event.reply_token, flex_message)
-    elif re.match('飲食',message):
-        #以下這段只是測試用，測試失敗
+    elif re.match('飲食',message):     
         line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入餐飲金額鴨!'))        
-        amount =event.message.text
-        line_bot_api.reply_message(event.reply_token, TextSendMessage("amount"))
+        #以下#字只是測試用，測試失敗
+        #amount =event.message.text
+        #line_bot_api.reply_message(event.reply_token, TextSendMessage("amount"))
     #飲食支出要用120
     elif re.match('120',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('幫你儲存支出金額了鴨！'))
@@ -466,40 +466,40 @@ def handle_message9(event):
     elif re.match('日用(如:洗髮精)',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入日用(如:洗髮精)金額鴨!'))
     elif re.match('其他支出',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入其他金額鴨!'))
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入其他支出金額鴨!'))
     elif re.match('薪資',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入薪資收入金額鴨!')) 
     #薪資收入要用的25000
     elif re.match('25000',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('已經幫您儲存薪資收入的金額了鴨！'))
     elif re.match('獎金',message):
-        handle_message3()
-        #line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入獎金收入金額鴨!')) 
+        #handle_message3()
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入獎金收入金額鴨!')) 
     elif re.match('理財',message):
-        #測試函數
-        handle_message2()
-        #line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入理財收入金額鴨!')) 
+        #測試函數        handle_message2()
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入理財收入金額鴨!')) 
     elif re.match('其他收入',message):
-        #以下這段只是測試用，測試失敗，先留者
-        amount = text=event.message.text
-        a = amount  # 儲存輸入的金額到變數 a 中
-        reply_text = f'已儲存金額 {a} 鴨！'  # 建立回覆訊息
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(reply_text))
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入其他收入金額鴨!')) 
+        #以下#字只是測試用，測試失敗
+        #amount = text=event.message.text
+        #a = amount  # 儲存輸入的金額到變數 a 中
+        #reply_text = f'已儲存金額 {a} 鴨！'  # 建立回覆訊息
+        #line_bot_api.reply_message(event.reply_token, TextSendMessage(reply_text))
     elif re.match('回傳兩個訊息',message):
-        #以下這段只是測試用，劉者以後可能用
+        #以下這段只是測試用，留者以後可能用，目前沒有任何作用
         amount = event.message.text
         reply_arr = [TextSendMessage(amount),TextSendMessage("歡迎使用本軟體")]
         line_bot_api.reply_message(event.reply_token,reply_arr)
         amount = event.message.text
 #         line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨!'))
         line_bot_api.reply_message(event.reply_token,TextSendMessage(amount))
-    elif re.match('查看totala',message):
-        #以下這段只是測試用
+    #以下這段查看totala只是測試用，可刪除，不會有任何影響
+    elif re.match('查看totala',message):        
         reply_text = f'目前飲食預算為 {totala} 鴨！'  # 建立回覆訊息
         line_bot_api.reply_message(event.reply_token, TextSendMessage(reply_text))
     elif re.match('我把禾鴨加入購物車囉',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('你好棒鴨'))
-    
+        
     elif re.match('月支出占比圓餅圖',message):
         image_message = ImageSendMessage(
             original_content_url='https://i.imgur.com/yLVrvTG.jpg',
