@@ -79,7 +79,7 @@ def handle_message9(event):
                 ),
                 URIAction(
                     label='官方網站',
-                    uri='https://sites.google.com/view/bookkeeping00002/%E9%A6%96%E9%A0%81?authuser=0',
+                    uri='https://sites.google.com/view/bookkeeping00002/%E9%A6%96%E9%A0%81?authuser=0'
                 )
             ]
         )
@@ -103,20 +103,6 @@ def handle_message9(event):
                                                                      \
                                                                      6.若對此記帳鴨服務有任何建議或是問題需修改，可以點選服務條款下的表單填寫，鴨博士會很開心能夠收到您們的建議和回饋喔！'))
         
-# 定義LineBot回應訊息
-#def handle_postback(event):
-    # 判斷是否為 Postback 事件
-#    if event.postback:
-#        # 取得 Postback 資料
-#        data = event.postback.data
-        # 判斷 Postback 的 action
-#        if data == 'action=send_message&message=嗨':
-            # 回傳指定的訊息
-#            line_bot_api.reply_message(
-#                event.reply_token,
-#                TextSendMessage(text='嗨')
-#            )
-    
     elif re.match('服務條款',message):
         confirm_template_message = TemplateSendMessage(
             alt_text='服務條款',
