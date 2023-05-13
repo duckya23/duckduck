@@ -9,6 +9,12 @@ from linebot.exceptions import (
 )
 from linebot.models import *
 import re
+
+import sys
+import datetime
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials as SAC
+
 app = Flask(__name__)
 # 必須放上自己的Channel Access Token
 line_bot_api = LineBotApi('cA4Y+naWER+/PyaAYGacJOO6GznxzUz/vUHhFzmY2eVvIczqzh7InjUL9h2IPo50NOyMXbbZXrNUYySlyd2CXHtlKYTDlkhIdGitB/ZKTvULCJnDf4PoVKyHgZRp7FIuHZcLErYwgQ2/Xd1ZRiFr4QdB04t89/1O/w1cDnyilFU=')
@@ -53,6 +59,30 @@ def callback():
 def handle_message9(event):
     totala=0 
     message = text = event.message.text
+    
+    if event.message.text != "":
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text="紀錄成功"))
+        pass
+        #GDriveJSON就輸入下載下來Json檔名稱
+        #GSpreadSheet是google試算表名稱
+        GDriveJSON = 'duckduck.json'
+        GSpreadSheet = 'bottest'
+        while True:
+            try:
+                scope = ['https://spreadsheets.google.com/feeds']
+                key = SAC.from_json_keyfile_name(GDriveJSON, scope)
+                gc = gspread.authorize(key)
+                worksheet = gc.open(GSpreadSheet).sheet1
+            except Exception as ex:
+                print('無法連線Google試算表', ex)
+                sys.exit(1)
+            textt=""
+            textt+=event.message.text
+            if textt!="":
+                worksheet.append_row((datetime.datetime.now(), textt))
+                print('新增一列資料到試算表' ,GSpreadSheet)
+                return textt            
+            
     if re.match('其它功能',message):
         buttons_template_message = TemplateSendMessage(
         alt_text='其它功能來了鴨',
@@ -345,6 +375,7 @@ def handle_message9(event):
         #以下這段只是測試用
         reply_text = f'目前飲食預算為 {totala} 鴨！'  # 建立回覆訊息
         line_bot_api.reply_message(event.reply_token, TextSendMessage(reply_text))
+     
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
         
