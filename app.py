@@ -124,7 +124,7 @@ def handle_message9(event):
             template=ImageCarouselTemplate(
                 columns=[
                     ImageCarouselColumn(
-                        image_url='https://www.publicdomainpictures.net/pictures/420000/nahled/racoon-cute-cartoon-clipa',
+                        image_url='https://i.imgur.com/pT1Fm9d.png',
                         action=PostbackAction(
                             label='月收支圖表',
                             display_text='月收支圖表',
