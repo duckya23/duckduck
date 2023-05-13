@@ -20,7 +20,7 @@ handler = WebhookHandler('05a15941e79753db37de1062d1cec8dd')
 
 
 
-#以下這段目前沒有作用，可刪除-目前只是裝飾用
+#以下這段目前沒有作用，可刪除-目前只是裝飾用，因為呼叫不捯這個函數
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message2():
     message = text=event.message.text
@@ -28,7 +28,7 @@ def handle_message2():
         line_bot_api.reply_message(event.reply_token,TextSendMessage('金額為多少鴨!')) 
     else :
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
-#以下這段目前沒有作用，可刪除-目前只是裝飾用
+#以下這段目前沒有作用，可刪除-目前只是裝飾用，因為呼叫不捯這個函數
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message3():
         line_bot_api.reply_message(event.reply_token,TextSendMessage('金額為多少鴨!')) 
@@ -473,27 +473,29 @@ def handle_message9(event):
     elif re.match('25000',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('已經幫您儲存薪資收入的金額了鴨！'))
     elif re.match('獎金',message):
+        #底下#字測試呼叫函數，但呼叫失敗
         #handle_message3()
         line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入獎金收入金額鴨!')) 
     elif re.match('理財',message):
-        #測試函數        handle_message2()
+        #底下#字測試呼叫函數，但呼叫失敗        
+        #handle_message2()
         line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入理財收入金額鴨!')) 
     elif re.match('其他收入',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入其他收入金額鴨!')) 
-        #以下#字只是測試用，測試失敗
+        #以下#字 只是測試用，測試失敗
         #amount = text=event.message.text
         #a = amount  # 儲存輸入的金額到變數 a 中
         #reply_text = f'已儲存金額 {a} 鴨！'  # 建立回覆訊息
         #line_bot_api.reply_message(event.reply_token, TextSendMessage(reply_text))
-    elif re.match('回傳兩個訊息',message):
-        #以下這段只是測試用，留者以後可能用，目前沒有任何作用
+    #以下這段回傳兩個訊息 只是測試用，留者以後可能用，目前沒有任何作用
+    elif re.match('回傳兩個訊息',message):        
         amount = event.message.text
         reply_arr = [TextSendMessage(amount),TextSendMessage("歡迎使用本軟體")]
         line_bot_api.reply_message(event.reply_token,reply_arr)
         amount = event.message.text
 #         line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨!'))
         line_bot_api.reply_message(event.reply_token,TextSendMessage(amount))
-    #以下這段查看totala只是測試用，可刪除，不會有任何影響
+    #以下這段查看totala 只是測試用，可刪除，不會有任何影響
     elif re.match('查看totala',message):        
         reply_text = f'目前飲食預算為 {totala} 鴨！'  # 建立回覆訊息
         line_bot_api.reply_message(event.reply_token, TextSendMessage(reply_text))
