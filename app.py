@@ -85,6 +85,32 @@ def handle_message9(event):
         )
     )
         line_bot_api.reply_message(event.reply_token, buttons_template_message)
+    
+    elif re.match('查看圖表',message):
+        buttons_template_message = TemplateSendMessage(
+        alt_text='其它功能來了鴨',
+        template=ButtonsTemplate(
+            thumbnail_image_url='https://i.imgur.com/FF1sCGm.jpg',
+            title='其它功能鴨！',
+            text='請選擇想查看的圖表鴨',
+            actions=[
+                
+                URIAction(
+                    label='年收支圖表',
+                    uri='https://imgur.com/pT1Fm9d'
+                ),
+                MessageAction(
+                    label='Line Pay 連結',
+                    text='Line Pay 連結',
+                ),
+                URIAction(
+                    label='官方網站',
+                    uri='https://sites.google.com/view/bookkeeping00002/%E9%A6%96%E9%A0%81?authuser=0'
+                )
+            ]
+        )
+    )
+        line_bot_api.reply_message(event.reply_token, buttons_template_message)
         
     elif re.match('使用說明',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('【使用說明】:\
@@ -122,39 +148,39 @@ def handle_message9(event):
         )
         line_bot_api.reply_message(event.reply_token, confirm_template_message)
         
-    elif re.match('圖表',message):
-        image_carousel_template_message = TemplateSendMessage(
-            alt_text='點擊選項來查看圖表',
-            template=ImageCarouselTemplate(
-                columns=[
-                    ImageCarouselColumn(
-                        image_url='https://i.imgur.com/pT1Fm9d.png',
-                        action=PostbackAction(
-                            label='年收支圖表',
-                            display_text='年收支圖表',
-                            data='action=努力不一定會成功，但不努力會很輕鬆'
-                        )
-                    ),
-                    ImageCarouselColumn(
-                        image_url='https://i.imgur.com/pT1Fm9d.png',
-                        action=PostbackAction(
-                            label='年收支圖表',
-                            display_text='年收支圖表',
-                            data='action=興趣不能當飯吃，但總比吃飯當興趣好'
-                        )
-                    ),
-                    ImageCarouselColumn(
-                        image_url='https://pic2.zhimg.com/v2-706be7f956613c2b4f0431482b858dc9_b.png',
-                        action=PostbackAction(
-                            label='哈哈哈你以為有什麼',
-                            display_text='哈哈哈哩鴨',
-                            data='action=興趣不能當飯吃，但總比吃飯當興趣好'
-                        )
-                    )
-                ]
-            )
-        )
-        line_bot_api.reply_message(event.reply_token, image_carousel_template_message)
+#     elif re.match('圖表',message):
+#         image_carousel_template_message = TemplateSendMessage(
+#             alt_text='點擊選項來查看圖表',
+#             template=ImageCarouselTemplate(
+#                 columns=[
+#                     ImageCarouselColumn(
+#                         image_url='https://i.imgur.com/pT1Fm9d.png',
+#                         action=PostbackAction(
+#                             label='年收支圖表',
+#                             display_text='年收支圖表',
+#                             data='action=努力不一定會成功，但不努力會很輕鬆'
+#                         )
+#                     ),
+#                     ImageCarouselColumn(
+#                         image_url='https://i.imgur.com/pT1Fm9d.png',
+#                         action=PostbackAction(
+#                             label='年收支圖表',
+#                             display_text='年收支圖表',
+#                             data='action=興趣不能當飯吃，但總比吃飯當興趣好'
+#                         )
+#                     ),
+#                     ImageCarouselColumn(
+#                         image_url='https://pic2.zhimg.com/v2-706be7f956613c2b4f0431482b858dc9_b.png',
+#                         action=PostbackAction(
+#                             label='哈哈哈你以為有什麼',
+#                             display_text='哈哈哈哩鴨',
+#                             data='action=興趣不能當飯吃，但總比吃飯當興趣好'
+#                         )
+#                     )
+#                 ]
+#             )
+#         )
+#         line_bot_api.reply_message(event.reply_token, image_carousel_template_message)
     elif re.match('記帳',message):
         flex_message = TextSendMessage(text='快來記帳鴨',
                                quick_reply=QuickReply(items=[
