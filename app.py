@@ -331,7 +331,7 @@ def handle_message9(event):
         reply_text = f'目前飲食預算為 {totala} 鴨！'  # 建立回覆訊息
         line_bot_api.reply_message(event.reply_token, TextSendMessage(reply_text))
     elif re.match('我把禾鴨加入購物車囉',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('你好棒鴨')
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('你好棒鴨'))
      
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
