@@ -10,10 +10,10 @@ from linebot.exceptions import (
 from linebot.models import *
 import re
 
-import sys
-import datetime
-import gspread
-from oauth2client.service_account import ServiceAccountCredentials as SAC
+# import sys
+# import datetime
+# import gspread
+# from oauth2client.service_account import ServiceAccountCredentials as SAC
 
 app = Flask(__name__)
 # 必須放上自己的Channel Access Token
@@ -60,28 +60,28 @@ def handle_message9(event):
     totala=0 
     message = text = event.message.text
     
-    if event.message.text != "":
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text="紀錄成功"))
-        pass
-        #GDriveJSON就輸入下載下來Json檔名稱
-        #GSpreadSheet是google試算表名稱
-        GDriveJSON = 'duckduck.json'
-        GSpreadSheet = 'bottest'
-        while True:
-            try:
-                scope = ['https://spreadsheets.google.com/feeds']
-                key = SAC.from_json_keyfile_name(GDriveJSON, scope)
-                gc = gspread.authorize(key)
-                worksheet = gc.open(GSpreadSheet).sheet1
-            except Exception as ex:
-                print('無法連線Google試算表', ex)
-                sys.exit(1)
-            textt=""
-            textt+=event.message.text
-            if textt!="":
-                worksheet.append_row((datetime.datetime.now(), textt))
-                print('新增一列資料到試算表' ,GSpreadSheet)
-                return textt            
+#     if event.message.text != "":
+#         line_bot_api.reply_message(event.reply_token,TextSendMessage(text="紀錄成功"))
+#         pass
+#         #GDriveJSON就輸入下載下來Json檔名稱
+#         #GSpreadSheet是google試算表名稱
+#         GDriveJSON = 'duckduck.json'
+#         GSpreadSheet = 'bottest'
+#         while True:
+#             try:
+#                 scope = ['https://spreadsheets.google.com/feeds']
+#                 key = SAC.from_json_keyfile_name(GDriveJSON, scope)
+#                 gc = gspread.authorize(key)
+#                 worksheet = gc.open(GSpreadSheet).sheet1
+#             except Exception as ex:
+#                 print('無法連線Google試算表', ex)
+#                 sys.exit(1)
+#             textt=""
+#             textt+=event.message.text
+#             if textt!="":
+#                 worksheet.append_row((datetime.datetime.now(), textt))
+#                 print('新增一列資料到試算表' ,GSpreadSheet)
+#                 return textt            
             
     if re.match('其它功能',message):
         buttons_template_message = TemplateSendMessage(
