@@ -191,7 +191,7 @@ def handle_message9(event):
         line_bot_api.reply_message(event.reply_token, flex_message)
         
     elif re.match('好的現在為您開啟表格!鴨鴨!',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage("""| 類別   |   預算 |    結餘|
+        line_bot_api.reply_message(event.reply_token,TextSendMessage("""| 類別   |    預算 |       結餘|
 | 飲食   |   3000 |     2880 |
 | 日用   |   2000 |     2000 |
 | 居家   |   2500 |     3500 |
