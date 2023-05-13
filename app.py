@@ -217,13 +217,19 @@ def handle_message9(event):
         line_bot_api.reply_message(event.reply_token, flex_message)
         
     elif re.match('好的現在為您開啟表格!鴨鴨!',message):
-        from tabulate import tabulate
-        categories = ["飲食", "日用", "居家", "交通", "服飾", "娛樂", "醫療", "美容", "教育", "其它"]
-        budgets = [3000, 2000, 2500, 3500, 1000, 1500, 800, 500, 1200, 900]
-        balances = [10] * len(categories)
-        d = list(zip(categories, budgets, balances))
-        table = tabulate(d, headers=["類別", "預算", "結餘"], tablefmt="pipe")
-        print(table)
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('| 類別   |   預算 |   結餘 |
+|:-------|-------:|-------:|
+| 飲食   |   3000 |     10 |
+| 日用   |   2000 |     10 |
+| 居家   |   2500 |     10 |
+| 交通   |   3500 |     10 |
+| 服飾   |   1000 |     10 |
+| 娛樂   |   1500 |     10 |
+| 醫療   |    800 |     10 |
+| 美容   |    500 |     10 |
+| 教育   |   1200 |     10 |
+| 其它   |    900 |     10 |'))
+
 
     elif re.match('飲食預算',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨鴨！你要設定多少飲食預算鴨！'))
