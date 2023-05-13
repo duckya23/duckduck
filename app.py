@@ -55,7 +55,6 @@ def callback():
 def handle_message9(event):
     totala=0 
     message = text = event.message.text
-    
             
     if re.match('其它功能',message):
         buttons_template_message = TemplateSendMessage(
@@ -146,7 +145,6 @@ def handle_message9(event):
         line_bot_api.reply_message(event.reply_token, confirm_template_message)
         
       if re.match('LinePay收據',message):
-        # Flex Message Simulator網頁：https://developers.line.biz/console/fx/
         flex_message = FlexSendMessage(
             alt_text='收據來了鴨',
             contents={
@@ -323,7 +321,7 @@ def handle_message9(event):
                          }
                      }
                      }
-         )
+            )
         line_bot_api.reply_message(event.reply_token, flex_message)
         
 #     elif re.match('圖表',message):
