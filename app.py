@@ -190,18 +190,18 @@ def handle_message9(event):
                                ]))
         line_bot_api.reply_message(event.reply_token, flex_message)
         
-#     elif re.match('好的現在為您開啟表格!鴨鴨!',message):
-#         line_bot_api.reply_message(event.reply_token,TextSendMessage("""| 類別   |   預算 |    結餘|
-# | 飲食   |   3000 |     10 |
-# | 日用   |   2000 |     10 |
-# | 居家   |   2500 |     10 |
-# | 交通   |   3500 |     10 |
-# | 服飾   |   1000 |     10 |
-# | 娛樂   |   1500 |     10 |
-# | 醫療   |    800 |     10 |
-# | 美容   |    500 |     10 |
-# | 教育   |   1200 |     10 |
-# | 其它   |    900 |     10 |""")
+    elif re.match('好的現在為您開啟表格!鴨鴨!',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage("""| 類別   |   預算 |    結餘|
+| 飲食   |   3000 |     10 |
+| 日用   |   2000 |     10 |
+| 居家   |   2500 |     10 |
+| 交通   |   3500 |     10 |
+| 服飾   |   1000 |     10 |
+| 娛樂   |   1500 |     10 |
+| 醫療   |    800 |     10 |
+| 美容   |    500 |     10 |
+| 教育   |   1200 |     10 |
+| 其它   |    900 |     10 |"""))
 
 
     elif re.match('飲食預算',message):
