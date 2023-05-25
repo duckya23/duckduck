@@ -151,9 +151,13 @@ def handle_message9(event):
                 columns=[
                     ImageCarouselColumn(
                         image_url='https://i.imgur.com/wpM584d.jpg',
+                        display_text='早安',
+                        data='action=晚安'
                     ),
                     ImageCarouselColumn(
                         image_url='https://i.imgur.com/W7nI6fg.jpg',
+                        display_text='哈',
+                        data='action=耶'
                     )
                 ]
             )
