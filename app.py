@@ -344,16 +344,16 @@ def handle_message9(event):
         line_bot_api.reply_message(event.reply_token, flex_message)
         
     elif re.match('好的現在為您開啟表格!鴨鴨!',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage("""| 類別   |    預算 |      結餘 |
+        line_bot_api.reply_message(event.reply_token,TextSendMessage("""| 類別   |    預算 |       結餘 |
 | 飲食   |   3000 |     2880 |
 | 日用   |   2000 |     2000 |
 | 居家   |   2500 |     3500 |
 | 交通   |   3500 |     3420 |
-| 服飾   |   1000 |     1000 |
-| 娛樂   |   1500 |     1500 |
+| 服飾   |   1000 |      1000 |
+| 娛樂   |   1500 |      1500 |
 | 醫療   |     800 |        800 |
 | 美容   |     500 |        500 |
-| 教育   |   1200 |     1200 |
+| 教育   |   1200 |      1200 |
 | 其它   |     900 |        900 |"""))
 
 
