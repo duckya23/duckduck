@@ -150,17 +150,24 @@ def handle_message9(event):
             template=ImageCarouselTemplate(
                 columns=[
                     ImageCarouselColumn(
-                        image_url='https://i.imgur.com/wpM584d.jpg',
+                        image_url='https://i.imgur.com/WzvYFYw.png',
                         action=PostbackAction(
                             display_text='早安',
                             data='action=晚安'
                         )
                     ),
                     ImageCarouselColumn(
-                        image_url='https://i.imgur.com/W7nI6fg.jpg',
+                        image_url='https://i.imgur.com/thyOHVA.png',
                         action=PostbackAction(
-                            display_text='嗨',
+                            display_text='男生',
                             data='action=耶'
+                        )
+                    ),
+                    ImageCarouselColumn(
+                        image_url='https://i.imgur.com/uZhlHYx.png',
+                        action=PostbackAction(
+                            display_text='女生',
+                            data='action=哈哈'
                         )
                     )
                 ]
