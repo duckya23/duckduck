@@ -357,7 +357,7 @@ def handle_message9(event):
                                ]))
         line_bot_api.reply_message(event.reply_token, flex_message)
         
-    elif re.match('預算',message):
+    elif re.match('預算與結餘',message):
         flex_message = TextSendMessage(text='快來設定預算鴨',
                                quick_reply=QuickReply(items=[
                                    QuickReplyButton(action=MessageAction(label="結餘&預算表格", text="好的現在為您開啟表格!鴨鴨!")),
