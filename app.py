@@ -144,6 +144,24 @@ def handle_message9(event):
         )
         line_bot_api.reply_message(event.reply_token, confirm_template_message)
         
+    elif re.match('鴨鴨團隊',message):
+        image_carousel_template_message = TemplateSendMessage(
+            alt_text='鴨鴨團隊來囉',
+            template=ImageCarouselTemplate(
+                columns=[
+                    ImageCarouselColumn(
+                        image_url='https://i.imgur.com/wpM584d.jpg',
+                    ),
+                    ImageCarouselColumn(
+                        image_url='https://i.imgur.com/W7nI6fg.jpg',
+                    )
+                ]
+            )
+        )
+        line_bot_api.reply_message(event.reply_token, image_carousel_template_message)
+    else:
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
+        
     elif re.match('LinePay收據',message):
         flex_message = FlexSendMessage(
             alt_text='收據來了鴨',
