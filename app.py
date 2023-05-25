@@ -150,7 +150,7 @@ def handle_message9(event):
             template=ImageCarouselTemplate(
                 columns=[
                     ImageCarouselColumn(
-                        image_url='https://i.imgur.com/qV4GCUZ.png',
+                        image_url='https://i.imgur.com/0D8zvLe.png',
                         action=PostbackAction(
                             display_text='早安',
                             data='action=晚安'
