@@ -63,13 +63,13 @@ def handle_message9(event):
             title='其它功能鴨！',
             text='記帳鴨博士的其它功能',
             actions=[
-#                MessageAction(
-#                    label='使用說明',
-#                    text='使用說明',
-#                ),
                 URIAction(
                     label='服務條款',
                     uri='https://sites.google.com/view/ducktermserver/%E9%A6%96%E9%A0%81'
+                ),
+                MessageAction(
+                    label='購物商城',
+                    text='購物商城'
                 ),
                 MessageAction(
                     label='LinePay收據',
@@ -151,22 +151,21 @@ def handle_message9(event):
                     ImageCarouselColumn(
                         image_url='https://i.imgur.com/0D8zvLe.png',
                         action=PostbackAction(
-                            display_text='咱們鴨鴨團隊可是很厲害的呢哈',
+                            display_text='你們是誰鴨??',
                             data='action=晚安'
                         )
                     ),
                     ImageCarouselColumn(
                         image_url='https://i.imgur.com/x0cLDp4.png',
                         action=PostbackAction(
-                            display_text='鴨子搭計程車，猜一種蔬果?\
-                                           答案是小黃瓜!(小黃，呱!)',
+                            display_text='講個笑話來聽聽鴨',
                             data='action=耶'
                         )
                     ),
                     ImageCarouselColumn(
                         image_url='https://i.imgur.com/F84UTCk.png',
                         action=PostbackAction(
-                            display_text='所以說為什麼大家不拿著熱狗一起拍照呢?哎，哭笑不得:)',
+                            display_text='那根是什麼?',
                             data='action=哈哈'
                         )
                     )
@@ -174,147 +173,153 @@ def handle_message9(event):
             )
         )
         line_bot_api.reply_message(event.reply_token, image_carousel_template_message)
+    elif re.match('你們是誰鴨??',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('沒錯喔就是鴨，我們是鴨鴨團隊喔!'))
+    elif re.match('講個笑話來聽聽鴨',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨子搭計程車，猜一種蔬果?答案是小黃瓜!(小黃，呱!)'))
+    elif re.match('那根是什麼?',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('所以說為什麼大家不拿著熱狗一起拍照呢?哎，哭笑不得鴨:)'))  
         
-    elif re.match('LinePay收據',message):
-        flex_message = FlexSendMessage(
-            alt_text='收據來了鴨',
-            contents={
-                      "type": "bubble",
-                      "body": {
-                        "type": "box",
-                        "layout": "vertical",
-                        "contents": [
-                          {
-                            "type": "text",
-                            "text": "LinePay收據",
-                            "weight": "bold",
-                            "color": "#1DB446",
-                            "size": "sm"
-                          },
-                          {
-                            "type": "text",
-                            "text": "統一超商-國雙",
-                            "weight": "bold",
-                            "size": "xxl",
-                            "margin": "md"
-                          },
-                          {
-                            "type": "text",
-                            "text": "台北市萬華區西藏路125巷17號及129-9號",
-                            "size": "xs",
-                            "color": "#aaaaaa",
-                            "wrap": True
-                          },
-                          {
-                            "type": "separator",
-                            "margin": "xxl"
-                          },
-                          {
-                            "type": "box",
-                            "layout": "vertical",
-                            "margin": "xxl",
-                            "spacing": "sm",
-                            "contents": [
-                              {
-                                "type": "box",
-                                "layout": "horizontal",
-                                "contents": [
-                                  {
-                                    "type": "text",
-                                    "text": "總金額",
-                                    "size": "sm",
-                                    "color": "#555555",
-                                    "flex": 0
-                                  },
-                                  {
-                                    "type": "text",
-                                    "text": "$84",
-                                    "size": "sm",
-                                    "color": "#111111",
-                                    "align": "end"
-                                  }
-                                ]
-                              },
-                              {
-                                "type": "separator",
-                                "margin": "xxl"
-                              },
-                              {
-                                "type": "box",
-                                "layout": "horizontal",
-                                "contents": [
-                                  {
-                                    "type": "text",
-                                    "text": "PH9.0鹼性離子水",
-                                    "size": "sm",
-                                    "color": "#555555"
-                                  },
-                                  {
-                                    "type": "text",
-                                    "text": "$25",
-                                    "size": "sm",
-                                    "color": "#111111",
-                                    "align": "end"
-                                  }
-                                ]
-                              },
-                              {
-                                "type": "box",
-                                "layout": "horizontal",
-                                "contents": [
-                                  {
-                                    "type": "text",
-                                    "text": "墨西哥辣味雞胸肉",
-                                    "size": "sm",
-                                    "color": "#555555",
-                                    "flex": 0
-                                  },
-                                  {
-                                    "type": "text",
-                                    "text": "$59",
-                                    "size": "sm",
-                                    "color": "#111111",
-                                    "align": "end"
-                                  }
-                                ]
-                              }
-                            ]
-                          },
-                          {
-                            "type": "separator",
-                            "margin": "xxl"
-                          },
-                          {
-                            "type": "box",
-                            "layout": "horizontal",
-                            "margin": "md",
-                            "contents": [
-                              {
-                                "type": "text",
-                                "text": "交易代碼",
-                                "size": "xs",
-                                "color": "#aaaaaa",
-                                "flex": 0
-                              },
-                              {
-                                "type": "text",
-                                "text": "#936923749813",
-                                "color": "#aaaaaa",
-                                "size": "xs",
-                                "align": "end"
-                              }
-                            ]
-                          }
-                        ]
-                      },
-                      "styles": {
-                        "footer": {
-                          "separator": True
-                        }
-                      }
-                     }
-            )
-        line_bot_api.reply_message(event.reply_token, flex_message)
+#     elif re.match('LinePay收據',message):
+#         flex_message = FlexSendMessage(
+#             alt_text='收據來了鴨',
+#             contents={
+#                       "type": "bubble",
+#                       "body": {
+#                         "type": "box",
+#                         "layout": "vertical",
+#                         "contents": [
+#                           {
+#                             "type": "text",
+#                             "text": "LinePay收據",
+#                             "weight": "bold",
+#                             "color": "#1DB446",
+#                             "size": "sm"
+#                           },
+#                           {
+#                             "type": "text",
+#                             "text": "統一超商-國雙",
+#                             "weight": "bold",
+#                             "size": "xxl",
+#                             "margin": "md"
+#                           },
+#                           {
+#                             "type": "text",
+#                             "text": "台北市萬華區西藏路125巷17號及129-9號",
+#                             "size": "xs",
+#                             "color": "#aaaaaa",
+#                             "wrap": True
+#                           },
+#                           {
+#                             "type": "separator",
+#                             "margin": "xxl"
+#                           },
+#                           {
+#                             "type": "box",
+#                             "layout": "vertical",
+#                             "margin": "xxl",
+#                             "spacing": "sm",
+#                             "contents": [
+#                               {
+#                                 "type": "box",
+#                                 "layout": "horizontal",
+#                                 "contents": [
+#                                   {
+#                                     "type": "text",
+#                                     "text": "總金額",
+#                                     "size": "sm",
+#                                     "color": "#555555",
+#                                     "flex": 0
+#                                   },
+#                                   {
+#                                     "type": "text",
+#                                     "text": "$84",
+#                                     "size": "sm",
+#                                     "color": "#111111",
+#                                     "align": "end"
+#                                   }
+#                                 ]
+#                               },
+#                               {
+#                                 "type": "separator",
+#                                 "margin": "xxl"
+#                               },
+#                               {
+#                                 "type": "box",
+#                                 "layout": "horizontal",
+#                                 "contents": [
+#                                   {
+#                                     "type": "text",
+#                                     "text": "PH9.0鹼性離子水",
+#                                     "size": "sm",
+#                                     "color": "#555555"
+#                                   },
+#                                   {
+#                                     "type": "text",
+#                                     "text": "$25",
+#                                     "size": "sm",
+#                                     "color": "#111111",
+#                                     "align": "end"
+#                                   }
+#                                 ]
+#                               },
+#                               {
+#                                 "type": "box",
+#                                 "layout": "horizontal",
+#                                 "contents": [
+#                                   {
+#                                     "type": "text",
+#                                     "text": "墨西哥辣味雞胸肉",
+#                                     "size": "sm",
+#                                     "color": "#555555",
+#                                     "flex": 0
+#                                   },
+#                                   {
+#                                     "type": "text",
+#                                     "text": "$59",
+#                                     "size": "sm",
+#                                     "color": "#111111",
+#                                     "align": "end"
+#                                   }
+#                                 ]
+#                               }
+#                             ]
+#                           },
+#                           {
+#                             "type": "separator",
+#                             "margin": "xxl"
+#                           },
+#                           {
+#                             "type": "box",
+#                             "layout": "horizontal",
+#                             "margin": "md",
+#                             "contents": [
+#                               {
+#                                 "type": "text",
+#                                 "text": "交易代碼",
+#                                 "size": "xs",
+#                                 "color": "#aaaaaa",
+#                                 "flex": 0
+#                               },
+#                               {
+#                                 "type": "text",
+#                                 "text": "#936923749813",
+#                                 "color": "#aaaaaa",
+#                                 "size": "xs",
+#                                 "align": "end"
+#                               }
+#                             ]
+#                           }
+#                         ]
+#                       },
+#                       "styles": {
+#                         "footer": {
+#                           "separator": True
+#                         }
+#                       }
+#                      }
+#             )
+#         line_bot_api.reply_message(event.reply_token, flex_message)
         
 #     elif re.match('圖表',message):
 #         image_carousel_template_message = TemplateSendMessage(
@@ -546,7 +551,8 @@ def handle_message9(event):
             preview_image_url='https://i.imgur.com/pT1Fm9d.png'
         )
         line_bot_api.reply_message(event.reply_token, image_message)
-
+    elif re.match('講個笑話來聽聽鴨',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('答案是小黃瓜!(小黃，呱!)'))    
      
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
