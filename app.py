@@ -564,14 +564,11 @@ def handle_message9(event):
     elif re.match('我把禾鴨加入購物車囉',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('你好棒鴨'))
     elif re.match('你們是誰鴨？？',message):
-        reply_text = '沒錯喔就是鴨，我們是鴨鴨團隊喔！'
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(reply_text))
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('沒錯喔就是鴨，我們是鴨鴨團隊喔！'))
     elif re.match('講個笑話來聽聽鴨',message):
-        reply_text = '鴨子搭計程車，猜一種蔬果?答案是小黃瓜！(小黃，呱！)'
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(reply_text))
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨子搭計程車，猜一種蔬果?答案是小黃瓜！(小黃，呱！)'))
     elif re.match('那根是什麼鴨？',message):
-        reply_text = '所以說為什麼大家不拿著熱狗一起拍照呢？哎，哭笑不得鴨:)'
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(reply_text))  
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('所以說為什麼大家不拿著熱狗一起拍照呢？哎，哭笑不得鴨'))
 
     elif re.match('月支出占比圓餅圖',message):
         image_message = ImageSendMessage(
