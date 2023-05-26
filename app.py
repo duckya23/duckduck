@@ -569,7 +569,8 @@ def handle_message9(event):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨子搭計程車，猜一種蔬果?答案是小黃瓜！(小黃，呱！)'))
     elif re.match('那根是什麼鴨？',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('所以說為什麼大家不拿著熱狗一起拍照呢？哎，哭笑不得鴨'))
-
+    elif re.match('購物商城',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(''))
     elif re.match('月支出占比圓餅圖',message):
         image_message = ImageSendMessage(
             original_content_url='https://i.imgur.com/yLVrvTG.jpg',
