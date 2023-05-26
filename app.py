@@ -19,7 +19,6 @@ handler = WebhookHandler('05a15941e79753db37de1062d1cec8dd')
 #line_bot_api.push_message('你自己的ID', TextSendMessage(text='你可以開始了'))
 
 
-
 #以下這段目前沒有作用，可刪除-目前只是裝飾用，因為呼叫不捯這個函數
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message2():
@@ -152,21 +151,33 @@ def handle_message9(event):
                     ImageCarouselColumn(
                         image_url='https://i.imgur.com/0D8zvLe.png',
                         action=PostbackAction(
-                            display_text='早安',
+                            display_text='咱們鴨鴨團隊可是很厲害的呢哈',
                             data='action=晚安'
                         )
                     ),
                     ImageCarouselColumn(
                         image_url='https://i.imgur.com/x0cLDp4.png',
                         action=PostbackAction(
-                            display_text='男生',
+                            display_text='鴨子搭計程車，猜一種蔬果?\
+                                           .\
+                                           .\
+                                           .\
+                                           .\
+                                           .\
+                                           .\
+                                           .\
+                                           .\
+                                           .\
+                                           .\
+                                           .\
+                                           答案是小黃瓜!(小黃，呱!)',
                             data='action=耶'
                         )
                     ),
                     ImageCarouselColumn(
-                        image_url='https://i.imgur.com/p4QQCX0.png',
+                        image_url='https://i.imgur.com/TCqNDmZ.png',
                         action=PostbackAction(
-                            display_text='女生',
+                            display_text='所以說為什麼大家不拿著熱狗一起拍照呢?哎，哭笑不得:)',
                             data='action=哈哈'
                         )
                     )
