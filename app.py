@@ -158,19 +158,8 @@ def handle_message9(event):
                     ImageCarouselColumn(
                         image_url='https://i.imgur.com/x0cLDp4.png',
                         action=PostbackAction(
-                            display_text='''鴨子搭計程車，猜一種蔬果?\
-                                           .\
-                                           .\
-                                           .\
-                                           .\
-                                           .\
-                                           .\
-                                           .\
-                                           .\
-                                           .\
-                                           .\
-                                           .\
-                                           答案是小黃瓜!(小黃，呱!)''',
+                            display_text='鴨子搭計程車，猜一種蔬果?\
+                                           答案是小黃瓜!(小黃，呱!)',
                             data='action=耶'
                         )
                     ),
