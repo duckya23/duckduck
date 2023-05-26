@@ -175,7 +175,7 @@ def handle_message9(event):
                         )
                     ),
                     ImageCarouselColumn(
-                        image_url='https://i.imgur.com/TCqNDmZ.png',
+                        image_url='https://i.imgur.com/F84UTCk.png',
                         action=PostbackAction(
                             display_text='所以說為什麼大家不拿著熱狗一起拍照呢?哎，哭笑不得:)',
                             data='action=哈哈'
