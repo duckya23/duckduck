@@ -346,39 +346,39 @@ def handle_message9(event):
 #             )
 #         line_bot_api.reply_message(event.reply_token, flex_message)
         
-#     elif re.match('圖表',message):
-#         image_carousel_template_message = TemplateSendMessage(
-#             alt_text='點擊選項來查看圖表',
-#             template=ImageCarouselTemplate(
-#                 columns=[
-#                     ImageCarouselColumn(
-#                         image_url='https://i.imgur.com/pT1Fm9d.png',
-#                         action=PostbackAction(
-#                             label='年收支圖表',
-#                             display_text='年收支圖表',
-#                             data='action=努力不一定會成功，但不努力會很輕鬆'
-#                         )
-#                     ),
-#                     ImageCarouselColumn(
-#                         image_url='https://i.imgur.com/pT1Fm9d.png',
-#                         action=PostbackAction(
-#                             label='年收支圖表',
-#                             display_text='年收支圖表',
-#                             data='action=興趣不能當飯吃，但總比吃飯當興趣好'
-#                         )
-#                     ),
-#                     ImageCarouselColumn(
-#                         image_url='https://pic2.zhimg.com/v2-706be7f956613c2b4f0431482b858dc9_b.png',
-#                         action=PostbackAction(
-#                             label='哈哈哈你以為有什麼',
-#                             display_text='哈哈哈哩鴨',
-#                             data='action=興趣不能當飯吃，但總比吃飯當興趣好'
-#                         )
-#                     )
-#                 ]
-#             )
-#         )
-#         line_bot_api.reply_message(event.reply_token, image_carousel_template_message)
+    elif re.match('圖表',message):
+        image_carousel_template_message = TemplateSendMessage(
+            alt_text='點擊選項來查看圖表',
+            template=ImageCarouselTemplate(
+                columns=[
+                    ImageCarouselColumn(
+                        image_url='https://i.imgur.com/pT1Fm9d.png',
+                        action=PostbackAction(
+                            label='年收支圖表',
+                            display_text='年收支圖表',
+                            data='action=努力不一定會成功，但不努力會很輕鬆'
+                        )
+                    ),
+                    ImageCarouselColumn(
+                        image_url='https://i.imgur.com/pT1Fm9d.png',
+                        action=PostbackAction(
+                            label='年收支圖表',
+                            display_text='年收支圖表',
+                            data='action=興趣不能當飯吃，但總比吃飯當興趣好'
+                        )
+                    ),
+                    ImageCarouselColumn(
+                        image_url='https://pic2.zhimg.com/v2-706be7f956613c2b4f0431482b858dc9_b.png',
+                        action=PostbackAction(
+                            label='哈哈哈你以為有什麼',
+                            display_text='哈哈哈哩鴨',
+                            data='action=興趣不能當飯吃，但總比吃飯當興趣好'
+                        )
+                    )
+                ]
+            )
+        )
+        line_bot_api.reply_message(event.reply_token, image_carousel_template_message)
     elif re.match('記帳',message):
         flex_message = TextSendMessage(text='快來記帳鴨',
                                quick_reply=QuickReply(items=[
@@ -570,18 +570,18 @@ def handle_message9(event):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('所以說為什麼大家不拿著熱狗一起拍照呢？哎，哭笑不得鴨'))
     elif re.match('購物商城',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage(''))
-    elif re.match('月支出占比圓餅圖',message):
-        image_message = ImageSendMessage(
-            original_content_url='https://i.imgur.com/yLVrvTG.jpg',
-            preview_image_url='https://i.imgur.com/pT1Fm9d.png'
-        )
-        line_bot_api.reply_message(event.reply_token, image_message)
+#     elif re.match('月支出占比圓餅圖',message):
+#         image_message = ImageSendMessage(
+#             original_content_url='https://i.imgur.com/yLVrvTG.jpg',
+#             preview_image_url='https://i.imgur.com/pT1Fm9d.png'
+#         )
+#         line_bot_api.reply_message(event.reply_token, image_message)
 
-    elif re.match('月收支趨勢分析圖',message):
-        image_message = ImageSendMessage(
-            original_content_url='https://i.imgur.com/5dgiZlO.png',
-            preview_image_url='https://i.imgur.com/pT1Fm9d.png'
-        )
+#     elif re.match('月收支趨勢分析圖',message):
+#         image_message = ImageSendMessage(
+#             original_content_url='https://i.imgur.com/5dgiZlO.png',
+#             preview_image_url='https://i.imgur.com/pT1Fm9d.png'
+#         )
         line_bot_api.reply_message(event.reply_token, image_message)
     
 
