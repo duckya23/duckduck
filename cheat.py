@@ -102,7 +102,7 @@
 import pandas as pd
 
 # 建立一個空的資料框(DataFrame)來儲存預算資料
-budget_df = pd.DataFrame(columns=['名稱類別', '預算', '結餘'])
+budget_df = pd.DataFrame(columns=['類別', '預算', '結餘'])
 
 # 預算類別清單
 budget_categories = ['飲食', '日用', '居家', '交通', '服飾', '娛樂', '醫療', '美容', '教育', '其他']
@@ -133,5 +133,3 @@ for category in budget_categories:
 
 # 顯示表格
 print(budget_df)
-
-
