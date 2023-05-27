@@ -182,11 +182,10 @@ def handle_message9(event):
                 columns=[
                     ImageCarouselColumn(
                         image_url='https://i.imgur.com/0D8zvLe.png',
-                        action=PostbackAction(
-                            display_text='你們是誰鴨？？',
-                            data='action=你們是誰鴨？？'
-                        )
-                    ),
+                        MessageAction(
+                            label='購物商城',
+                            text='購物商城'
+                        ),
                     ImageCarouselColumn(
                         image_url='https://i.imgur.com/x0cLDp4.png',
                         action=PostbackAction(
