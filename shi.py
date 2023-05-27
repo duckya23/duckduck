@@ -21,8 +21,8 @@ def handle_message2():
         import time
         localtime = time.asctime( time.localtime(time.time()) )
         import csv
-        my_dict = {}
-        filename = 'my_dict.csv'
+        my_dict_food = {}
+        filename = 'my_dict_food.csv'
         # 開啟 CSV 文件並追加字典內容
         with open(filename, 'a', newline='') as csvfile:
             writer = csv.writer(csvfile)
@@ -32,9 +32,9 @@ def handle_message2():
             key = Account_number
             value1 = localtime
             value2 = float(message)
-            my_dict[key] = [value1, value2]  # 使用鍵作為索引，將兩個值分配給該鍵
+            my_dict_food[key] = [value1, value2]  # 使用鍵作為索引，將兩個值分配給該鍵
             # 寫入數據行
-            for key, values in my_dict.items():
+            for key, values in my_dict_food.items():
                 writer.writerow([key] + values)
         reply_text = f'已儲存金額 {a} 鴨！'  # 建立回覆訊息
         line_bot_api.reply_message(event.reply_token, TextSendMessage(reply_text))
