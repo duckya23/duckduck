@@ -94,7 +94,7 @@ def handle_message9(event):
             actions=[
                 
                 MessageAction(
-                    label='圓餅圖',
+                    label='月支出占比圓餅圖',
                     text='月支出占比圓餅圖',
                 ),
                  MessageAction(
