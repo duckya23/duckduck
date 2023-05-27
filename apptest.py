@@ -190,7 +190,7 @@ def handle_message9(event):
                     ImageCarouselColumn(
                         image_url='https://i.imgur.com/x0cLDp4.png',
                         action=PostbackAction(
-                            display_text='講個笑話來聽聽鴨',
+                            display_text='哈哈哈哈哈哈哈哈',
                             data='action=耶'
                         )
                     ),
