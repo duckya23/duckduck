@@ -424,7 +424,7 @@ def handle_message9(event):
     #飲食預算要用3000
     if re.match('3000',message):
         totala+=3000
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('已經幫您儲存了鴨！'))
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('已經幫您儲存飲食預算了鴨！'))
         
 
     if re.match('日用預算',message):
