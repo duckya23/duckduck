@@ -29,7 +29,7 @@ def handle_message2():
             # 檢查是否為空檔案，若是則寫入標題行
             if csvfile.tell() == 0:
                 writer.writerow(['Key', 'Value1', 'Value2'])
-            key = 'my_key23'
+            key = Account_number
             value1 = localtime
             value2 = float(message)
             my_dict[key] = [value1, value2]  # 使用鍵作為索引，將兩個值分配給該鍵
