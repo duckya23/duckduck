@@ -204,11 +204,11 @@ def handle_message9(event):
             )
         )
         line_bot_api.reply_message(event.reply_token, image_carousel_template_message)
-    if re.match('你們是誰鴨？？',message):
+    elif re.match('你們是誰鴨？？',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('沒錯喔就是鴨，我們是鴨鴨團隊喔！'))
-    if re.match('講個笑話來聽聽鴨',message):
+    elif re.match('講個笑話來聽聽鴨',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨子搭計程車，猜一種蔬果?答案是小黃瓜！(小黃，呱！)'))
-    if re.match('那根是什麼鴨？',message):
+    elif re.match('那根是什麼鴨？',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('所以說為什麼大家不拿著熱狗一起拍照呢？哎，哭笑不得鴨'))
         
 #     elif re.match('LinePay收據',message):
