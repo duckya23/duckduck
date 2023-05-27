@@ -1,4 +1,7 @@
 ###假的預算與支出
+@handler.add(MessageEvent, message=TextMessage)        
+def handle_message9(event):
+    message = text = event.message.text
     elif re.match('預算與結餘',message):
         flex_message = TextSendMessage(text='快來設定預算鴨',
                                quick_reply=QuickReply(items=[
