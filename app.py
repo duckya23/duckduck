@@ -184,7 +184,7 @@ def handle_message9(event):
                         image_url='https://i.imgur.com/0D8zvLe.png',
                         action=PostbackAction(
                             display_text='你們是誰鴨？？',
-                            data='action=晚安'
+                            data='action=你們是誰鴨？？'
                         )
                     ),
                     ImageCarouselColumn(
