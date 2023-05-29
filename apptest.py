@@ -123,8 +123,8 @@ def handle_message9(event):
                         image_url='https://i.imgur.com/wpM584d.jpg',
                         action=PostbackAction(
                             label='momo 購物網',
-                            display_text='萬丈高樓平地起',
-                            data='action=努力不一定會成功，但不努力會很輕鬆'
+                            display_text='購物網鴨',
+                            data='action=鴨鴨購物去'
                         )
                     ),
                     ImageCarouselColumn(
