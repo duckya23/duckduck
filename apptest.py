@@ -71,13 +71,9 @@ def handle_message9(event):
                     label='購物商城',
                     text='購物商城'
                 ),
-                ImageCarouselColumn(
-                    image_url='https://i.imgur.com/8Y292wv.png'
-                    action=PostbackAction(
-                        label='LinePay收據',
-                        display_text='LINE',
-                        data='action=line'
-                    )
+                MessageAction(
+                    label='LinePay收據',
+                    text='LinePay收據'
                 ),
                 URIAction(
                     label='官方網站',
@@ -87,7 +83,24 @@ def handle_message9(event):
         )
         )
         line_bot_api.reply_message(event.reply_token, buttons_template_message)
-    
+        
+    if re.match('LinePay收據',message):
+        image_carousel_template_message = TemplateSendMessage(
+            alt_text='LinePay收據通知來囉',
+            template=ImageCarouselTemplate(
+                columns=[
+                    ImageCarouselColumn(
+                        image_url='https://i.imgur.com/8Y292wv.png',
+                        action=PostbackAction(
+                            display_text='你們是誰鴨？？',
+                            data='action=晚安'
+                        )
+                    )
+                ]
+            )
+        )
+        line_bot_api.reply_message(event.reply_token, image_carousel_template_message)
+        
     if re.match('圖表',message):
         buttons_template_message = TemplateSendMessage(
         alt_text='圖表來了鴨',
