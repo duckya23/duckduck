@@ -71,9 +71,10 @@ def handle_message9(event):
                     label='購物商城',
                     text='購物商城'
                 ),
-               URIAction(
-                    label='LinePay收據',
-                    uri='https://i.imgur.com/8Y292wv.png',
+                ImageCarouselColumn(
+                        image_url='https://i.imgur.com/8Y292wv.png',
+                        action=PostbackAction(
+                            label='LinePay收據'
                 ),
                 URIAction(
                     label='官方網站',
