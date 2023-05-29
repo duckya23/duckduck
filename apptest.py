@@ -92,14 +92,17 @@ def handle_message9(event):
                     ImageCarouselColumn(
                         image_url='https://i.imgur.com/8Y292wv.png',
                         action=PostbackAction(
-                            display_text='你們是誰鴨？？',
-                            data='action=晚安'
+                            display_text='好想連接LinePay喔',
+                            data='action=恩'
                         )
                     )
                 ]
             )
         )
         line_bot_api.reply_message(event.reply_token, image_carousel_template_message)
+    
+    if re.match('好想連接LinePay喔',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('請耐心等待鴨'))
         
     if re.match('圖表',message):
         buttons_template_message = TemplateSendMessage(
