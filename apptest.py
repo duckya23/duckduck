@@ -71,9 +71,9 @@ def handle_message9(event):
                     label='購物商城',
                     text='購物商城'
                 ),
-                MessageAction(
+               URIAction(
                     label='LinePay收據',
-                    text='LinePay收據',
+                    uri='https://i.imgur.com/8Y292wv.png',
                 ),
                 URIAction(
                     label='官方網站',
