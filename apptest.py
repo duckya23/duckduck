@@ -85,7 +85,7 @@ def handle_message9(event):
                 )
             ]
         )
-    )
+        )
         line_bot_api.reply_message(event.reply_token, buttons_template_message)
     
     if re.match('圖表',message):
@@ -110,39 +110,39 @@ def handle_message9(event):
         )
     )
         line_bot_api.reply_message(event.reply_token, buttons_template_message)
-#     if re.match('好想購物鴨！',message):
-#         image_carousel_template_message = TemplateSendMessage(
-#             alt_text='免費教學影片',
-#             template=ImageCarouselTemplate(
-#                 columns=[
-#                     ImageCarouselColumn(
-#                         image_url='https://www.happygocard.com.tw/official/upload/merchant/166be4fd1b000000b096.jpg',
-#                         action=PostbackAction(
-#                             label='momo 購物網',
-#                             display_text='買起來鴨 !',
-#                             uri='https://marketingliveincode.com/?page_id=270'
-#                         )
-#                     ),
-#                     ImageCarouselColumn(
-#                         image_url='https://i.imgur.com/wpM584d.jpg',
-#                         action=PostbackAction(
-#                             label='momo 購物網',
-#                             display_text='購物網鴨',
-#                             data='action=鴨鴨購物去'
-#                         )
-#                     ),
-#                     ImageCarouselColumn(
-#                         image_url='https://i.imgur.com/W7nI6fg.jpg',
-#                         action=PostbackAction(
-#                             label='LineBot聊天機器人',
-#                             display_text='台灣最廣泛使用的通訊軟體',
-#                             data='action=興趣不能當飯吃，但總比吃飯當興趣好'
-#                         )
-#                     )
-#                 ]
-#             )
-#         )
-#         line_bot_api.reply_message(event.reply_token, image_carousel_template_message)   
+    if re.match('好想購物鴨！',message):
+        image_carousel_template_message = TemplateSendMessage(
+            alt_text='免費教學影片',
+            template=ImageCarouselTemplate(
+                columns=[
+                    ImageCarouselColumn(
+                        image_url='https://www.happygocard.com.tw/official/upload/merchant/166be4fd1b000000b096.jpg',
+                        action=PostbackAction(
+                            label='momo 購物網',
+                            display_text='買起來鴨 !',
+                            uri='https://marketingliveincode.com/?page_id=270'
+                        )
+                    ),
+                    ImageCarouselColumn(
+                        image_url='https://i.imgur.com/wpM584d.jpg',
+                        action=PostbackAction(
+                            label='momo 購物網',
+                            display_text='購物網鴨',
+                            data='action=鴨鴨購物去'
+                        )
+                    ),
+                    ImageCarouselColumn(
+                        image_url='https://i.imgur.com/W7nI6fg.jpg',
+                        action=PostbackAction(
+                            label='LineBot聊天機器人',
+                            display_text='台灣最廣泛使用的通訊軟體',
+                            data='action=興趣不能當飯吃，但總比吃飯當興趣好'
+                        )
+                    )
+                ]
+            )
+        )
+        line_bot_api.reply_message(event.reply_token, image_carousel_template_message)   
     if re.match('使用說明',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('【使用說明】:\
                                                                      1.請先詳細看完服務條款並同意再進行本服務鴨，要看清楚鴨！呱！！\
