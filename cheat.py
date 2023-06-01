@@ -136,3 +136,35 @@ for category in budget_categories:
 
 # 顯示表格
 print(budget_df)
+
+
+#圖文選單
+import requests
+import json
+
+headers = {'Authorization':'Bearer cA4Y+naWER+/PyaAYGacJOO6GznxzUz/vUHhFzmY2eVvIczqzh7InjUL9h2IPo50NOyMXbbZXrNUYySlyd2CXHtlKYTDlkhIdGitB/ZKTvULCJnDf4PoVKyHgZRp7FIuHZcLErYwgQ2/Xd1ZRiFr4QdB04t89/1O/w1cDnyilFU=','Content-Type':'application/json'}
+body = {
+    'size': {'width': 1200, 'height': 810},  
+    'selected': 'true',                        
+    'name': 'Richmenu demo',                   
+    'chatBarText': '快來找鴨博士一起玩鴨',           
+    'areas':[                                  
+        {  'bounds': {'x': 0, 'y': 0, 'width':400 , 'height':405 }, 
+          'action': {'type': 'message', 'text': '記帳'}},
+
+        { 'bounds': {'x':400 , 'y':0 , 'width':400 , 'height':405 },
+          'action': {'type': 'message', 'text': '預算與結餘'}},
+
+        { 'bounds': {'x':800 , 'y':0 , 'width':400, 'height':405 },
+          'action': {'type': 'message', 'text': '圖表'}},
+
+        { 'bounds': {'x': 0, 'y': 400, 'width': 400, 'height':405},
+          'action': {'type': 'message', 'text': '其它功能'}},
+
+        { 'bounds': {'x': 400, 'y':400 , 'width': 400, 'height': 405},
+          'action': {'type': 'message', 'text': '使用說明'}},
+
+        { 'bounds': {'x': 800, 'y': 404, 'width': 400, 'height': 405},
+          'action': {'type': 'message', 'text': '鴨鴨團隊'}}
+    ]
+  }
