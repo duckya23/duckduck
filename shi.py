@@ -1,9 +1,9 @@
-def is_number(input_str):
-    try:
-        float(input_str)  # 嘗試將輸入轉換為浮點數
-        return True  # 成功轉換，輸入是一個數字
-    except ValueError:
-        return False  # 轉換失敗，輸入不是一個數字
+#def is_number(input_str):
+#    try:
+#        float(input_str)  # 嘗試將輸入轉換為浮點數
+#        return True  # 成功轉換，輸入是一個數字
+#    except ValueError:
+#        return False  # 轉換失敗，輸入不是一個數字
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message2():
