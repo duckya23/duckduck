@@ -172,7 +172,8 @@ def handle_message9(event):
                                                                      5.點擊下列選單中的【其它功能】會跳出三個選項(使用說明、服務條款、Line Pay連結)鴨\
                                                                      (1)點擊【使用說明】會傳給您使用說明的詳細內容鴨\
                                                                      (2)點擊【服務條款】會跳出服務條款的頁面供您查看鴨\
-                                                                     (3)點擊【Line Pay連結】會跳出Line Pay的連結設定，若一開始使用本服務已同意連結Line Pay ，若要終止請點擊【終止連結】按鈕若一開始使用本服務未使用連結Line Pay服務，若要啟動請點擊【連結】按鈕鴨！\
+                                                                     (3)點擊【Line Pay連結】會跳出Line Pay的連結設定，若一開始使用本服務已同意連結Line Pay ，\
+                                                                     若要終止請點擊【終止連結】按鈕若一開始使用本服務未使用連結Line Pay服務，若要啟動請點擊【連結】按鈕鴨！\
                                                                      \
                                                                      6.若對此記帳鴨服務有任何建議或是問題需修改，可以點選服務條款下的表單填寫，鴨博士會很開心能夠收到您們的建議和回饋喔！'))
         
@@ -204,21 +205,21 @@ def handle_message9(event):
                         image_url='https://i.imgur.com/0D8zvLe.png',
                         action=PostbackAction(
                             display_text='你們是誰鴨？？',
-                            data='action=晚安'
+                            data='action=鴨鴨團隊第一頁'
                         )
                     ),
                     ImageCarouselColumn(
                         image_url='https://i.imgur.com/x0cLDp4.png',
                         action=PostbackAction(
-                            display_text='哈哈哈哈哈哈哈哈',
-                            data='action=耶'
+                            display_text='講個笑話鴨',
+                            data='action=鴨鴨團隊第二頁'
                         )
                     ),
                     ImageCarouselColumn(
                         image_url='https://i.imgur.com/F84UTCk.png',
                         action=PostbackAction(
                             display_text='那根是什麼鴨？',
-                            data='action=哈哈'
+                            data='action=鴨鴨團隊第三頁'
                         )
                     )
                 ]
@@ -581,12 +582,13 @@ def handle_message9(event):
     if re.match('查看totala',message):        
         reply_text = f'目前飲食預算為 {totala} 鴨！'  # 建立回覆訊息
         line_bot_api.reply_message(event.reply_token, TextSendMessage(reply_text))
-#     if re.match('你們是誰鴨？？',message):
-#         line_bot_api.reply_message(event.reply_token,TextSendMessage('沒錯喔就是鴨，我們是鴨鴨團隊喔！'))
+
     if re.match('我把禾鴨加入購物車囉',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('你好棒鴨'))
-#     if re.match('講個笑話來聽聽鴨',message):
-#         line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨子搭計程車，猜一種蔬果?答案是小黃瓜！(小黃，呱！)'))
+    if re.match('你們是誰鴨？？',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('沒錯喔就是鴨，我們是鴨鴨團隊喔！'))
+    if re.match('講個笑話唄',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('鴨子搭計程車，猜一種蔬果?答案是小黃瓜！(小黃，呱！)'))
     if re.match('那根是什麼鴨？',message):
          line_bot_api.reply_message(event.reply_token,TextSendMessage('所以說為什麼大家不拿著熱狗一起拍照呢？哎，哭笑不得鴨'))
     if re.match('購物商城',message):
