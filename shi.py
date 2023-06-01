@@ -11,7 +11,7 @@ def handle_message2():
     with open('Account_number.csv', 'r') as file:
     Account_number =int( file.read())
 
-    if is_number(message): # 當message是數字，執行這個
+    if message.isdigit(): # 當message是數字，執行這個
         with open('food.csv', 'r') as file: # 讀取food金額
             food =int( file.read())            
         food +=float(message) 
