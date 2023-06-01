@@ -1,0 +1,6 @@
+USE ImportFromExcel;
+GO
+SELECT * INTO Data_dq
+FROM OPENROWSET('Microsoft.ACE.OLEDB.12.0',
+    'Excel 12.0; Database=C:\Temp\Data.xlsx', [Sheet1$]);
+GO
