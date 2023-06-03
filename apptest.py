@@ -18,8 +18,6 @@ line_bot_api = LineBotApi('cA4Y+naWER+/PyaAYGacJOO6GznxzUz/vUHhFzmY2eVvIczqzh7In
 handler = WebhookHandler('05a15941e79753db37de1062d1cec8dd')
 #line_bot_api.push_message('你自己的ID', TextSendMessage(text='你可以開始了'))
 
-line_bot_api.push_message(443dipnx, 
-                          TextSendMessage(text='安安您好！早餐吃了嗎？'))
 
 
 
