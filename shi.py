@@ -28,7 +28,7 @@ def handle_message2():
             writer = csv.writer(csvfile)
             # 檢查是否為空檔案，若是則寫入標題行
             if csvfile.tell() == 0:
-                writer.writerow(['Key', 'Value1', 'Value2'])
+                writer.writerow(['key', 'value1', 'value2'])
             key = Account_number
             value1 = localtime
             value2 = float(message)
@@ -36,7 +36,7 @@ def handle_message2():
             # 寫入數據行
             for key, values in my_dict_food.items():
                 writer.writerow([key] + values)
-        reply_text = f'已儲存金額 {a} 鴨！'  # 建立回覆訊息
+        reply_text = f'已儲存金額 {message} 鴨！'  # 建立回覆訊息
         line_bot_api.reply_message(event.reply_token, TextSendMessage(reply_text))
     else : # 當message不是數字，執行這個
         line_bot_api.reply_message(event.reply_token, TextSendMessage("您輸入的不是數字鴨！"))
