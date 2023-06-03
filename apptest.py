@@ -66,7 +66,7 @@ def handle_message9(event):
             text='記帳鴨博士的其它功能',
             actions=[
                 URIAction(
-                    label='服務條款',
+                    label='使用條款',
                     uri='https://sites.google.com/view/ducktermserver/%E9%A6%96%E9%A0%81'
                 ),
                 MessageAction(
@@ -179,9 +179,9 @@ def handle_message9(event):
                                                                      \
                                                                      6.若對此記帳鴨服務有任何建議或是問題需修改，可以點選服務條款下的表單填寫，鴨博士會很開心能夠收到您們的建議和回饋喔！'))
         
-    if re.match('服務條款',message):
+    if re.match('使用條款',message):
         confirm_template_message = TemplateSendMessage(
-            alt_text='服務條款',
+            alt_text='使用條款',
             template=ConfirmTemplate(
                 text='歡迎使用來記帳鴨！',
                 actions=[
