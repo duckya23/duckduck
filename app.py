@@ -414,7 +414,7 @@ def handle_message9(event):
         line_bot_api.reply_message(event.reply_token,TextSendMessage("""| 類別   |    預算 |       結餘 |
 | 飲食   |   3000 |     2880 |
 | 日用   |   2000 |     2000 |
-| 居家   |   2500 |     3500 |
+| 居家   |   2500 |     2500 |
 | 交通   |   3500 |     3420 |
 | 服飾   |   1000 |      1000 |
 | 娛樂   |   1500 |      1500 |
