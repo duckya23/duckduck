@@ -16,8 +16,9 @@ query = "SELECT month, income, expend FROM userduck"
 data = pd.read_sql(query, connection)
 income_values = data['income'].values
 expend_values = data['expend'].values
-
 x_labels = data['month'].values
+
+
 bar_width = 0.35
 bar_positions1 = np.arange(len(income_values))
 bar_positions2 = bar_positions1 + bar_width
