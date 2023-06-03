@@ -23,7 +23,6 @@ bar_positions2 = bar_positions1 + bar_width
 
 plt.bar(bar_positions1, income_values, 
         width=bar_width, label='收入',color= 'lightblue')
-
 plt.bar(bar_positions2, expend_values, 
         width=bar_width, label='支出',color='mistyrose')
 
@@ -32,7 +31,6 @@ plt.title('月收支趨勢分析圖')
 plt.xlabel(u"月份")
 plt.ylabel(u"金額(元)")
 plt.legend(loc="upper right")
-
 plt.show()
 plt.savefig("groupbar.jpg")
 connection.close()
