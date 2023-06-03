@@ -8,8 +8,7 @@ connection = pymysql.connect(
     host='localhost',
     user='root',
     password='',
-    database='test'
-)
+    database='test')
 
 mpl.rcParams["font.sans-serif"] = ['Microsoft JhengHei']
 mpl.rcParams["axes.unicode_minus"] = False
@@ -23,8 +22,11 @@ bar_width = 0.35
 bar_positions1 = np.arange(len(income_values))
 bar_positions2 = bar_positions1 + bar_width
 
-plt.bar(bar_positions1, income_values, width=bar_width, label='收入',color= 'lightblue')
-plt.bar(bar_positions2, expend_values, width=bar_width, label='支出',color='mistyrose')
+plt.bar(bar_positions1, income_values, 
+        width=bar_width, label='收入',color= 'lightblue')
+
+plt.bar(bar_positions2, expend_values, 
+        width=bar_width, label='支出',color='mistyrose')
 
 plt.xticks(bar_positions1 + bar_width / 2, x_labels)
 plt.title('月收支趨勢分析圖')
