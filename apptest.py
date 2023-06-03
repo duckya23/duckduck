@@ -605,26 +605,7 @@ def handle_message9(event):
             original_content_url='https://i.imgur.com/5dgiZlO.png',
             preview_image_url='https://i.imgur.com/5dgiZlO.png'
         )
-        line_bot_api.reply_message(event.reply_token, image_message)
-     if re.match('服務條款',message):
-        confirm_template_message = TemplateSendMessage(
-            alt_text='服務條款',
-            template=ConfirmTemplate(
-                text='歡迎使用來記帳鴨！',
-                actions=[
-                    MessageAction(
-                        label='同意',
-                        text='我同意服務條款'
-                    ),
-                    MessageAction(
-                        label='不同意',
-                        text='我不同意服務條款'
-                    )
-                ]
-            )
-        )
-        line_bot_api.reply_message(event.reply_token, confirm_template_message)
-    
+        line_bot_api.reply_message(event.reply_token, image_message)    
 
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
