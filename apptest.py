@@ -596,14 +596,14 @@ def handle_message9(event):
     if re.match('月支出占比圓餅圖',message):
         image_message = ImageSendMessage(
             original_content_url='https://i.imgur.com/yLVrvTG.jpg',
-#             preview_image_url='https://i.imgur.com/pT1Fm9d.png'
+            preview_image_url='https://i.imgur.com/yLVrvTG.jpg'
         )
         line_bot_api.reply_message(event.reply_token, image_message)
 
     if re.match('月收支趨勢分析圖',message):
         image_message = ImageSendMessage(
             original_content_url='https://i.imgur.com/5dgiZlO.png',
-#             preview_image_url='https://i.imgur.com/pT1Fm9d.png'
+            preview_image_url='https://i.imgur.com/5dgiZlO.png'
         )
         line_bot_api.reply_message(event.reply_token, image_message)
     
