@@ -35,4 +35,5 @@ plt.ylabel(u"金額(元)")
 plt.legend(loc="upper right")
 
 plt.show()
+plt.savefig("groupbar.jpg")
 connection.close()
