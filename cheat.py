@@ -1,23 +1,51 @@
 ###假的預算與支出
 @handler.add(MessageEvent, message=TextMessage)        
 def handle_message9(event):
-    message = text = event.message.text
+    message = text=event.message.text
     elif re.match('預算與結餘',message):
         flex_message = TextSendMessage(text='快來設定預算鴨',
-                               quick_reply=QuickReply(items=[
-                                   QuickReplyButton(action=MessageAction(label="結餘&預算表格", text="好的現在為您開啟表格!鴨鴨!")),
-                                   QuickReplyButton(action=MessageAction(label="飲食預算", text="飲食預算")),
-                                   QuickReplyButton(action=MessageAction(label="日用預算", text="日用預算")),
-                                   QuickReplyButton(action=MessageAction(label="居家預算", text="居家預算")),
-                                   QuickReplyButton(action=MessageAction(label="交通預算", text="交通預算")),
-                                   QuickReplyButton(action=MessageAction(label="服飾預算", text="服飾預算")),
-                                   QuickReplyButton(action=MessageAction(label="娛樂預算", text="娛樂預算")),
-                                   QuickReplyButton(action=MessageAction(label="醫療預算", text="醫療預算")),
-                                   QuickReplyButton(action=MessageAction(label="美容預算", text="美容預算")),
-                                   QuickReplyButton(action=MessageAction(label="教育預算", text="教育預算")),
-                                   QuickReplyButton(action=MessageAction(label="其它預算", text="其它預算"))
-                               ]))
+           quick_reply=QuickReply(items=[
+           QuickReplyButton(action=MessageAction(label="結餘&預算表格", text="好的現在為您開啟表格!鴨鴨!")),
+           QuickReplyButton(action=MessageAction(label="飲食預算", text="飲食預算")),
+           QuickReplyButton(action=MessageAction(label="日用預算", text="日用預算")),
+           QuickReplyButton(action=MessageAction(label="居家預算", text="居家預算")),
+           QuickReplyButton(action=MessageAction(label="交通預算", text="交通預算")),
+           QuickReplyButton(action=MessageAction(label="服飾預算", text="服飾預算")),
+           QuickReplyButton(action=MessageAction(label="娛樂預算", text="娛樂預算")),
+           QuickReplyButton(action=MessageAction(label="醫療預算", text="醫療預算")),
+           QuickReplyButton(action=MessageAction(label="美容預算", text="美容預算")),
+           QuickReplyButton(action=MessageAction(label="教育預算", text="教育預算")),
+           QuickReplyButton(action=MessageAction(label="其它預算", text="其它預算"))
+           ]))
         line_bot_api.reply_message(event.reply_token, flex_message)
+    if message.isdigit():
+        import time
+        localtime = time.asctime( time.localtime(time.time()) )
+        import csv
+        my_dict_food = {}
+        filename1 = 'my_dict_budget.csv'
+    # 開啟 CSV 文件並追加字典內容
+        with open(filename1, 'a', newline='') as csvfile:
+            writer = csv.writer(csvfile)
+    # 檢查是否為空檔案，若是則寫入標題行
+        if csvfile.tell() == 0:
+            writer.writerow(['value3', 'value4'])
+            value3 = localtime
+            value4 = float(message)
+            my_dict_budget[key] = [value3, value4]  # 使用鍵作為索引，將兩個值分配給該鍵
+     # 寫入數據行
+            for key, values in my_dict_food.items():
+                writer.writerow([key] + values)
+                reply_text = f'已儲存{a}預算了鴨！'  # 建立回覆訊息
+                line_bot_api.reply_message(event.reply_token, TextSendMessage(reply_text))
+    else : 
+        line_bot_api.reply_message(event.reply_token, TextSendMessage("請重新輸入鴨！"))
+    
+    
+    
+    
+
+        
 
 
 
