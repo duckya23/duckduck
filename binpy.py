@@ -56,6 +56,9 @@ plt.xlabel(u"月份")
 plt.ylabel(u"金額(元)")
 plt.legend(loc="upper right")
 
+plt.show()
 plt.savefig("groupbar.jpg")
+plt.clf()  
+
 connection.close()
 
