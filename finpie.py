@@ -30,7 +30,8 @@ colors = ['mistyrose', 'lavender', 'lemonchiffon',
           'honeydew', 'aliceblue', 'seashell']
 labels = ['飲食', '服裝', '住宿', '交通', '教育', '玩樂']
 
-plt.pie(values, labels=labels, autopct='%1.1f%%', colors=colors, radius=1)
+plt.pie(values, labels=labels, autopct='%1.1f%%', 
+        colors=colors, radius=1)
 plt.title(u"月支出占比圓餅圖")
 plt.savefig('finpie.jpg')
 plt.show()
