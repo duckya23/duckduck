@@ -24,7 +24,8 @@ education_values = data['教育'].values
 play_values = data['玩樂'].values
 
 colors = ['mistyrose', 'lavender', 'lemonchiffon', 'honeydew', 'aliceblue', 'seashell']
-values = [sum(food_values), sum(clothing_values), sum(accommodation_values), sum(transportation_values), sum(education_values), sum(play_values)]
+values = [sum(food_values), sum(clothing_values), sum(accommodation_values), 
+          sum(transportation_values), sum(education_values), sum(play_values)]
 labels = ['飲食', '服裝', '住宿', '交通', '教育', '玩樂']
 
 plt.pie(values, labels=labels, autopct='%1.1f%%', colors=colors, radius=1)
