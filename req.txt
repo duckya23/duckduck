@@ -8,3 +8,8 @@ SnowNLP
 emoji 
 pyshorteners 
 scipy
+pymysql
+pandas
+numpy
+mpl 
+matplotlib.pyplot
