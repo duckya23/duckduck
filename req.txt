@@ -1,6 +1,7 @@
 line-bot-sdk 
 bs4 
 flask 
+requests
 pymongo 
 datetime 
 pandas 
@@ -11,7 +12,7 @@ scipy
 pymysql
 pandas
 numpy
-mpl 
 matplotlib.pyplot
 time
 csv
+pyimgur
